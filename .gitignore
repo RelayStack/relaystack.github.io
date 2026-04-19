@@ -1,0 +1,7 @@
+node_modules/
+.vscode/
+src/
+astro.config.mjs
+tsconfig.json
+package.json
+package-lock.json
