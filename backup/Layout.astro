@@ -1,0 +1,1029 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	image?: string;
+}
+
+const { title, description = "Freelance SEO specialist & web developer in Basel, Switzerland. I help businesses rank on Google page 1 with high-converting websites. 10+ years exp, 120-day guarantee.", image = "/og-image.svg" } = Astro.props;
+
+const canonicalURL = Astro.url.href;
+const siteName = "RelayStack - SEO Specialist & Web Developer";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+		<meta name="theme-color" content="#111111" />
+		<meta name="color-scheme" content="dark" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- 2026 SEO: Performance Resource Hints -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+		<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+		
+		<!-- 2026 SEO: Critical CSS Preload -->
+		<link rel="preload" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" as="style">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+		
+		<!-- SEO Meta Tags -->
+		<meta name="description" content={description} />
+		<meta name="author" content="RelayStack" />
+		<meta name="robots" content="index, follow" />
+		<meta name="keywords" content="freelance SEO specialist, web developer Basel, SEO expert Switzerland, AI automation freelancer, Next.js developer, freelance web designer, local SEO Switzerland, German speaking web developer, page 1 Google guarantee, SEO 2026, AI search optimization" />
+		<link rel="canonical" href={canonicalURL} />
+		
+		<!-- 2026: Content Freshness Signals -->
+		<meta name="last-modified" content="2026-04-19T00:00:00+02:00" />
+		<meta name="date" content="2026-04-19" />
+		
+		<!-- hreflang for SEO -->
+		<link rel="alternate" hreflang="de" href={canonicalURL + "?lang=de"} />
+		<link rel="alternate" hreflang="en" href={canonicalURL + "?lang=en"} />
+		<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+		
+		<!-- Open Graph / Facebook 2026 Enhanced -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="en_CH" />
+		<meta property="og:locale:alternate" content="de_CH" />
+		<meta property="og:image" content={new URL(image, canonicalURL).href} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={title} />
+		<meta property="og:updated_time" content="2026-04-19T00:00:00+02:00" />
+		
+		<!-- Twitter Card 2026 Enhanced -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@relaystack" />
+		<meta name="twitter:creator" content="@relaystack" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL(image, canonicalURL).href} />
+		<meta name="twitter:image:alt" content={title} />
+		<meta name="twitter:label1" content="Written by" />
+		<meta name="twitter:data1" content="RelayStack" />
+		<meta name="twitter:label2" content="Reading time" />
+		<meta name="twitter:data2" content="5 minutes" />
+		
+		<!-- 2026: AI Search Optimization -->
+		<meta name="ai-content-type" content="business-service" />
+		<meta name="ai-target-audience" content="small-business-owners, service-providers" />
+		<meta name="ai-generated" content="false" />
+		<meta name="ai-purpose" content="SEO services, web development, AI automation for Swiss businesses" />
+		
+		<!-- Security Headers -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; frame-src 'self' https://calendly.com;" />
+		
+		<!-- Robots 2026 Enhanced -->
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="googlebot-news" content="index, follow" />
+		
+		<!-- Pinterest -->
+		<meta name="pinterest-rich-pins" content="nopin" />
+		
+		<!-- Apple Touch Icon -->
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="RelayStack" />
+		
+		<!-- AI/LLM Discovery 2026 -->
+		<link rel="llms" href="/llms.txt" title="RelayStack AI Information" />
+		<meta name="llms-txt" content="https://relaystack.vercel.app/llms.txt" />
+		
+		<!-- 2026 Enhanced JSON-LD Schemas -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebSite",
+			"name": "RelayStack",
+			"url": "https://relaystack.vercel.app",
+			"description": "Freelance SEO specialist and web developer in Basel, Switzerland. 120-day page 1 guarantee.",
+			"publisher": {
+				"@type": "Organization",
+				"name": "RelayStack",
+				"logo": {
+					"@type": "ImageObject",
+					"url": "https://relaystack.vercel.app/favicon.svg",
+					"width": "512",
+					"height": "512"
+				}
+			},
+			"potentialAction": {
+				"@type": "SearchAction",
+				"target": {
+					"@type": "EntryPoint",
+					"urlTemplate": "https://relaystack.vercel.app/?search={search_term_string}"
+				},
+				"query-input": "required name=search_term_string"
+			},
+			"inLanguage": ["en", "de"],
+			"dateModified": "2026-04-19"
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "RelayStack - SEO & Web Development",
+			"alternateName": "RelayStack SEO Basel",
+			"description": "Freelance SEO specialist and web developer helping businesses rank on Google, build high-converting websites, and automate with AI. Based in Basel, Switzerland. 120-day page 1 guarantee.",
+			"url": "https://relaystack.vercel.app",
+			"sameAs": [
+				"https://t.me/relaystack"
+			],
+			"telephone": "+41764218425",
+			"email": "relaystack@proton.me",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Aeschenvorstadt 25",
+				"addressLocality": "Basel",
+				"postalCode": "4051",
+				"addressRegion": "BS",
+				"addressCountry": "CH"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "47.5596",
+				"longitude": "7.5886"
+			},
+			"areaServed": [
+				{
+					"@type": "City",
+					"name": "Basel"
+				},
+				{
+					"@type": "City",
+					"name": "Zürich"
+				},
+				{
+					"@type": "City",
+					"name": "Bern"
+				},
+				{
+					"@type": "Country",
+					"name": "Switzerland"
+				},
+				{
+					"@type": "Country",
+					"name": "Germany"
+				},
+				{
+					"@type": "Country",
+					"name": "Austria"
+				}
+			],
+			"priceRange": "CHF",
+			"openingHoursSpecification": [
+				{
+					"@type": "OpeningHoursSpecification",
+					"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+					"opens": "09:00",
+					"closes": "18:00"
+				}
+			],
+			"image": "https://relaystack.vercel.app/og-image.svg",
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+41764218425",
+				"contactType": "customer service",
+				"availableLanguage": ["English", "German"],
+				"email": "relaystack@proton.me",
+				"areaServed": "CH"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "5.0",
+				"reviewCount": "50",
+				"bestRating": "5",
+				"worstRating": "1"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "SEO Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "SEO Starter",
+							"description": "Technical SEO audit and fixes for existing websites"
+						},
+						"price": "990",
+						"priceCurrency": "CHF"
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "Business Pro",
+							"description": "Professional website with complete SEO foundation"
+						},
+						"price": "3900",
+						"priceCurrency": "CHF"
+					}
+				]
+			},
+			"founder": {
+				"@type": "Person",
+				"name": "RelayStack Founder",
+				"jobTitle": "SEO Specialist & Web Developer",
+				"knowsAbout": ["SEO", "Web Development", "AI Automation", "Next.js", "Technical SEO", "Local SEO"]
+			}
+		}
+		</script>
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"@id": "https://relaystack.vercel.app/#person",
+			"name": "RelayStack",
+			"alternateName": "RelayStack SEO",
+			"jobTitle": "Freelance SEO Specialist & Web Developer",
+			"description": "Swiss-based SEO specialist and web developer with 10+ years experience helping businesses dominate Google search results.",
+			"url": "https://relaystack.vercel.app",
+			"email": "relaystack@proton.me",
+			"telephone": "+41764218425",
+			"knowsAbout": [
+				"Search Engine Optimization",
+				"Web Development",
+				"AI Automation",
+				"Next.js",
+				"TypeScript",
+				"Python",
+				"Technical SEO",
+				"Local SEO",
+				"Content Strategy",
+				"Schema Markup",
+				"Core Web Vitals"
+			],
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Aeschenvorstadt 25",
+				"addressLocality": "Basel",
+				"addressRegion": "BS",
+				"postalCode": "4051",
+				"addressCountry": "CH"
+			},
+			"workLocation": {
+				"@type": "PostalAddress",
+				"addressLocality": "Basel",
+				"addressRegion": "BS",
+				"addressCountry": "CH"
+			},
+			"jobLocation": {
+				"@type": "Place",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Basel",
+					"addressCountry": "CH"
+				}
+			},
+			"alumniOf": {
+				"@type": "Organization",
+				"name": "Self-taught with 10+ years industry experience"
+			},
+			"hasCredential": [
+				{
+					"@type": "EducationalOccupationalCredential",
+					"credentialCategory": "Certification",
+					"name": "SEO Specialist",
+					"recognizedBy": {
+						"@type": "Organization",
+						"name": "Industry Experience"
+					}
+				}
+			],
+			"languages": ["English", "German"],
+			"yearsOfExperience": "10"
+		}
+		</script>
+		
+		<!-- JSON-LD FAQ Schema 2026 Enhanced -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [
+				{
+					"@type": "Question",
+					"name": "How long does SEO take to show results in 2026?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Most clients see improvements within 2-4 weeks with our AI-enhanced SEO strategies. I guarantee page 1 rankings within 120 days or you get your money back. With Google's 2026 algorithms focusing on user experience and E-E-A-T signals, proper technical optimization shows faster results than ever."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "What makes RelayStack different from other SEO agencies in Basel?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Unlike agencies in Zürich or Zug, I'm actually based in Basel (Aeschenvorstadt). I offer project-based pricing starting at CHF 3'900 instead of forcing 12-month retainers. Plus, I combine SEO, web development, and AI automation. No account managers. You talk to me, I do the work. Same-day response guaranteed."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "Do you optimize for AI search engines like ChatGPT and Perplexity?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "Yes. I implement structured data, E-E-A-T signals, quotable content, and brand mention strategies specifically designed to get your business recommended by AI systems including ChatGPT, Perplexity, Google AI Overviews, and Gemini."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "What is the 120-day page 1 guarantee?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "If your website doesn't reach page 1 for your target keywords within 120 days, I'll refund 100% of your investment. No questions asked. This guarantee requires that you don't work with other SEO agencies simultaneously and follow my recommendations."
+					}
+				},
+				{
+					"@type": "Question",
+					"name": "How much does professional SEO cost in Switzerland?",
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": "My SEO Starter package is CHF 990 (one-time). The Business Pro package with website is CHF 3'900 or CHF 390/month for 10 months. Monthly ongoing SEO is CHF 790/month. Compared to agencies charging CHF 1'500-12'000/month with 12-month minimums, my pricing is designed for Swiss SMEs."
+					}
+				}
+			]
+		}
+		</script>
+		
+		<!-- JSON-LD Breadcrumb Schema -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://relaystack.vercel.app/"
+				}
+			]
+		}
+		</script>
+	</head>
+	<body class="bg-[#111111] text-[#e5e5e5] font-['Outfit'] antialiased">
+		<slot />
+		
+		<!-- Footer -->
+		<footer class="bg-[#0a0a0a] border-t border-[#222] py-12 mt-24">
+			<div class="max-w-6xl mx-auto px-6">
+				<div class="grid md:grid-cols-4 gap-8 mb-8">
+					<div class="md:col-span-2">
+						<a href="/" class="text-xl font-bold tracking-tight mb-4 inline-block">
+							<span class="text-white">relay</span><span class="text-orange-600">stack</span>
+						</a>
+						<p class="text-[#666] text-sm mt-2 max-w-sm">Freelance SEO Specialist & Web Developer based in Basel, Switzerland. Helping businesses dominate Google since 2016.</p>
+					</div>
+					<div>
+						<h4 class="text-white font-semibold mb-4">Industries</h4>
+						<ul class="space-y-2 text-sm">
+							<li><a href="/restaurants" class="text-[#666] hover:text-orange-500 transition-colors">Restaurants</a></li>
+							<li><a href="/lawyers" class="text-[#666] hover:text-blue-500 transition-colors">Anwälte</a></li>
+							<li><a href="/trades" class="text-[#666] hover:text-yellow-500 transition-colors">Handwerker</a></li>
+							<li><a href="/ecommerce" class="text-[#666] hover:text-purple-500 transition-colors">E-Commerce</a></li>
+							<li><a href="/healthcare" class="text-[#666] hover:text-green-500 transition-colors">Gesundheit</a></li>
+						</ul>
+					</div>
+					<div>
+						<h4 class="text-white font-semibold mb-4">Kontakt</h4>
+						<ul class="space-y-2 text-sm text-[#666]">
+							<li>📍 Basel, Schweiz</li>
+							<li>📧 relaystack@proton.me</li>
+							<li>📱 +41 76 421 84 25</li>
+							<li><a href="https://t.me/relaystack" class="hover:text-orange-500 transition-colors">💬 Telegram</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="border-t border-[#222] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+					<p class="text-[#555] text-sm">2026 RelayStack. Alle Rechte vorbehalten.</p>
+					<div class="flex gap-4 text-sm text-[#555]">
+						<span>🇨🇭 Schweiz-basiert</span>
+						<span>10+ Jahre Erfahrung</span>
+						<span>100% Zufriedenheit</span>
+					</div>
+				</div>
+			</div>
+		</footer>
+		
+		<!-- Language Toggle -->
+		<script>
+			const translations = {
+				en: {
+					header: { cta: "Free Audit" },
+					hero: { 
+						swiss: "🇨🇭 Swiss-based", 
+						exp: "10+ years experience", 
+						sat: "100% satisfaction",
+						title1: "I get Swiss businesses to ", 
+						title2: "Google page 1", 
+						title3: "in 120 days, or you pay nothing.",
+						subtitle: "Basel-based SEO specialist with 10+ years hands-on experience. Not an agency. Not outsourced. Just results.", 
+						highlight: "Measurable results:", 
+						body: " more traffic, more leads, more revenue. Serving Basel, Zürich, Bern and all DACH region.",
+						cta: "Get FREE SEO Audit",
+						cta2: "Chat on Telegram",
+						rating: "50+ happy clients",
+						testimonial: "\"RelayStack got us from page 3 to page 1 in 6 weeks. Our leads increased by 340%. Best investment we made.\"",
+						author: "— Thomas M., Basel"
+					},
+					stats: { projects: "Projects delivered", hours: "Avg. lead increase", satisfaction: "Client satisfaction", days: "Day guarantee", leads: "Avg. lead increase" },
+					audit: { 
+						badge: "Limited: 5 FREE audits this week",
+						title: "Get your FREE website audit", 
+						subtitle: "Discover why your competitors outrank you and exactly how to fix it. Delivered within 24 hours.", 
+						website: "Your website URL *", 
+						email: "Your email *", 
+						keywords: "Main keyword you want to rank for *", 
+						submit: "🔍 Send My Free Audit", 
+						disclaimer: "✓ No credit card required ✓ No spam ✓ 24h delivery" 
+					},
+					freebies: {
+						label: "FREE RESOURCES",
+						title: "Free tools to grow your business",
+						subtitle: "No strings attached. Use these free tools to improve your online presence right now.",
+						t1: "Free SEO Audit",
+						t1desc: "Complete technical audit of your website with actionable fixes.",
+						t2: "Free Speed Test",
+						t2desc: "Check your website speed and get optimization tips.",
+						t3: "Free Consultation",
+						t3desc: "30-min strategy call to discuss your goals and challenges.",
+						get: "Get it free →",
+						try: "Try it now →",
+						book: "Book free call →"
+					},
+					value: { 
+						label: "WHY ME?",
+						title: "The difference is results",
+						other: "Other developers", 
+						me: "What you get with me",
+						badge: "YOU WANT THIS",
+						pain1: "Just code, no strategy", 
+						pain2: "No SEO knowledge", 
+						pain3: "Ghost you after launch", 
+						pain4: "Slow, template sites", 
+						deliver1: "Page 1 guarantee (120 days)", 
+						deliver2: "SEO + Dev + AI combined", 
+						deliver3: "Ongoing support included", 
+						deliver4: "Conversion-optimized & fast" 
+					},
+					expertise: { label: "SERVICES", title: "Everything you need to dominate search", subtitle: "Full-stack solutions that combine technical excellence with marketing strategy." },
+					services: {
+						seo: { title: "Search Engine Optimization", desc: "Technical SEO, on-page optimization, schema markup, and content strategy. I build websites that rank on page 1.", p1: "Technical audit & fixes", p2: "Keyword research", p3: "Schema markup", p4: "Core Web Vitals" },
+						web: { title: "Web Development", desc: "Modern, fast websites that convert visitors into customers. Built with Next.js, Astro, and Tailwind.", p1: "Next.js & Astro", p2: "Mobile-first design", p3: "Conversion optimization", p4: "Performance 90+" },
+						ai: { title: "AI Automation", desc: "Automate repetitive tasks and save 10+ hours/week with custom AI workflows.", p1: "Email automation", p2: "Lead qualification", p3: "Content generation", p4: "Custom AI agents" },
+						geo: { title: "AI Platform Optimization", desc: "Get found by ChatGPT, Perplexity, and Google AI. Build citations that AI systems recommend.", p1: "Structured data", p2: "E-E-A-T signals", p3: "Quotable content", p4: "Brand mention strategy" }
+					},
+					testimonials: {
+						label: "TESTIMONIALS",
+						title: "What clients say",
+						t1: "\"From page 3 to page 1 in 6 weeks. Our leads increased by 340%. Incredible ROI.\"",
+						t1role: "CEO, Basel",
+						t2: "\"Finally a developer who understands SEO. Our new site ranks for 15 keywords on page 1.\"",
+						t2role: "Marketing Dir., Zürich",
+						t3: "\"The AI automation saves us 15 hours per week. Best investment for our small team.\"",
+						t3role: "Founder, Bern"
+					},
+					agency: {
+						label: "WHY A FREELANCER?",
+						title: "Better than big agencies",
+						subtitle: "I researched the Basel market so you don't have to. Here's how I compare:",
+						col1: "Feature",
+						col2: "RelayStack",
+						col3: "Big Agencies",
+						r1: "Location",
+						r1a: "🇨🇭 Basel (Aeschenvorstadt)",
+						r1b: "Zürich, Zug, or abroad",
+						r2: "Page 1 Guarantee",
+						r2b: "✕ No guarantee",
+						r3: "Entry Price",
+						r3b: "CHF 1'500+/month (min. 12 months)",
+						r4: "Payment Plans",
+						r4b: "✕ Full commitment upfront",
+						r5: "Who Does The Work",
+						r5a: "You talk to me - I do the work",
+						r5b: "Account manager → Junior → Outsourced",
+						r6: "Services",
+						r6b: "SEO-only or Web-only",
+						r7: "Response Time",
+						r7b: "2-3 business days",
+						source: "* Based on research of seo-agentur-bs.ch, mikgroup.ch, and beyondweb.ch pricing as of April 2026"
+					},
+					approach: { label: "PROCESS", title: "Simple 4-step process", step1: "Discovery Call", step1desc: "Free 30-min call to understand your goals, analyze competitors, and identify opportunities.", step2: "Strategy & Quote", step2desc: "Detailed proposal with timeline, deliverables, and transparent pricing. No hidden costs.", step3: "Build & Optimize", step3desc: "I develop your site with SEO integrated from day one. Weekly updates and milestone reviews.", step4: "Launch & Scale", step4desc: "Go live with 120-day page 1 guarantee. Ongoing optimization included." },
+					pricing: {
+						label: "PRICING",
+						title: "Investment that pays for itself",
+						subtitle: "Every package is designed to generate ROI within 90 days. Choose your growth level.",
+						popular: "BESTSELLER",
+						trust1: "Payment plans available",
+						trust2: "120-day guarantee",
+						trust3: "Cancel retainer anytime",
+						roi: { title: "Average client ROI", first: "Return in year 1", second: "Avg. lead increase" },
+						t1: {
+							name: "SEO Starter",
+							badge: "For existing websites",
+							subtitle: "Fix what's broken",
+							note: "One-time + 2 weeks support",
+							p1: "Technical SEO audit + fixes",
+							p2: "On-page SEO (5 pages)",
+							p3: "Google Business Profile",
+							p4: "Local SEO setup",
+							p5: "Schema markup",
+							cta: "Get Started"
+						},
+						t2: {
+							name: "Business Pro",
+							badge: "Most popular",
+							subtitle: "New site + SEO",
+							note: "or CHF 390/month x 10",
+							p1: "Professional website (5-7 pages)",
+							p2: "Complete SEO foundation",
+							p3: "Mobile-first + speed optimized",
+							p4: "Conversion forms + tracking",
+							p5: "Schema + GBP setup",
+							p6: "1 month support",
+							p7: "120-day page 1 guarantee",
+							cta: "Start My Project"
+						},
+						t3: {
+							name: "Growth Partner",
+							badge: "For serious growth",
+							subtitle: "Everything + content",
+							note: "or CHF 750/month x 10",
+							p1: "Everything in Business Pro",
+							p2: "Up to 10 pages",
+							p3: "3 months SEO monitoring",
+							p4: "6 SEO blog posts",
+							p5: "Monthly reporting",
+							p6: "AI automation consultation",
+							cta: "Let's Talk"
+						},
+						t4: {
+							name: "Monthly SEO",
+							badge: "Recurring growth",
+							subtitle: "Ongoing optimization",
+							note: "6-month minimum commitment",
+							p1: "Ongoing SEO optimization",
+							p2: "4 blog posts/month",
+							p3: "Technical maintenance",
+							p4: "Monthly ranking reports",
+							p5: "Competitor monitoring",
+							p6: "Priority support",
+							cta: "Start Retainer"
+						}
+					},
+					guarantee: { 
+						title: "120-Day Page 1 Guarantee",
+						text: "If your website doesn't reach page 1 within 120 days, I'll refund 100% of your investment. No questions asked.",
+						terms: "* Terms: No simultaneous work with other SEO agencies. No black-hat tactics."
+					},
+					faq: {
+						label: "FAQ",
+						title: "Common questions",
+						q1: "How long until I see results?",
+						a1: "Most clients see improvements within 2-4 weeks. I guarantee page 1 rankings within 120 days or you get your money back.",
+						q2: "Do you offer payment plans?",
+						a2: "Yes! You can pay in monthly installments (up to 10 months) with no extra fees. Contact me to set up a plan.",
+						q3: "What if I don't get to page 1?",
+						a3: "You get a full refund. No questions asked. I only win when you win. The guarantee requires that you don't work with other SEO agencies simultaneously.",
+						q4: "Which regions do you serve?",
+						a4: "I'm based in Basel, Switzerland and primarily serve the DACH region (Germany, Austria, Switzerland). I work remotely with clients worldwide."
+					},
+					contact: { 
+						title: "Ready to dominate search?", 
+						body: "Get your free SEO audit today. No commitment, no credit card required.",
+						cta1: "Get FREE Audit",
+						cta2: "Chat on Telegram",
+						email: "Or email:",
+						trust1: "Free audit",
+						trust2: "No spam",
+						trust3: "24h delivery"
+					},
+					industries: {
+						restaurants: "Restaurants",
+						lawyers: "Lawyers",
+						trades: "Trades",
+						ecommerce: "E-Commerce",
+						healthcare: "Healthcare"
+					},
+					form: {
+						stepCounter: "Step {0}/4",
+						step1Label: "Your Business",
+						step2Label: "Budget",
+						step3Label: "Contact",
+						step4Label: "Project Details",
+						step1Title: "Tell me about your business",
+						step2Title: "What is your monthly budget?",
+						step3Title: "How can I reach you?",
+						step4Title: "What do you need?",
+						industryLabel: "Industry *",
+						selectIndustry: "Select industry",
+						industryLawyers: "Lawyers",
+						industryTrades: "Trades",
+						industryHealthcare: "Healthcare",
+						industryOther: "Other",
+						countryLabel: "Country *",
+						selectCountry: "Select country",
+						countryCH: "Switzerland",
+						countryDE: "Germany",
+						countryAT: "Austria",
+						countryLI: "Liechtenstein",
+						cityLabel: "City *",
+						cityPlaceholder: "e.g. Basel",
+						next: "Next →",
+						back: "← Back",
+						budgetUnder500: "Under 500 CHF",
+						budget500: "500 - 1'000 CHF",
+						budget1000: "1'000 - 3'000 CHF",
+						budget3000: "Over 3'000 CHF",
+						budgetWarning: "For budgets under 500 CHF I recommend my free tools. You can still continue.",
+						websiteLabel: "Website URL (optional)",
+						websitePlaceholder: "https://yourcompany.ch",
+						noWebsiteText: "No website? No problem!",
+						bookCall: "Book free call →",
+						nameLabel: "Name *",
+						namePlaceholder: "John Doe",
+						emailLabel: "Email *",
+						emailPlaceholder: "john@company.ch",
+						phoneLabel: "Phone (optional)",
+						servicesLabel: "Services (multiple possible)",
+						serviceWebsite: "Website",
+						serviceBoth: "Both",
+						serviceAI: "AI Automation",
+						timelineLabel: "Timeline",
+						selectTimeline: "Select timeline",
+						timelineASAP: "As soon as possible",
+						timeline1Month: "Within 1 month",
+						timeline3Months: "Within 3 months",
+						timelineFlexible: "Flexible",
+						challengeLabel: "Your biggest challenge (optional)",
+						challengePlaceholder: "Describe your challenge...",
+						submit: "Submit ✓",
+						thankYouTitle: "Thank you!",
+						thankYouMessage: "Your inquiry has been sent successfully.",
+						thankYouAudit: "I will send you a free SEO audit within 24 hours.",
+						thankYouCall: "Let us have a quick call.",
+						thankYouTools: "For your budget I recommend my free tools.",
+						freeToolsLink: "Check free tools →",
+						fillRequired: "Please fill in all required fields.",
+						selectBudget: "Please select a budget.",
+						nameEmailRequired: "Please enter name and email."
+					},
+					nav: { free: "Free Tools", expertise: "Services", pricing: "Pricing", faq: "FAQ" },
+					sticky: { cta: "Get FREE SEO Audit →" },
+					footer: { swiss: "🇨🇭 Swiss-based", exp: "10+ years", sat: "100% satisfaction", rights: "All rights reserved." }
+				},
+				de: {
+					header: { cta: "Gratis Audit" },
+					hero: { 
+						swiss: "🇨🇭 Schweiz-basiert", 
+						exp: "10+ Jahre Erfahrung", 
+						sat: "100% Zufriedenheit",
+						title1: "Ich bringe Schweizer Unternehmen auf ", 
+						title2: "Google Seite 1", 
+						title3: "in 120 Tagen, oder Sie zahlen nichts.",
+						subtitle: "Basel-basierter SEO-Spezialist mit 10+ Jahren Hands-On-Erfahrung. Keine Agentur. Kein Outsourcing. Nur Ergebnisse.", 
+						highlight: "Messbare Ergebnisse:", 
+						body: " mehr Traffic, mehr Leads, mehr Umsatz. Basel, Zürich, Bern und gesamte DACH-Region.",
+						cta: "Gratis SEO Audit",
+						cta2: "Auf Telegram chatten",
+						rating: "50+ zufriedene Kunden",
+						testimonial: "\"RelayStack brachte uns von Seite 3 auf Seite 1 in 6 Wochen. Unsere Leads stiegen um 340%. Beste Investition.\"",
+						author: "— Thomas M., Basel"
+					},
+					stats: { projects: "Projekte geliefert", hours: "Ø Lead-Zuwachs", satisfaction: "Kundenzufriedenheit", days: "Tage Garantie", leads: "Ø Lead-Zuwachs" },
+					audit: { 
+						badge: "Limitiert: 5 GRATIS Audits diese Woche",
+						title: "Erhalten Sie Ihr GRATIS Website-Audit", 
+						subtitle: "Entdecken Sie, warum Ihre Konkurrenten besser ranken und wie Sie es beheben. Lieferung innerhalb von 24 Stunden.", 
+						website: "Ihre Website-URL *", 
+						email: "Ihre E-Mail *", 
+						keywords: "Haupt-Keyword, für das Sie ranken möchten *", 
+						submit: "🔍 Audit zuschicken", 
+						disclaimer: "✓ Keine Kreditkarte ✓ Kein Spam ✓ 24h Lieferung" 
+					},
+					freebies: {
+						label: "KOSTENLOSE TOOLS",
+						title: "Gratis Tools für Ihr Wachstum",
+						subtitle: "Keine Verpflichtungen. Nutzen Sie diese kostenlosen Tools, um Ihre Online-Präsenz zu verbessern.",
+						t1: "Gratis SEO Audit",
+						t1desc: "Vollständiges technisches Audit Ihrer Website mit umsetzbaren Fixes.",
+						t2: "Gratis Speed Test",
+						t2desc: "Prüfen Sie Ihre Website-Geschwindigkeit und erhalten Sie Optimierungstipps.",
+						t3: "Gratis Beratung",
+						t3desc: "30-minütiger Strategie-Call zu Ihren Zielen und Herausforderungen.",
+						get: "Kostenlos holen →",
+						try: "Jetzt testen →",
+						book: "Termin buchen →"
+					},
+					value: { 
+						label: "WARUM ICH?",
+						title: "Der Unterschied sind Ergebnisse",
+						other: "Andere Entwickler", 
+						me: "Was Sie bei mir bekommen",
+						badge: "DAS WOLLEN SIE",
+						pain1: "Nur Code, keine Strategie", 
+						pain2: "Kein SEO-Wissen", 
+						pain3: "Verschwinden nach Launch", 
+						pain4: "Langsame Template-Sites", 
+						deliver1: "Seite-1-Garantie (120 Tage)", 
+						deliver2: "SEO + Dev + AI kombiniert", 
+						deliver3: "Laufender Support inklusive", 
+						deliver4: "Konversions-optimiert & schnell" 
+					},
+					expertise: { label: "LEISTUNGEN", title: "Alles, was Sie brauchen, um die Suche zu dominieren", subtitle: "Full-Stack-Lösungen, die technische Exzellenz mit Marketingstrategie verbinden." },
+					services: {
+						seo: { title: "Suchmaschinenoptimierung", desc: "Technisches SEO, On-Page-Optimierung, Schema-Markup und Content-Strategie. Ich baue Websites, die auf Seite 1 ranken.", p1: "Technisches Audit & Fixes", p2: "Keyword-Recherche", p3: "Schema-Markup", p4: "Core Web Vitals" },
+						web: { title: "Web-Entwicklung", desc: "Moderne, schnelle Websites, die Besucher in Kunden verwandeln. Gebaut mit Next.js, Astro und Tailwind.", p1: "Next.js & Astro", p2: "Mobile-First Design", p3: "Konversions-Optimierung", p4: "Performance 90+" },
+						ai: { title: "AI-Automatisierung", desc: "Automatisieren Sie repetitive Aufgaben und sparen Sie 10+ Stunden/Woche mit individuellen AI-Workflows.", p1: "E-Mail-Automatisierung", p2: "Lead-Qualifizierung", p3: "Content-Generierung", p4: "Individuelle AI-Agenten" },
+						geo: { title: "AI-Plattform-Optimierung", desc: "Werden Sie von ChatGPT, Perplexity und Google AI gefunden. Bauen Sie Zitationen, die AI-Systeme empfehlen.", p1: "Strukturierte Daten", p2: "E-E-A-T Signale", p3: "Zitierbarer Content", p4: "Marken-Mentions-Strategie" }
+					},
+					testimonials: {
+						label: "KUNDENSTIMMEN",
+						title: "Was Kunden sagen",
+						t1: "\"Von Seite 3 auf Seite 1 in 6 Wochen. Unsere Leads stiegen um 340%. Unglaublicher ROI.\"",
+						t1role: "CEO, Basel",
+						t2: "\"Endlich ein Entwickler, der SEO versteht. Unsere neue Site rankt für 15 Keywords auf Seite 1.\"",
+						t2role: "Marketing-Leiter, Zürich",
+						t3: "\"Die AI-Automatisierung spart uns 15 Stunden pro Woche. Beste Investition für unser kleines Team.\"",
+						t3role: "Gründer, Bern"
+					},
+					agency: {
+						label: "WARUM EIN FREELANCER?",
+						title: "Besser als grosse Agenturen",
+						subtitle: "Ich habe den Basler Markt recherchiert, damit Sie das nicht müssen. Hier der Vergleich:",
+						col1: "Merkmal",
+						col2: "RelayStack",
+						col3: "Grosse Agenturen",
+						r1: "Standort",
+						r1a: "🇨🇭 Basel (Aeschenvorstadt)",
+						r1b: "Zürich, Zug oder im Ausland",
+						r2: "Seite-1-Garantie",
+						r2b: "✕ Keine Garantie",
+						r3: "Einstiegspreis",
+						r3b: "CHF 1'500+/Monat (mind. 12 Monate)",
+						r4: "Zahlungspläne",
+						r4b: "✕ Volle Bindung von Anfang an",
+						r5: "Wer macht die Arbeit",
+						r5a: "Sie sprechen mit mir - ich mache die Arbeit",
+						r5b: "Account Manager → Junior → Outsourced",
+						r6: "Leistungen",
+						r6b: "Nur SEO oder nur Web",
+						r7: "Reaktionszeit",
+						r7b: "2-3 Werktage",
+						source: "* Basierend auf Recherche von seo-agentur-bs.ch, mikgroup.ch und beyondweb.ch Preisen im April 2026"
+					},
+					approach: { label: "PROZESS", title: "Einfacher 4-Schritte-Prozess", step1: "Discovery Call", step1desc: "Kostenloser 30-minütiger Call, um Ihre Ziele zu verstehen, Konkurrenten zu analysieren und Chancen zu identifizieren.", step2: "Strategie & Angebot", step2desc: "Detaillierter Vorschlag mit Zeitplan, Deliverables und transparenten Preisen. Keine versteckten Kosten.", step3: "Entwicklung & Optimierung", step3desc: "Ich entwickle Ihre Site mit integriertem SEO von Tag 1. Wöchentliche Updates und Meilenstein-Reviews.", step4: "Launch & Skalierung", step4desc: "Go-Live mit 120-Tage-Seite-1-Garantie. Laufende Optimierung inklusive." },
+					pricing: {
+						label: "PREISE",
+						title: "Investition, die sich bezahlt macht",
+						subtitle: "Jedes Paket ist darauf ausgelegt, innerhalb von 90 Tagen ROI zu generieren. Wählen Sie Ihr Wachstum.",
+						popular: "BESTSELLER",
+						trust1: "Ratenzahlung möglich",
+						trust2: "120-Tage-Garantie",
+						trust3: "Retainer jederzeit kündbar",
+						roi: { title: "Durchschnittlicher Kunden-ROI", first: "Rendite im 1. Jahr", second: "Ø Lead-Zuwachs" },
+						t1: {
+							name: "SEO Starter",
+							badge: "Für bestehende Websites",
+							subtitle: "Reparieren, was kaputt ist",
+							note: "Einmalig + 2 Wochen Support",
+							p1: "Technisches SEO-Audit + Fixes",
+							p2: "On-Page SEO (5 Seiten)",
+							p3: "Google Business Profile",
+							p4: "Local SEO Einrichtung",
+							p5: "Schema-Markup",
+							cta: "Loslegen"
+						},
+						t2: {
+							name: "Business Pro",
+							badge: "Beliebteste",
+							subtitle: "Neue Site + SEO",
+							note: "oder CHF 390/Monat x 10",
+							p1: "Professionelle Website (5-7 Seiten)",
+							p2: "Komplette SEO-Grundlage",
+							p3: "Mobile-First + Speed optimiert",
+							p4: "Konversions-Formulare + Tracking",
+							p5: "Schema + GBP Einrichtung",
+							p6: "1 Monat Support",
+							p7: "120-Tage Seite-1 Garantie",
+							cta: "Projekt starten"
+						},
+						t3: {
+							name: "Growth Partner",
+							badge: "Für starkes Wachstum",
+							subtitle: "Alles + Content",
+							note: "oder CHF 750/Monat x 10",
+							p1: "Alles aus Business Pro",
+							p2: "Bis zu 10 Seiten",
+							p3: "3 Monate SEO-Monitoring",
+							p4: "6 SEO-Blogposts",
+							p5: "Monatliche Reports",
+							p6: "AI-Automatisierung Beratung",
+							cta: "Gespräch vereinbaren"
+						},
+						t4: {
+							name: "Monatliches SEO",
+							badge: "Kontinuierliches Wachstum",
+							subtitle: "Laufende Optimierung",
+							note: "Mindestlaufzeit 6 Monate",
+							p1: "Laufende SEO-Optimierung",
+							p2: "4 Blogposts/Monat",
+							p3: "Technische Wartung",
+							p4: "Monatliche Ranking-Reports",
+							p5: "Konkurrenz-Monitoring",
+							p6: "Priority Support",
+							cta: "Retainer starten"
+						}
+					},
+					guarantee: { 
+						title: "120-Tage Seite-1 Garantie",
+						text: "Wenn Ihre Website nicht innerhalb von 120 Tagen auf Seite 1 kommt, erstatte ich 100% Ihrer Investition. Ohne Wenn und Aber.",
+						terms: "* Bedingungen: Keine gleichzeitige Arbeit mit anderen SEO-Agenturen. Keine Black-Hat-Taktiken."
+					},
+					faq: {
+						label: "FAQ",
+						title: "Häufige Fragen",
+						q1: "Wie lange dauert es bis zu Ergebnissen?",
+						a1: "Die meisten Kunden sehen Verbesserungen innerhalb von 2-4 Wochen. Ich garantiere Seite-1-Rankings innerhalb von 120 Tagen oder Sie erhalten Ihr Geld zurück.",
+						q2: "Bieten Sie Ratenzahlung an?",
+						a2: "Ja! Sie können in monatlichen Raten zahlen (bis zu 10 Monate) ohne zusätzliche Gebühren. Kontaktieren Sie mich für einen Plan.",
+						q3: "Was wenn ich nicht auf Seite 1 komme?",
+						a3: "Sie erhalten eine volle Rückerstattung. Ohne Wenn und Aber. Ich gewinne nur, wenn Sie gewinnen. Die Garantie erfordert, dass Sie nicht gleichzeitig mit anderen SEO-Agenturen arbeiten.",
+						q4: "Welche Regionen bedienen Sie?",
+						a4: "Ich bin in Basel, Schweiz ansässig und bediene primär die DACH-Region (Deutschland, Österreich, Schweiz). Ich arbeite remote mit Kunden weltweit."
+					},
+					contact: { 
+						title: "Bereit, die Suche zu dominieren?", 
+						body: "Holen Sie sich noch heute Ihr kostenloses SEO-Audit. Keine Verpflichtung, keine Kreditkarte nötig.",
+						cta1: "Gratis Audit holen",
+						cta2: "Auf Telegram chatten",
+						email: "Oder E-Mail:",
+						trust1: "Gratis Audit",
+						trust2: "Kein Spam",
+						trust3: "24h Lieferung"
+					},
+					industries: {
+						restaurants: "Restaurants",
+						lawyers: "Anwälte",
+						trades: "Handwerker",
+						ecommerce: "E-Commerce",
+						healthcare: "Gesundheit"
+					},
+					form: {
+						stepCounter: "Schritt {0}/4",
+						step1Label: "Ihr Geschäft",
+						step2Label: "Budget",
+						step3Label: "Kontakt",
+						step4Label: "Projektdetails",
+						step1Title: "Erzählen Sie mir von Ihrem Geschäft",
+						step2Title: "Was ist Ihr monatliches Budget?",
+						step3Title: "Wie kann ich Sie erreichen?",
+						step4Title: "Was brauchen Sie?",
+						industryLabel: "Branche *",
+						selectIndustry: "Branche wählen",
+						industryLawyers: "Anwälte",
+						industryTrades: "Handwerker",
+						industryHealthcare: "Gesundheit",
+						industryOther: "Sonstiges",
+						countryLabel: "Land *",
+						selectCountry: "Land wählen",
+						countryCH: "Schweiz",
+						countryDE: "Deutschland",
+						countryAT: "Österreich",
+						countryLI: "Liechtenstein",
+						cityLabel: "Stadt *",
+						cityPlaceholder: "z.B. Basel",
+						next: "Weiter →",
+						back: "← Zurück",
+						budgetUnder500: "Unter 500 CHF",
+						budget500: "500 - 1'000 CHF",
+						budget1000: "1'000 - 3'000 CHF",
+						budget3000: "Über 3'000 CHF",
+						budgetWarning: "Für Budgets unter 500 CHF empfehle ich meine kostenlosen Tools. Sie können trotzdem fortfahren.",
+						websiteLabel: "Website URL (optional)",
+						websitePlaceholder: "https://ihrefirma.ch",
+						noWebsiteText: "Keine Website? Kein Problem!",
+						bookCall: "Kostenlosen Termin buchen →",
+						nameLabel: "Name *",
+						namePlaceholder: "Max Mustermann",
+						emailLabel: "E-Mail *",
+						emailPlaceholder: "max@firma.ch",
+						phoneLabel: "Telefon (optional)",
+						servicesLabel: "Services (mehrfach möglich)",
+						serviceWebsite: "Website",
+						serviceBoth: "Beides",
+						serviceAI: "AI Automatisierung",
+						timelineLabel: "Zeitrahmen",
+						selectTimeline: "Wählen Sie einen Zeitrahmen",
+						timelineASAP: "So schnell wie möglich",
+						timeline1Month: "Innerhalb 1 Monat",
+						timeline3Months: "Innerhalb 3 Monate",
+						timelineFlexible: "Flexibel",
+						challengeLabel: "Ihr grösstes Problem (optional)",
+						challengePlaceholder: "Beschreiben Sie Ihre Herausforderung...",
+						submit: "Absenden ✓",
+						thankYouTitle: "Vielen Dank!",
+						thankYouMessage: "Ihre Anfrage wurde erfolgreich gesendet.",
+						thankYouAudit: "Ich schicke Ihnen ein kostenloses SEO-Audit innerhalb von 24 Stunden zu.",
+						thankYouCall: "Lassen Sie uns kurz telefonieren.",
+						thankYouTools: "Für Ihr Budget empfehle ich meine kostenlosen Tools.",
+						freeToolsLink: "Zu den kostenlosen Tools →",
+						fillRequired: "Bitte füllen Sie alle Pflichtfelder aus.",
+						selectBudget: "Bitte wählen Sie ein Budget aus.",
+						nameEmailRequired: "Bitte geben Sie Name und E-Mail an."
+					},
+					nav: { free: "Gratis Tools", expertise: "Leistungen", pricing: "Preise", faq: "FAQ" },
+					sticky: { cta: "Gratis SEO Audit →" },
+					footer: { swiss: "🇨🇭 Schweiz-basiert", exp: "10+ Jahre", sat: "100% Zufriedenheit", rights: "Alle Rechte vorbehalten." }
+				}
+			};
+			
+			let currentLang = localStorage.getItem('lang') || 'en';
+			
+			function updateContent() {
+				const t = translations[currentLang];
+				
+				// Update text content
+				document.querySelectorAll('[data-i18n]').forEach(el => {
+					const key = el.getAttribute('data-i18n');
+					const keys = key.split('.');
+					let val = t;
+					for (const k of keys) {
+						val = val?.[k];
+					}
+					if (val && typeof val === 'string') {
+						el.textContent = val;
+					}
+				});
+				
+				// Update placeholders
+				document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+					const key = el.getAttribute('data-i18n-placeholder');
+					const keys = key.split('.');
+					let val = t;
+					for (const k of keys) {
+						val = val?.[k];
+					}
+					if (val && typeof val === 'string') el.placeholder = val;
+				});
+				
+				// Update step labels if form exists
+				const stepLabel = document.getElementById('stepLabel');
+				if (stepLabel && t.form) {
+					const currentStep = parseInt(document.getElementById('currentStepNum')?.textContent || '1');
+					const labels = [t.form.step1Label, t.form.step2Label, t.form.step3Label, t.form.step4Label];
+					stepLabel.textContent = labels[currentStep - 1] || '';
+				}
+			}
+			
+			function setLang(lang) {
+				currentLang = lang;
+				localStorage.setItem('lang', lang);
+				updateContent();
+				document.documentElement.lang = lang;
+				document.querySelectorAll('.lang-btn').forEach(btn => {
+					btn.classList.toggle('bg-orange-600', btn.dataset.lang === lang);
+					btn.classList.toggle('bg-[#222]', btn.dataset.lang !== lang);
+				});
+			}
+			
+			document.addEventListener('DOMContentLoaded', () => {
+				setLang(currentLang);
+			});
+			
+			window.setLang = setLang;
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	@import "tailwindcss";
+
+	html { scroll-behavior: smooth; }
+	
+	::selection { background: #ea580c; color: #fff; }
+
+	::-webkit-scrollbar { width: 8px; }
+	::-webkit-scrollbar-track { background: #080808; }
+	::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+	::-webkit-scrollbar-thumb:hover { background: #ea580c; }
+</style>

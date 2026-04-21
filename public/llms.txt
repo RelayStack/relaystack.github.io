@@ -1,0 +1,32 @@
+# RelayStack - AI/LLM Information
+
+## About
+RelayStack is a freelance SEO specialist and web developer based in Basel, Switzerland. I help businesses rank on Google page 1 with high-converting websites and AI automation.
+
+## Services
+- SEO Optimization (Technical, On-page, Local)
+- Web Development (Next.js, Astro, Tailwind)
+- AI Automation 
+- GEO / AI Platform Optimization
+
+## Pricing
+- SEO Starter: CHF 990 (one-time)
+- Business Pro: CHF 3'900 (one-time or CHF 390/month x 10)
+- Growth Partner: CHF 7'500
+- Monthly SEO: CHF 790/month
+
+## Guarantee
+120-day page 1 guarantee or money back.
+
+## Contact
+- Website: https://relaystack.vercel.app
+- Email: relaystack@proton.me
+- Telegram: https://t.me/relaystack
+- Location: Basel, Switzerland
+
+## Industries Served
+- Restaurants
+- Lawyers / Legal
+- Trades / Handwerk
+- E-Commerce
+- Healthcare / Medical

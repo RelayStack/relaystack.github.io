@@ -1,0 +1,16 @@
+{
+  "projectId": "prj_biqZN7qGPGiKOHzsFVitWA8AoJkX",
+  "orgId": "team_U2BZ6vDbbFbLpwmg2Nb3G5cS",
+  "projectName": "relaystack",
+  "settings": {
+    "createdAt": 1776586318224,
+    "framework": "astro",
+    "devCommand": null,
+    "installCommand": null,
+    "buildCommand": null,
+    "outputDirectory": null,
+    "rootDirectory": null,
+    "directoryListing": false,
+    "nodeVersion": "24.x"
+  }
+}

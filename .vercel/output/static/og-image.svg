@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#111111"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#ea580c"/>
+  <text x="600" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#ffffff" text-anchor="middle">RelayStack</text>
+  <text x="600" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" fill="#ea580c" text-anchor="middle">SEO Specialist & Web Developer</text>
+  <text x="600" y="410" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#888888" text-anchor="middle">Basel, Switzerland</text>
+  <text x="600" y="460" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle">Page 1 in 120 days or money back</text>
+  <text x="600" y="500" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#666666" text-anchor="middle">relaystack.vercel.app</text>
+  <circle cx="150" cy="520" r="40" fill="#ea580c" opacity="0.3"/>
+  <circle cx="1050" cy="520" r="40" fill="#ea580c" opacity="0.3"/>
+</svg>

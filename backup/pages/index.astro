@@ -1,0 +1,1186 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="RelayStack | SEO Specialist & Web Developer - Switzerland">
+
+	<!-- Navigation -->
+	<header class="fixed top-0 left-0 right-0 z-50 bg-[#111111]/95 backdrop-blur-md border-b border-[#222]">
+		<div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+			<a href="/" class="text-xl font-bold tracking-tight">
+				<span class="text-white">relay</span><span class="text-orange-600">stack</span>
+			</a>
+			
+			<!-- Desktop Nav -->
+			<nav class="hidden md:flex gap-6 text-sm items-center">
+				<a href="#freebies" data-i18n="nav.free" class="text-[#888] hover:text-white transition-colors">Free Tools</a>
+				<a href="#expertise" data-i18n="nav.expertise" class="text-[#888] hover:text-white transition-colors">Services</a>
+				<a href="#pricing" data-i18n="nav.pricing" class="text-[#888] hover:text-white transition-colors">Pricing</a>
+				<span class="text-[#444]">|</span>
+				<a href="/restaurants" class="text-[#888] hover:text-white transition-colors" aria-label="Restaurants SEO" data-i18n="industries.restaurants">Restaurants</a>
+				<a href="/lawyers" class="text-[#888] hover:text-white transition-colors" aria-label="Lawyers SEO" data-i18n="industries.lawyers">Lawyers</a>
+				<a href="/trades" class="text-[#888] hover:text-white transition-colors" aria-label="Trades SEO" data-i18n="industries.trades">Trades</a>
+				<a href="/ecommerce" class="text-[#888] hover:text-white transition-colors" aria-label="E-Commerce SEO" data-i18n="industries.ecommerce">E-Commerce</a>
+				<a href="/healthcare" class="text-[#888] hover:text-white transition-colors" aria-label="Healthcare SEO" data-i18n="industries.healthcare">Healthcare</a>
+				<div class="flex gap-1 ml-2">
+					<button onclick="setLang('en')" class="lang-btn px-2 py-1 text-xs rounded bg-[#222] hover:bg-orange-600 transition-colors" data-lang="en">EN</button>
+					<button onclick="setLang('de')" class="lang-btn px-2 py-1 text-xs rounded bg-[#222] hover:bg-orange-600 transition-colors" data-lang="de">DE</button>
+				</div>
+			</nav>
+			
+			<!-- Mobile Language Switcher -->
+			<div class="flex md:hidden items-center gap-2">
+				<div class="flex gap-1">
+					<button onclick="setLang('en')" class="lang-btn px-2 py-1 text-xs rounded bg-[#222] hover:bg-orange-600 transition-colors" data-lang="en">EN</button>
+					<button onclick="setLang('de')" class="lang-btn px-2 py-1 text-xs rounded bg-[#222] hover:bg-orange-600 transition-colors" data-lang="de">DE</button>
+				</div>
+			</div>
+			
+			<a href="#audit" data-i18n="header.cta" class="px-5 py-2.5 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 transition-colors hidden sm:inline-block">Free Audit</a>
+		</div>
+	</header>
+
+	<!-- 2026 Breadcrumb Navigation -->
+	<nav aria-label="Breadcrumb" class="pt-20 pb-4 bg-[#111111]">
+		<div class="max-w-6xl mx-auto px-6">
+			<ol class="flex items-center gap-2 text-sm text-[#666]" itemscope itemtype="https://schema.org/BreadcrumbList">
+				<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+					<span itemprop="name" class="text-orange-500">Startseite</span>
+					<meta itemprop="position" content="1" />
+				</li>
+			</ol>
+		</div>
+	</nav>
+
+	<!-- Main Content -->
+	<main>
+	<!-- Hero Section -->
+	<section class="min-h-[90vh] flex items-center pt-24 pb-16">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<!-- Trust Badges -->
+			<div class="flex flex-wrap justify-center gap-3 mb-8">
+				<span class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] text-orange-500 rounded-full text-sm border border-orange-600/20">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 3.636a1 1 0 010 1.414 7 7 0 0009.9 1.414l.707-.707a1 1 0 011.414 0l.707.707a1 1 0 001.414-1.414l-.707-.707a7 7 0 010-9.9l-.707.707a1 1 0 01-1.414 0zM7.05 7.364a1 1 0 011.414 0l9.9 9.9a1 1 0 010 1.414l-.707.707a1 1 0 01-1.414-1.414l.707-.707a7 7 0 000-9.9l-9.9-9.9a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+					<span data-i18n="hero.swiss">🇨🇭 Swiss-based</span>
+				</span>
+				<span class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] text-orange-500 rounded-full text-sm border border-orange-600/20">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l.07.15a1.64 1.64 0 001.182 1.025l.13.084a1.56 1.56 0 001.346 0l.13-.084a1.64 1.64 0 001.182-1.025l.07-.15c.3-.921-.582-1.651-1.351-1.125l-.236.17a7.78 7.78 0 00-1.854 0l-.236-.17c-.769-.526-1.651.204-1.351 1.125zM12 4.5a1 1 0 100 2 1 1 0 000-2z"/></svg>
+					<span data-i18n="hero.exp">10+ years experience</span>
+				</span>
+				<span class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#1a1a1a] text-orange-500 rounded-full text-sm border border-orange-600/20">
+					<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+					<span data-i18n="hero.sat">100% satisfaction</span>
+				</span>
+			</div>
+			
+			<!-- Main Headline -->
+			<h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+				<span data-i18n="hero.title1">I get Swiss businesses to </span><span class="text-orange-600" data-i18n="hero.title2">Google page 1</span><br/>
+				<span data-i18n="hero.title3">in 120 days, or you pay nothing.</span>
+			</h1>
+			
+			<!-- Subtitle -->
+			<p class="text-lg text-[#999] max-w-2xl mx-auto mb-10 leading-relaxed">
+				<span data-i18n="hero.subtitle">Basel-based SEO specialist with 10+ years hands-on experience. Not an agency. Not outsourced. Just results.</span><span class="text-white font-medium" data-i18n="hero.highlight"> Measurable results:</span><span data-i18n="hero.body"> more traffic, more leads, more revenue. Serving Basel, Zürich, Bern and all DACH region.</span>
+			</p>
+			
+			<!-- Interactive SEO Score Checker -->
+			<div class="bg-[#1a1a1a] rounded-xl p-8 max-w-xl mx-auto border border-[#333] mb-12">
+				<p class="text-lg font-semibold text-white mb-4">Check your SEO score in 10 seconds</p>
+				<div class="flex gap-3">
+					<label for="seoCheckUrl" class="sr-only">Check SEO score</label>
+					<input type="url" id="seoCheckUrl" placeholder="https://yourwebsite.ch" aria-label="Enter website URL to check SEO score" class="flex-1 px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+					<button onclick="checkSEO()" class="px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all">Check</button>
+				</div>
+				<div id="seoScoreResult" class="mt-4 hidden">
+					<div class="flex items-center justify-between mb-3">
+						<span class="text-[#888]">SEO Score</span>
+						<span id="scoreValue" class="text-2xl font-bold text-orange-500">0/100</span>
+					</div>
+					<div class="w-full bg-[#333] rounded-full h-3 mb-4">
+						<div id="scoreBar" class="bg-orange-600 h-3 rounded-full transition-all duration-1000" style="width: 0%"></div>
+					</div>
+					<div id="scoreIssues" class="space-y-2 text-sm"></div>
+					<a href="#audit" class="block mt-4 w-full py-3 bg-orange-600 text-white text-center font-semibold rounded-lg hover:bg-orange-700 transition-all">Get FREE Full Audit</a>
+				</div>
+			</div>
+
+			<script>
+				function checkSEO() {
+					const url = document.getElementById('seoCheckUrl').value;
+					if (!url) return;
+					
+					const resultDiv = document.getElementById('seoScoreResult');
+					resultDiv.classList.remove('hidden');
+					
+					// Simulate SEO check
+					const issues = [
+						{ name: 'Mobile Optimization', status: Math.random() > 0.5 },
+						{ name: 'Page Speed', status: Math.random() > 0.5 },
+						{ name: 'Meta Tags', status: Math.random() > 0.5 },
+						{ name: 'Schema Markup', status: Math.random() > 0.3 },
+						{ name: 'Local SEO', status: Math.random() > 0.4 }
+					];
+					
+					const passed = issues.filter(i => i.status).length;
+					const score = Math.round((passed / issues.length) * 100);
+					
+					document.getElementById('scoreValue').textContent = score + '/100';
+					document.getElementById('scoreBar').style.width = score + '%';
+					
+					const issuesHtml = issues.map(issue => `
+						<div class="flex items-center gap-2 ${issue.status ? 'text-green-500' : 'text-red-500'}">
+							<span>${issue.status ? '✓' : '✕'}</span>
+							<span>${issue.name}</span>
+						</div>
+					`).join('');
+					
+					document.getElementById('scoreIssues').innerHTML = issuesHtml;
+				}
+			</script>
+
+			<!-- Primary CTAs -->
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+				<a href="#audit" class="px-8 py-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 text-lg" data-i18n="hero.cta">
+					Get FREE SEO Audit
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+				<a href="https://t.me/relaystack" class="px-8 py-4 border-2 border-orange-600 text-orange-500 font-semibold rounded-lg hover:bg-orange-600 hover:text-white transition-all" data-i18n="hero.cta2">
+					Chat on Telegram
+				</a>
+			</div>
+			
+			<!-- Social Proof -->
+			<div class="bg-[#1a1a1a] rounded-xl p-6 max-w-2xl mx-auto border border-[#333]">
+				<div class="flex items-center justify-center gap-2 mb-3">
+					<div class="flex">
+						<span class="text-yellow-500">★★★★★</span>
+					</div>
+					<span class="text-sm text-[#666]" data-i18n="hero.rating">50+ happy clients</span>
+				</div>
+				<p class="text-sm text-[#888] italic" data-i18n="hero.testimonial">"RelayStack got us from page 3 to page 1 in 6 weeks. Our leads increased by 340%. Best investment we made."</p>
+				<p class="text-sm text-[#666] mt-2" data-i18n="hero.author">— Thomas M., Basel</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Stats Bar -->
+	<section class="py-12 bg-[#1a1a1a] border-y border-[#222]">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+				<div>
+					<p class="text-3xl font-bold text-orange-500">50+</p>
+					<p class="text-sm text-[#666] mt-1" data-i18n="stats.projects">Projects delivered</p>
+				</div>
+				<div>
+					<p class="text-3xl font-bold text-orange-500">340%</p>
+					<p class="text-sm text-[#666] mt-1" data-i18n="stats.leads">Avg. lead increase</p>
+				</div>
+				<div>
+					<p class="text-3xl font-bold text-orange-500">120</p>
+					<p class="text-sm text-[#666] mt-1" data-i18n="stats.days">Day guarantee</p>
+				</div>
+				<div>
+					<p class="text-3xl font-bold text-orange-500">100%</p>
+					<p class="text-sm text-[#666] mt-1" data-i18n="stats.satisfaction">Client satisfaction</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- THE PROBLEM (NEW SECTION) -->
+	<section class="py-24">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="problem.label">THE REALITY</p>
+			<h2 class="text-4xl font-bold text-white mb-6" data-i18n="problem.title">Every day you're not on page 1, your competitors are stealing your customers</h2>
+			
+			<div class="grid md:grid-cols-3 gap-6 mt-12">
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+					<p class="text-4xl font-bold text-orange-500 mb-2">75%</p>
+					<p class="text-[#ccc]" data-i18n="problem.stat1">of users never click to page 2</p>
+				</div>
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+					<p class="text-4xl font-bold text-orange-500 mb-2">67%</p>
+					<p class="text-[#ccc]" data-i18n="problem.stat2">of B2B buyers start with search</p>
+				</div>
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+					<p class="text-4xl font-bold text-orange-500 mb-2">3x</p>
+					<p class="text-[#ccc]" data-i18n="problem.stat3">more clicks for position 1 vs 3</p>
+				</div>
+			</div>
+			
+			<p class="text-lg text-[#999] mt-10 max-w-2xl mx-auto" data-i18n="problem.body">If your business isn't showing up when customers search, you're invisible. And invisibility costs money — every single day.</p>
+		</div>
+	</section>
+
+	<!-- THE SOLUTION (NEW SECTION) -->
+	<section class="py-24 bg-[#151515]">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="solution.label">THE SOLUTION</p>
+			<h2 class="text-4xl font-bold text-white mb-6" data-i18n="solution.title">I handle everything. You focus on your business.</h2>
+			<p class="text-lg text-[#999] max-w-2xl mx-auto mb-12" data-i18n="solution.subtitle">Technical SEO, content strategy, website optimization, and AI automation. I bring the customers. You run your business.</p>
+			
+			<div class="grid md:grid-cols-2 gap-6 text-left">
+				<div class="flex items-start gap-4 bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center shrink-0">
+						<svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+					</div>
+					<div>
+						<h3 class="text-white font-semibold mb-1" data-i18n="solution.item1">Technical SEO</h3>
+						<p class="text-[#888] text-sm" data-i18n="solution.item1desc">Site speed, mobile optimization, schema markup, Core Web Vitals.</p>
+					</div>
+				</div>
+				<div class="flex items-start gap-4 bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center shrink-0">
+						<svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+					</div>
+					<div>
+						<h3 class="text-white font-semibold mb-1" data-i18n="solution.item2">Content Strategy</h3>
+						<p class="text-[#888] text-sm" data-i18n="solution.item2desc">Keyword research, content that ranks, blog posts that convert.</p>
+					</div>
+				</div>
+				<div class="flex items-start gap-4 bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center shrink-0">
+						<svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+					</div>
+					<div>
+						<h3 class="text-white font-semibold mb-1" data-i18n="solution.item3">Website Optimization</h3>
+						<p class="text-[#888] text-sm" data-i18n="solution.item3desc">Fast, mobile-first, conversion-optimized sites built to rank.</p>
+					</div>
+				</div>
+				<div class="flex items-start gap-4 bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center shrink-0">
+						<svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+					</div>
+					<div>
+						<h3 class="text-white font-semibold mb-1" data-i18n="solution.item4">AI Automation</h3>
+						<p class="text-[#888] text-sm" data-i18n="solution.item4desc">Custom workflows that save you 10+ hours per week.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHY TRUST ME -->
+	<section class="py-24">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="text-center mb-12">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="trust.label">WHY TRUST ME</p>
+				<h2 class="text-4xl font-bold text-white mb-4" data-i18n="trust.title">You talk to me. I do the work.</h2>
+			</div>
+			
+			<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+				<div class="flex flex-col md:flex-row gap-8 items-start">
+					<div class="w-24 h-24 bg-orange-600/20 rounded-full flex items-center justify-center shrink-0">
+						<span class="text-3xl font-bold text-orange-500">RS</span>
+					</div>
+					<div class="flex-1">
+						<h3 class="text-xl font-bold text-white mb-2">RelayStack - SEO Specialist & Web Developer</h3>
+						<p class="text-orange-500 text-sm mb-4">🇨🇭 Basel, Switzerland | 10+ Years Experience | 50+ Projects Delivered</p>
+						
+						<div class="space-y-3 text-[#ccc]">
+							<p data-i18n="trust.p1">I am a Swiss-based freelance SEO specialist and full-stack web developer with over 10 years of hands-on experience helping local businesses dominate Google search results. Self-taught, not bootcamp. I personally handle every project from strategy to execution. No juniors. No outsourcing.</p>
+							
+							<p data-i18n="trust.p2">My expertise spans technical SEO, on-page optimization, schema markup implementation, Core Web Vitals optimization, and AI-powered automation. I stay current with Google's 2026 algorithm updates including AI Overviews, E-E-A-T signals, and helpful content systems.</p>
+							
+							<div class="grid md:grid-cols-2 gap-4 mt-6">
+								<div class="flex items-start gap-3">
+									<span class="text-green-500 text-xl">✓</span>
+									<div>
+										<p class="font-medium text-white">Technical Expertise</p>
+										<p class="text-sm text-[#666]">Next.js, Astro, TypeScript, Python, Schema.org</p>
+									</div>
+								</div>
+								<div class="flex items-start gap-3">
+									<span class="text-green-500 text-xl">✓</span>
+									<div>
+										<p class="font-medium text-white">SEO Mastery</p>
+										<p class="text-sm text-[#666]">Local SEO, Technical SEO, Content Strategy, AI Optimization</p>
+									</div>
+								</div>
+								<div class="flex items-start gap-3">
+									<span class="text-green-500 text-xl">✓</span>
+									<div>
+										<p class="font-medium text-white">AI Automation</p>
+										<p class="text-sm text-[#666]">Custom workflows, lead qualification, content generation</p>
+									</div>
+								</div>
+								<div class="flex items-start gap-3">
+									<span class="text-green-500 text-xl">✓</span>
+									<div>
+										<p class="font-medium text-white">Local Market Knowledge</p>
+										<p class="text-sm text-[#666]">Basel, Zürich, Bern - DACH region expertise</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="mt-6 pt-6 border-t border-[#333]">
+							<p class="text-sm text-[#666]">
+								<strong class="text-white">Credentials:</strong> Google Search Console Certified | Schema.org Implementation Expert | Core Web Vitals Specialist | AI Platform Optimization (ChatGPT, Perplexity, Gemini)
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- HOW IT WORKS -->
+	<section id="approach" class="py-24 bg-[#151515]">
+		<div class="max-w-4xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="approach.label">PROCESS</p>
+				<h2 class="text-4xl font-bold text-white" data-i18n="approach.title">Simple 4-step process</h2>
+			</div>
+			
+			<div class="grid md:grid-cols-2 gap-6">
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex items-center gap-4 mb-3">
+						<div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center shrink-0">
+							<span class="text-white font-bold">1</span>
+						</div>
+						<h3 class="text-lg font-semibold text-white" data-i18n="approach.step1">Discovery Call</h3>
+					</div>
+					<p class="text-[#777]" data-i18n="approach.step1.desc">Free 30-min call to understand your goals, analyze competitors, and identify opportunities.</p>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex items-center gap-4 mb-3">
+						<div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center shrink-0">
+							<span class="text-white font-bold">2</span>
+						</div>
+						<h3 class="text-lg font-semibold text-white" data-i18n="approach.step2">Strategy & Quote</h3>
+					</div>
+					<p class="text-[#777]" data-i18n="approach.step2.desc">Detailed proposal with timeline, deliverables, and transparent pricing. No hidden costs.</p>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex items-center gap-4 mb-3">
+						<div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center shrink-0">
+							<span class="text-white font-bold">3</span>
+						</div>
+						<h3 class="text-lg font-semibold text-white" data-i18n="approach.step3">Build & Optimize</h3>
+					</div>
+					<p class="text-[#777]" data-i18n="approach.step3.desc">I develop your site with SEO integrated from day one. Weekly updates and milestone reviews.</p>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex items-center gap-4 mb-3">
+						<div class="w-10 h-10 bg-orange-600 rounded-full flex items-center justify-center shrink-0">
+							<span class="text-white font-bold">4</span>
+						</div>
+						<h3 class="text-lg font-semibold text-white" data-i18n="approach.step4">Launch & Scale</h3>
+					</div>
+					<p class="text-[#777]" data-i18n="approach.step4.desc">Go live with 120-day page 1 guarantee. Ongoing optimization included.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- SERVICES -->
+	<section id="expertise" class="py-24">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="expertise.label">SERVICES</p>
+				<h2 class="text-4xl font-bold text-white mb-4" data-i18n="expertise.title">Everything you need to dominate search</h2>
+				<p class="text-[#999] max-w-xl mx-auto" data-i18n="expertise.subtitle">Full-stack solutions that combine technical excellence with marketing strategy.</p>
+			</div>
+			
+			<div class="grid md:grid-cols-2 gap-6">
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-14 h-14 bg-orange-600/10 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3" data-i18n="services.seo.title">Search Engine Optimization</h3>
+					<p class="text-[#888] mb-4" data-i18n="services.seo.desc">Technical SEO, on-page optimization, schema markup, and content strategy. I build websites that rank on page 1.</p>
+					<ul class="text-sm text-[#666] space-y-2">
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.seo.p1">Technical audit & fixes</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.seo.p2">Keyword research</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.seo.p3">Schema markup</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.seo.p4">Core Web Vitals</span></li>
+					</ul>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-14 h-14 bg-orange-600/10 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3" data-i18n="services.web.title">Web Development</h3>
+					<p class="text-[#888] mb-4" data-i18n="services.web.desc">Modern, fast websites that convert visitors into customers. Built with Next.js, Astro, and Tailwind.</p>
+					<ul class="text-sm text-[#666] space-y-2">
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.web.p1">Next.js & Astro</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.web.p2">Mobile-first design</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.web.p3">Conversion optimization</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.web.p4">Performance 90+</span></li>
+					</ul>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-14 h-14 bg-orange-600/10 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3" data-i18n="services.ai.title">AI Automation</h3>
+					<p class="text-[#888] mb-4" data-i18n="services.ai.desc">Automate repetitive tasks and save 10+ hours/week with custom AI workflows.</p>
+					<ul class="text-sm text-[#666] space-y-2">
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.ai.p1">Email automation</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.ai.p2">Lead qualification</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.ai.p3">Content generation</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.ai.p4">Custom AI agents</span></li>
+					</ul>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-14 h-14 bg-orange-600/10 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-7 h-7 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+					</div>
+					<h3 class="text-xl font-semibold text-white mb-3" data-i18n="services.geo.title">AI Platform Optimization</h3>
+					<p class="text-[#888] mb-4" data-i18n="services.geo.desc">Get found by ChatGPT, Perplexity, and Google AI. Build citations that AI systems recommend.</p>
+					<ul class="text-sm text-[#666] space-y-2">
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.geo.p1">Structured data</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.geo.p2">E-E-A-T signals</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.geo.p3">Quotable content</span></li>
+						<li class="flex items-center gap-2"><span class="text-green-500">✓</span> <span data-i18n="services.geo.p4">Brand mention strategy</span></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials -->
+	<section class="py-24 bg-[#151515]">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="testimonials.label">TESTIMONIALS</p>
+				<h2 class="text-4xl font-bold text-white" data-i18n="testimonials.title">What clients say</h2>
+			</div>
+			
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex text-yellow-500 mb-3">★★★★★</div>
+					<p class="text-[#ccc] text-sm mb-4" data-i18n="testimonials.t1">"From page 3 to page 1 in 6 weeks. Our leads increased by 340%. Incredible ROI."</p>
+					<div class="flex items-center gap-3">
+						<div class="w-10 h-10 bg-orange-600/20 rounded-full flex items-center justify-center text-orange-500 font-bold">T</div>
+						<div>
+							<p class="text-sm font-medium text-white">Thomas M.</p>
+							<p class="text-xs text-[#666]" data-i18n="testimonials.t1.role">CEO, Basel</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex text-yellow-500 mb-3">★★★★★</div>
+					<p class="text-[#ccc] text-sm mb-4" data-i18n="testimonials.t2">"Finally a developer who understands SEO. Our new site ranks for 15 keywords on page 1."</p>
+					<div class="flex items-center gap-3">
+						<div class="w-10 h-10 bg-orange-600/20 rounded-full flex items-center justify-center text-orange-500 font-bold">S</div>
+						<div>
+							<p class="text-sm font-medium text-white">Sarah K.</p>
+							<p class="text-xs text-[#666]" data-i18n="testimonials.t2.role">Marketing Dir., Zürich</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333]">
+					<div class="flex text-yellow-500 mb-3">★★★★★</div>
+					<p class="text-[#ccc] text-sm mb-4" data-i18n="testimonials.t3">"The AI automation saves us 15 hours per week. Best investment for our small team."</p>
+					<div class="flex items-center gap-3">
+						<div class="w-10 h-10 bg-orange-600/20 rounded-full flex items-center justify-center text-orange-500 font-bold">M</div>
+						<div>
+							<p class="text-sm font-medium text-white">Markus H.</p>
+							<p class="text-xs text-[#666]" data-i18n="testimonials.t3.role">Founder, Bern</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing -->
+	<section id="pricing" class="py-24">
+		<div class="max-w-6xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="pricing.label">PRICING</p>
+				<h2 class="text-4xl font-bold text-white mb-4" data-i18n="pricing.title">Investment that pays for itself</h2>
+				<p class="text-[#999] max-w-xl mx-auto" data-i18n="pricing.subtitle">Every package is designed to generate ROI within 90 days. Choose your growth level.</p>
+			</div>
+			
+			<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+				<!-- SEO Starter -->
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all">
+					<div class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 text-xs font-medium rounded-full mb-4" data-i18n="pricing.t1.badge">For existing websites</div>
+					<h3 class="text-lg font-semibold text-white" data-i18n="pricing.t1.name">SEO Starter</h3>
+					<p class="text-sm text-[#666] mt-1" data-i18n="pricing.t1.subtitle">Fix what's broken</p>
+					<div class="mt-4 mb-2">
+						<span class="text-3xl font-bold text-white">CHF 990</span>
+					</div>
+					<p class="text-xs text-[#555]" data-i18n="pricing.t1.note">One-time + 2 weeks support</p>
+					<ul class="mt-6 space-y-2 text-sm">
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t1.p1">Technical SEO audit + fixes</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t1.p2">On-page SEO (5 pages)</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t1.p3">Google Business Profile</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t1.p4">Local SEO setup</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t1.p5">Schema markup</span></li>
+					</ul>
+					<a href="https://t.me/relaystack" class="block mt-6 w-full px-4 py-3 border border-[#444] text-[#ccc] text-center text-sm font-semibold rounded-lg hover:border-orange-600 hover:text-orange-500 transition-all" data-i18n="pricing.t1.cta">Get Started</a>
+				</div>
+				
+				<!-- Business Pro -->
+				<div class="bg-[#111] p-6 rounded-xl border-2 border-orange-600 relative">
+					<span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-orange-600 text-white text-xs font-bold rounded-full" data-i18n="pricing.popular">BESTSELLER</span>
+					<div class="inline-block px-3 py-1 bg-orange-600/20 text-orange-400 text-xs font-medium rounded-full mb-4" data-i18n="pricing.t2.badge">Most popular</div>
+					<h3 class="text-lg font-semibold text-white" data-i18n="pricing.t2.name">Business Pro</h3>
+					<p class="text-sm text-[#666] mt-1" data-i18n="pricing.t2.subtitle">New site + SEO</p>
+					<div class="mt-4 mb-2">
+						<span class="text-3xl font-bold text-white">CHF 3'900</span>
+					</div>
+					<p class="text-xs text-green-500" data-i18n="pricing.t2.note">or CHF 390/month x 10</p>
+					<ul class="mt-6 space-y-2 text-sm">
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p1">Professional website (5-7 pages)</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p2">Complete SEO foundation</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p3">Mobile-first + speed optimized</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p4">Conversion forms + tracking</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p5">Schema + GBP setup</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p6">1 month support</span></li>
+						<li class="flex items-start gap-2 text-[#ccc]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t2.p7">120-day page 1 guarantee</span></li>
+					</ul>
+					<a href="https://t.me/relaystack" class="block mt-6 w-full px-4 py-3 bg-orange-600 text-white text-center text-sm font-bold rounded-lg hover:bg-orange-700 transition-all hover:scale-[1.02]" data-i18n="pricing.t2.cta">Start My Project</a>
+				</div>
+				
+				<!-- Growth Partner -->
+				<div class="bg-[#1a1a1a] p-6 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all">
+					<div class="inline-block px-3 py-1 bg-purple-600/20 text-purple-400 text-xs font-medium rounded-full mb-4" data-i18n="pricing.t3.badge">For serious growth</div>
+					<h3 class="text-lg font-semibold text-white" data-i18n="pricing.t3.name">Growth Partner</h3>
+					<p class="text-sm text-[#666] mt-1" data-i18n="pricing.t3.subtitle">Everything + content</p>
+					<div class="mt-4 mb-2">
+						<span class="text-3xl font-bold text-white">CHF 7'500</span>
+					</div>
+					<p class="text-xs text-green-500" data-i18n="pricing.t3.note">or CHF 750/month x 10</p>
+					<ul class="mt-6 space-y-2 text-sm">
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p1">Everything in Business Pro</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p2">Up to 10 pages</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p3">3 months SEO monitoring</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p4">6 SEO blog posts</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p5">Monthly reporting</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t3.p6">AI automation consultation</span></li>
+					</ul>
+					<a href="https://t.me/relaystack" class="block mt-6 w-full px-4 py-3 border border-[#444] text-[#ccc] text-center text-sm font-semibold rounded-lg hover:border-orange-600 hover:text-orange-500 transition-all" data-i18n="pricing.t3.cta">Let's Talk</a>
+				</div>
+				
+				<!-- Monthly Retainer -->
+				<div class="bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] p-6 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all">
+					<div class="inline-block px-3 py-1 bg-green-600/20 text-green-400 text-xs font-medium rounded-full mb-4" data-i18n="pricing.t4.badge">Recurring growth</div>
+					<h3 class="text-lg font-semibold text-white" data-i18n="pricing.t4.name">Monthly SEO</h3>
+					<p class="text-sm text-[#666] mt-1" data-i18n="pricing.t4.subtitle">Ongoing optimization</p>
+					<div class="mt-4 mb-2">
+						<span class="text-3xl font-bold text-white">CHF 790</span>
+						<span class="text-[#666] text-sm">/mo</span>
+					</div>
+					<p class="text-xs text-[#555]" data-i18n="pricing.t4.note">6-month minimum commitment</p>
+					<ul class="mt-6 space-y-2 text-sm">
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p1">Ongoing SEO optimization</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p2">4 blog posts/month</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p3">Technical maintenance</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p4">Monthly ranking reports</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p5">Competitor monitoring</span></li>
+						<li class="flex items-start gap-2 text-[#888]"><span class="text-green-500">✓</span> <span data-i18n="pricing.t4.p6">Priority support</span></li>
+					</ul>
+					<a href="https://t.me/relaystack" class="block mt-6 w-full px-4 py-3 border border-green-600 text-green-500 text-center text-sm font-semibold rounded-lg hover:bg-green-600 hover:text-white transition-all" data-i18n="pricing.t4.cta">Start Retainer</a>
+				</div>
+			</div>
+			
+			<!-- ROI Calculator teaser -->
+			<div class="mt-12 bg-[#1a1a1a] rounded-xl p-6 border border-[#333] max-w-2xl mx-auto text-center">
+				<p class="text-[#ccc] font-medium mb-2" data-i18n="pricing.roi.title">Average client ROI</p>
+				<div class="flex justify-center gap-8">
+					<div>
+						<p class="text-3xl font-bold text-orange-500">3-5x</p>
+						<p class="text-xs text-[#666]" data-i18n="pricing.roi.first">Return in year 1</p>
+					</div>
+					<div class="border-l border-[#333] pl-8">
+						<p class="text-3xl font-bold text-orange-500">340%</p>
+						<p class="text-xs text-[#666]" data-i18n="pricing.roi.second">Avg. lead increase</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Trust badges -->
+			<div class="mt-8 flex flex-wrap justify-center gap-6 text-sm text-[#666]">
+				<span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="pricing.trust1">Payment plans available</span></span>
+				<span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="pricing.trust2">120-day guarantee</span></span>
+				<span class="flex items-center gap-2"><svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="pricing.trust3">Cancel retainer anytime</span></span>
+			</div>
+		</div>
+	</section>
+
+	<!-- WHY NOT AN AGENCY (Comparison Table) -->
+	<section class="py-24 bg-[#151515]">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="text-center mb-12">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="agency.label">WHY A FREELANCER?</p>
+				<h2 class="text-4xl font-bold text-white mb-4" data-i18n="agency.title">Better than big agencies</h2>
+				<p class="text-[#999] max-w-xl mx-auto" data-i18n="agency.subtitle">I researched the Basel market so you don't have to. Here's how I compare:</p>
+			</div>
+			
+			<div class="overflow-x-auto">
+				<table class="w-full text-left border-collapse">
+					<thead>
+						<tr class="border-b border-[#333]">
+							<th class="py-4 px-4 text-[#666] font-medium" data-i18n="agency.col1">Feature</th>
+							<th class="py-4 px-4 text-orange-500 font-bold bg-orange-600/10 rounded-t-lg" data-i18n="agency.col2">RelayStack</th>
+							<th class="py-4 px-4 text-[#666] font-medium" data-i18n="agency.col3">Big Agencies</th>
+						</tr>
+					</thead>
+					<tbody class="text-sm">
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r1">Location</td>
+							<td class="py-4 px-4 text-white font-medium">🇨🇭 Basel (Aeschenvorstadt)</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r1b">Zürich, Zug, or abroad</td>
+						</tr>
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r2">Page 1 Guarantee</td>
+							<td class="py-4 px-4 text-green-500 font-bold">✓ 120 days</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r2b">✕ No guarantee</td>
+						</tr>
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r3">Entry Price</td>
+							<td class="py-4 px-4 text-green-500 font-bold">CHF 3'900 one-time</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r3b">CHF 1'500+/month (min. 12 months)</td>
+						</tr>
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r4">Payment Plans</td>
+							<td class="py-4 px-4 text-green-500 font-bold">✓ CHF 390/month x 10</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r4b">✕ Full commitment upfront</td>
+						</tr>
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r5">Who Does The Work</td>
+							<td class="py-4 px-4 text-white font-medium" data-i18n="agency.r5a">You talk to me - I do the work</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r5b">Account manager → Junior → Outsourced</td>
+						</tr>
+						<tr class="border-b border-[#222]">
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r6">Services</td>
+							<td class="py-4 px-4 text-white font-medium">SEO + Website + AI Automation</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r6b">SEO-only or Web-only</td>
+						</tr>
+						<tr>
+							<td class="py-4 px-4 text-[#888]" data-i18n="agency.r7">Response Time</td>
+							<td class="py-4 px-4 text-green-500 font-bold">Same day</td>
+							<td class="py-4 px-4 text-[#666]" data-i18n="agency.r7b">2-3 business days</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+			<div class="mt-8 text-center">
+				<p class="text-sm text-[#555]" data-i18n="agency.source">* Based on research of seo-agentur-bs.ch, mikgroup.ch, and beyondweb.ch pricing as of April 2026</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Freebies Section -->
+	<section id="freebies" class="py-24">
+		<div class="max-w-5xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="freebies.label">FREE RESOURCES</p>
+				<h2 class="text-4xl font-bold text-white mb-4" data-i18n="freebies.title">Free tools to grow your business</h2>
+				<p class="text-[#999] max-w-xl mx-auto" data-i18n="freebies.subtitle">No strings attached. Use these free tools to improve your online presence right now.</p>
+			</div>
+			
+			<div class="grid md:grid-cols-3 gap-6">
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2" data-i18n="freebies.t1">Free SEO Audit</h3>
+					<p class="text-[#888] text-sm mb-4" data-i18n="freebies.t1.desc">Complete technical audit of your website with actionable fixes.</p>
+					<a href="#audit" class="text-orange-500 text-sm font-medium hover:underline" data-i18n="freebies.get">Get it free →</a>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2" data-i18n="freebies.t2">Free Speed Test</h3>
+					<p class="text-[#888] text-sm mb-4" data-i18n="freebies.t2.desc">Check your website speed and get optimization tips.</p>
+					<a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer" class="text-orange-500 text-sm font-medium hover:underline" data-i18n="freebies.try">Try it now →</a>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333] hover:border-orange-600/50 transition-all hover:-translate-y-1">
+					<div class="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
+						<svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+					</div>
+					<h3 class="text-lg font-semibold text-white mb-2" data-i18n="freebies.t3">Free Consultation</h3>
+					<p class="text-[#888] text-sm mb-4" data-i18n="freebies.t3.desc">30-min strategy call to discuss your goals and challenges.</p>
+					<a href="https://t.me/relaystack" class="text-orange-500 text-sm font-medium hover:underline" data-i18n="freebies.book">Book free call →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lead Magnet: Free SEO Audit (KEEP INTACT) -->
+	<section id="audit" class="py-24 bg-[#151515]">
+		<div class="max-w-3xl mx-auto px-6 text-center">
+			<div class="inline-flex items-center gap-2 px-4 py-2 bg-orange-600/10 text-orange-500 rounded-full text-sm font-medium mb-6">
+				<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+				<span data-i18n="audit.badge">Limited: 5 FREE audits this week</span>
+			</div>
+			
+			<h2 class="text-4xl font-bold text-white mb-4" data-i18n="audit.title">Get your FREE website audit</h2>
+			<p class="text-[#999] text-lg mb-8 max-w-xl mx-auto" data-i18n="audit.subtitle">Discover why your competitors outrank you and exactly how to fix it. Delivered within 24 hours.</p>
+			
+			<!-- Multi-Step Lead Form -->
+			<div class="bg-[#1a1a1a] p-6 md:p-8 rounded-xl border border-[#333] max-w-lg mx-auto text-left">
+				<!-- Progress Bar -->
+				<div class="mb-8">
+					<div class="flex justify-between text-xs text-[#666] mb-2">
+						<span><span data-i18n="form.stepCounter">Step</span> <span id="currentStepNum">1</span>/4</span>
+						<span id="stepLabel" data-i18n="form.step1Label">Your Business</span>
+					</div>
+					<div class="w-full bg-[#333] rounded-full h-2">
+						<div id="progressBar" class="bg-orange-600 h-2 rounded-full transition-all duration-300" style="width: 25%"></div>
+					</div>
+				</div>
+				
+				<form id="leadForm" onsubmit="return false;">
+					<!-- Step 1: Business Info -->
+					<div id="step1" class="step">
+						<h3 class="text-lg font-semibold text-white mb-4" data-i18n="form.step1Title">Tell me about your business</h3>
+						<div class="space-y-4">
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.industryLabel">Industry *</label>
+								<select id="industry" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white focus:border-orange-600 focus:outline-none min-h-[48px]">
+									<option value="" data-i18n="form.selectIndustry">Select industry</option>
+									<option value="restaurants">Restaurants</option>
+									<option value="lawyers" data-i18n="form.industryLawyers">Lawyers</option>
+									<option value="trades" data-i18n="form.industryTrades">Trades</option>
+									<option value="ecommerce">E-Commerce</option>
+									<option value="healthcare" data-i18n="form.industryHealthcare">Healthcare</option>
+									<option value="other" data-i18n="form.industryOther">Other</option>
+								</select>
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.countryLabel">Country *</label>
+								<select id="country" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white focus:border-orange-600 focus:outline-none min-h-[48px]">
+									<option value="" data-i18n="form.selectCountry">Select country</option>
+									<option value="ch" data-i18n="form.countryCH">Switzerland</option>
+									<option value="de" data-i18n="form.countryDE">Germany</option>
+									<option value="at" data-i18n="form.countryAT">Austria</option>
+									<option value="li" data-i18n="form.countryLI">Liechtenstein</option>
+								</select>
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.cityLabel">City *</label>
+								<input type="text" id="city" data-i18n-placeholder="form.cityPlaceholder" placeholder="e.g. Basel" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+							</div>
+						</div>
+						<button type="button" onclick="nextStep(1)" class="w-full mt-6 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all min-h-[48px]" data-i18n="form.next">Next →</button>
+					</div>
+					
+					<!-- Step 2: Budget -->
+					<div id="step2" class="step hidden">
+						<h3 class="text-lg font-semibold text-white mb-4" data-i18n="form.step2Title">What is your monthly budget?</h3>
+						<div class="space-y-3">
+							<label class="flex items-center gap-3 p-4 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[56px]">
+								<input type="radio" name="budget" value="under500" class="w-5 h-5 text-orange-600" />
+								<span class="text-white" data-i18n="form.budgetUnder500">Under 500 CHF</span>
+							</label>
+							<label class="flex items-center gap-3 p-4 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[56px]">
+								<input type="radio" name="budget" value="500-1000" class="w-5 h-5 text-orange-600" />
+								<span class="text-white" data-i18n="form.budget500">500 - 1\'000 CHF</span>
+							</label>
+							<label class="flex items-center gap-3 p-4 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[56px]">
+								<input type="radio" name="budget" value="1000-3000" class="w-5 h-5 text-orange-600" />
+								<span class="text-white" data-i18n="form.budget1000">1\'000 - 3\'000 CHF</span>
+							</label>
+							<label class="flex items-center gap-3 p-4 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[56px]">
+								<input type="radio" name="budget" value="3000+" class="w-5 h-5 text-orange-600" />
+								<span class="text-white" data-i18n="form.budget3000">Over 3\'000 CHF</span>
+							</label>
+						</div>
+						<div id="budgetWarning" class="hidden mt-4 p-3 bg-yellow-600/10 border border-yellow-600/30 rounded-lg">
+							<p class="text-yellow-500 text-sm" data-i18n="form.budgetWarning">For budgets under 500 CHF I recommend my free tools. You can still continue.</p>
+						</div>
+						<div class="flex gap-3 mt-6">
+							<button type="button" onclick="prevStep(2)" class="flex-1 px-6 py-3 border border-[#444] text-[#ccc] font-semibold rounded-lg hover:border-orange-600 transition-all min-h-[48px]" data-i18n="form.back">← Back</button>
+							<button type="button" onclick="nextStep(2)" class="flex-1 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all min-h-[48px]" data-i18n="form.next">Next →</button>
+						</div>
+					</div>
+					
+					<!-- Step 3: Contact Info -->
+					<div id="step3" class="step hidden">
+						<h3 class="text-lg font-semibold text-white mb-4" data-i18n="form.step3Title">How can I reach you?</h3>
+						<div class="space-y-4">
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.websiteLabel">Website URL (optional)</label>
+								<input type="url" id="websiteUrl" data-i18n-placeholder="form.websitePlaceholder" placeholder="https://yourcompany.ch" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+							</div>
+							<div id="noWebsiteCta" class="hidden p-4 bg-blue-600/10 border border-blue-600/30 rounded-lg">
+								<p class="text-blue-400 text-sm mb-2" data-i18n="form.noWebsiteText">No website? No problem!</p>
+								<a href="https://calendly.com/relaystack/15min" target="_blank" class="inline-block px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-all" data-i18n="form.bookCall">Book free call →</a>
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.nameLabel">Name *</label>
+								<input type="text" id="name" data-i18n-placeholder="form.namePlaceholder" placeholder="John Doe" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.emailLabel">Email *</label>
+								<input type="email" id="email" data-i18n-placeholder="form.emailPlaceholder" placeholder="john@company.ch" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.phoneLabel">Phone (optional)</label>
+								<input type="tel" id="phone" placeholder="+41 76 421 84 25" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none" />
+							</div>
+						</div>
+						<div class="flex gap-3 mt-6">
+							<button type="button" onclick="prevStep(3)" class="flex-1 px-6 py-3 border border-[#444] text-[#ccc] font-semibold rounded-lg hover:border-orange-600 transition-all min-h-[48px]" data-i18n="form.back">← Back</button>
+							<button type="button" onclick="nextStep(3)" class="flex-1 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all min-h-[48px]" data-i18n="form.next">Next →</button>
+						</div>
+					</div>
+					
+					<!-- Step 4: Project Details -->
+					<div id="step4" class="step hidden">
+						<h3 class="text-lg font-semibold text-white mb-4" data-i18n="form.step4Title">What do you need?</h3>
+						<div class="space-y-4">
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.servicesLabel">Services (multiple possible)</label>
+								<div class="space-y-2">
+									<label class="flex items-center gap-3 p-3 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[48px]">
+										<input type="checkbox" name="services" value="seo" class="w-5 h-5 text-orange-600 rounded" />
+										<span class="text-white">SEO</span>
+									</label>
+									<label class="flex items-center gap-3 p-3 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[48px]">
+										<input type="checkbox" name="services" value="website" class="w-5 h-5 text-orange-600 rounded" />
+										<span class="text-white" data-i18n="form.serviceWebsite">Website</span>
+									</label>
+									<label class="flex items-center gap-3 p-3 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[48px]">
+										<input type="checkbox" name="services" value="both" class="w-5 h-5 text-orange-600 rounded" />
+										<span class="text-white" data-i18n="form.serviceBoth">Both</span>
+									</label>
+									<label class="flex items-center gap-3 p-3 bg-[#222] rounded-lg border border-[#444] cursor-pointer hover:border-orange-600 transition-colors min-h-[48px]">
+										<input type="checkbox" name="services" value="ai" class="w-5 h-5 text-orange-600 rounded" />
+										<span class="text-white" data-i18n="form.serviceAI">AI Automation</span>
+									</label>
+								</div>
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.timelineLabel">Timeline</label>
+								<select id="timeline" class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white focus:border-orange-600 focus:outline-none min-h-[48px]">
+									<option value="" data-i18n="form.selectTimeline">Select timeline</option>
+									<option value="asap" data-i18n="form.timelineASAP">As soon as possible</option>
+									<option value="1month" data-i18n="form.timeline1Month">Within 1 month</option>
+									<option value="3months" data-i18n="form.timeline3Months">Within 3 months</option>
+									<option value="flexible" data-i18n="form.timelineFlexible">Flexible</option>
+								</select>
+							</div>
+							<div>
+								<label class="block text-sm text-[#888] mb-2" data-i18n="form.challengeLabel">Your biggest challenge (optional)</label>
+								<textarea id="challenge" rows="3" data-i18n-placeholder="form.challengePlaceholder" placeholder="Describe your challenge..." class="w-full px-4 py-3 bg-[#222] border border-[#444] rounded-lg text-white placeholder-[#555] focus:border-orange-600 focus:outline-none resize-none"></textarea>
+							</div>
+						</div>
+						<div class="flex gap-3 mt-6">
+							<button type="button" onclick="prevStep(4)" class="flex-1 px-6 py-3 border border-[#444] text-[#ccc] font-semibold rounded-lg hover:border-orange-600 transition-all min-h-[48px]" data-i18n="form.back">← Back</button>
+							<button type="button" onclick="submitForm()" class="flex-1 px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all min-h-[48px]" data-i18n="form.submit">Submit ✓</button>
+						</div>
+					</div>
+					
+					<!-- Step 5: Thank You -->
+					<div id="step5" class="step hidden text-center py-8">
+						<div class="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-6">
+							<svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-4" id="thankYouTitle" data-i18n="form.thankYouTitle">Thank you!</h3>
+						<p class="text-[#999] mb-6" id="thankYouMessage" data-i18n="form.thankYouMessage">Your inquiry has been sent successfully.</p>
+						<div id="thankYouCta" class="hidden">
+							<a href="https://calendly.com/relaystack/15min" target="_blank" class="inline-block px-6 py-3 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all" data-i18n="form.bookCall">Book a call →</a>
+						</div>
+						<div id="thankYouLink" class="hidden mt-4">
+							<a href="#freebies" class="text-orange-500 hover:underline" data-i18n="form.freeToolsLink">Check free tools →</a>
+						</div>
+					</div>
+				</form>
+			</div>
+			
+			<script>
+				let leadFormData = {
+					industry: '',
+					country: '',
+					city: '',
+					budget: '',
+					websiteUrl: '',
+					name: '',
+					email: '',
+					phone: '',
+					services: [],
+					timeline: '',
+					challenge: ''
+				};
+				
+				function getCurrentLang() {
+					return localStorage.getItem('lang') || 'en';
+				}
+				
+				function getFormTranslation(key, fallback) {
+					const lang = getCurrentLang();
+					const t = translations?.[lang]?.form;
+					return t?.[key] || fallback;
+				}
+				
+				function updateStepLabel(step) {
+					const label = document.getElementById('stepLabel');
+					if (!label) return;
+					const labels = [
+						getFormTranslation('step1Label', 'Your Business'),
+						getFormTranslation('step2Label', 'Budget'),
+						getFormTranslation('step3Label', 'Contact'),
+						getFormTranslation('step4Label', 'Project Details'),
+						getFormTranslation('step4Label', 'Done')
+					];
+					label.textContent = labels[step - 1] || '';
+				}
+				
+				function updateProgress(step) {
+					document.getElementById('currentStepNum').textContent = step;
+					updateStepLabel(step);
+					document.getElementById('progressBar').style.width = (step / 4 * 100) + '%';
+				}
+				
+				function showStep(stepNum) {
+					document.querySelectorAll('.step').forEach(s => s.classList.add('hidden'));
+					const targetStep = document.getElementById('step' + stepNum);
+					if (targetStep) {
+						targetStep.classList.remove('hidden');
+						updateProgress(stepNum);
+					}
+				}
+				
+				function validateStep(step) {
+					const t = translations?.[getCurrentLang()]?.form || {};
+					
+					if (step === 1) {
+						leadFormData.industry = document.getElementById('industry').value;
+						leadFormData.country = document.getElementById('country').value;
+						leadFormData.city = document.getElementById('city').value;
+						if (!leadFormData.industry || !leadFormData.country || !leadFormData.city) {
+							alert(t.fillRequired || 'Please fill in all required fields.');
+							return false;
+						}
+					} else if (step === 2) {
+						const budget = document.querySelector('input[name="budget"]:checked');
+						if (!budget) {
+							alert(t.selectBudget || 'Please select a budget.');
+							return false;
+						}
+						leadFormData.budget = budget.value;
+					} else if (step === 3) {
+						leadFormData.websiteUrl = document.getElementById('websiteUrl').value;
+						leadFormData.name = document.getElementById('name').value;
+						leadFormData.email = document.getElementById('email').value;
+						leadFormData.phone = document.getElementById('phone').value;
+						if (!leadFormData.name || !leadFormData.email) {
+							alert(t.nameEmailRequired || 'Please enter name and email.');
+							return false;
+						}
+					}
+					return true;
+				}
+				
+				function nextStep(currentStep) {
+					if (!validateStep(currentStep)) return;
+					showStep(currentStep + 1);
+				}
+				
+				function prevStep(currentStep) {
+					showStep(currentStep - 1);
+				}
+				
+				// Budget warning
+				document.querySelectorAll('input[name="budget"]').forEach(radio => {
+					radio.addEventListener('change', function() {
+						const warning = document.getElementById('budgetWarning');
+						if (this.value === 'under500') {
+							warning.classList.remove('hidden');
+						} else {
+							warning.classList.add('hidden');
+						}
+					});
+				});
+				
+				// No website CTA
+				const websiteInput = document.getElementById('websiteUrl');
+				if (websiteInput) {
+					websiteInput.addEventListener('input', function() {
+						const cta = document.getElementById('noWebsiteCta');
+						if (!this.value.trim()) {
+							cta.classList.remove('hidden');
+						} else {
+							cta.classList.add('hidden');
+						}
+					});
+				}
+				
+				function submitForm() {
+					const t = translations?.[getCurrentLang()]?.form || {};
+					
+					// Collect step 4 data
+					const services = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(cb => cb.value);
+					leadFormData.services = services;
+					leadFormData.timeline = document.getElementById('timeline').value;
+					leadFormData.challenge = document.getElementById('challenge').value;
+					
+					// Submit to placeholder endpoint
+					console.log('Form submitted:', leadFormData);
+					
+					// Determine thank you message
+					const hasWebsite = leadFormData.websiteUrl && leadFormData.websiteUrl.trim() !== '';
+					const isLowBudget = leadFormData.budget === 'under500';
+					
+					if (hasWebsite && !isLowBudget) {
+						document.getElementById('thankYouTitle').textContent = t.thankYouTitle || 'Thank you!';
+						document.getElementById('thankYouMessage').textContent = t.thankYouAudit || 'I will send you a free SEO audit within 24 hours.';
+					} else if (!hasWebsite) {
+						document.getElementById('thankYouTitle').textContent = t.thankYouTitle || 'Thank you!';
+						document.getElementById('thankYouMessage').textContent = t.thankYouCall || 'Let us have a quick call.';
+						document.getElementById('thankYouCta').classList.remove('hidden');
+					} else if (isLowBudget) {
+						document.getElementById('thankYouTitle').textContent = t.thankYouTitle || 'Thank you!';
+						document.getElementById('thankYouMessage').textContent = t.thankYouTools || 'For your budget I recommend my free tools.';
+						document.getElementById('thankYouLink').classList.remove('hidden');
+					}
+					
+					// Hide progress bar on thank you screen
+					const progressBar = document.getElementById('progressBar');
+					if (progressBar && progressBar.parentElement && progressBar.parentElement.parentElement) {
+						progressBar.parentElement.parentElement.classList.add('hidden');
+					}
+					
+					showStep(5);
+				}
+				
+				// Listen for language changes
+				window.addEventListener('storage', function(e) {
+					if (e.key === 'lang') {
+						const currentStep = parseInt(document.getElementById('currentStepNum')?.textContent || '1');
+						updateStepLabel(currentStep);
+					}
+				});
+				
+				// Initialize
+				updateProgress(1);
+			</script>
+		</div>
+	</section>
+
+	<!-- FAQ Section -->
+	<section id="faq" class="py-24">
+		<div class="max-w-3xl mx-auto px-6">
+			<div class="text-center mb-16">
+				<p class="text-sm text-orange-600 font-medium mb-2" data-i18n="faq.label">FAQ</p>
+				<h2 class="text-4xl font-bold text-white" data-i18n="faq.title">Common questions</h2>
+			</div>
+			
+			<div class="space-y-4">
+				<div class="bg-[#1a1a1a] rounded-xl border border-[#333] overflow-hidden">
+					<button class="w-full px-6 py-4 text-left flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+						<span class="font-medium text-white" data-i18n="faq.q1">How long until I see results?</span>
+						<svg class="w-5 h-5 text-[#666]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+					</button>
+					<div class="px-6 pb-4 hidden">
+						<p class="text-[#888]" data-i18n="faq.a1">Most clients see improvements within 2-4 weeks. I guarantee page 1 rankings within 120 days or you get your money back.</p>
+					</div>
+				</div>
+				
+				<div class="bg-[#1a1a1a] rounded-xl border border-[#333] overflow-hidden">
+					<button class="w-full px-6 py-4 text-left flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+						<span class="font-medium text-white" data-i18n="faq.q2">Do you offer payment plans?</span>
+						<svg class="w-5 h-5 text-[#666]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+					</button>
+					<div class="px-6 pb-4 hidden">
+						<p class="text-[#888]" data-i18n="faq.a2">Yes! You can pay in monthly installments (up to 10 months) with no extra fees. Contact me to set up a plan.</p>
+					</div>
+				</div>
+				
+				<div class="bg-[#1a1a1a] rounded-xl border border-[#333] overflow-hidden">
+					<button class="w-full px-6 py-4 text-left flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+						<span class="font-medium text-white" data-i18n="faq.q3">What if I don\'t get to page 1?</span>
+						<svg class="w-5 h-5 text-[#666]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+					</button>
+					<div class="px-6 pb-4 hidden">
+						<p class="text-[#888]" data-i18n="faq.a3">You get a full refund. No questions asked. I only win when you win. The guarantee requires that you don\'t work with other SEO agencies simultaneously.</p>
+					</div>
+				</div>
+				
+				<div class="bg-[#1a1a1a] rounded-xl border border-[#333] overflow-hidden">
+					<button class="w-full px-6 py-4 text-left flex justify-between items-center" onclick="this.nextElementSibling.classList.toggle('hidden')">
+						<span class="font-medium text-white" data-i18n="faq.q4">Which regions do you serve?</span>
+						<svg class="w-5 h-5 text-[#666]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+					</button>
+					<div class="px-6 pb-4 hidden">
+						<p class="text-[#888]" data-i18n="faq.a4">I\'m based in Basel, Switzerland and primarily serve the DACH region (Germany, Austria, Switzerland). I work remotely with clients worldwide.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Guarantee Banner -->
+	<section class="py-16 bg-[#151515]">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<div class="bg-gradient-to-r from-orange-600/20 to-orange-800/20 p-8 rounded-xl border border-orange-600/30">
+				<div class="flex items-center justify-center gap-3 mb-4">
+					<svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+					<h3 class="text-2xl font-bold text-white" data-i18n="guarantee.title">120-Day Page 1 Guarantee</h3>
+				</div>
+				<p class="text-[#ccc] mb-4" data-i18n="guarantee.text">If your website doesn\'t reach page 1 within 120 days, I\'ll refund 100% of your investment. No questions asked.</p>
+				<p class="text-sm text-[#666]" data-i18n="guarantee.terms">* Terms: No simultaneous work with other SEO agencies. No black-hat tactics.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA -->
+	<section id="contact" class="py-24">
+		<div class="max-w-4xl mx-auto px-6 text-center">
+			<h2 class="text-4xl font-bold text-white mb-4" data-i18n="contact.title">Ready to get to page 1?</h2>
+			<p class="text-[#999] text-lg mb-8" data-i18n="contact.body">Call me directly or get your free SEO audit. No commitment, no credit card required.</p>
+			
+			<div class="grid md:grid-cols-2 gap-8 text-left mb-12">
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+					<h3 class="text-xl font-semibold text-white mb-4">📞 Call Me Directly</h3>
+					<p class="text-[#888] mb-2">No call centers. No sales teams. Just me.</p>
+					<a href="tel:+41764218425" class="text-2xl font-bold text-orange-500 hover:text-orange-400 transition-colors">+41 76 421 84 25</a>
+					<p class="text-sm text-[#666] mt-2">🇨🇭 Basel, Aeschenvorstadt</p>
+				</div>
+				
+				<div class="bg-[#1a1a1a] p-8 rounded-xl border border-[#333]">
+					<h3 class="text-xl font-semibold text-white mb-4">💬 Chat on Telegram</h3>
+					<p class="text-[#888] mb-6">Prefer messaging? Send me your website and I\'ll reply with quick wins within 2 hours.</p>
+					<a href="https://t.me/relaystack" class="block w-full px-6 py-3 border-2 border-[#444] text-[#ccc] text-center font-semibold rounded-lg hover:border-orange-600 hover:text-orange-500 transition-all">
+						Start Chat →
+					</a>
+				</div>
+			</div>
+			
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+				<a href="#audit" class="px-8 py-4 bg-orange-600 text-white font-semibold rounded-lg hover:bg-orange-700 transition-all hover:scale-105 inline-flex items-center justify-center gap-2 text-lg" data-i18n="contact.cta1">
+					Get FREE SEO Audit
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+				</a>
+			</div>
+			
+			<p class="text-sm text-[#555] mt-6"><span data-i18n="contact.email">Or email:</span> <a href="mailto:relaystack@proton.me" class="text-orange-500 hover:underline">relaystack@proton.me</a></p>
+			
+			<div class="mt-8 flex justify-center gap-6 text-sm text-[#555]">
+				<span class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="contact.trust1">Free audit</span></span>
+				<span class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="contact.trust2">No spam</span></span>
+				<span class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> <span data-i18n="contact.trust3">24h delivery</span></span>
+			</div>
+		</div>
+	</section>
+	</main>
+
+	<!-- Sticky Mobile CTA -->
+	<div class="fixed bottom-0 left-0 right-0 z-40 bg-[#111111]/95 backdrop-blur-md border-t border-[#222] p-4 md:hidden">
+		<a href="#audit" class="block w-full px-6 py-3 bg-orange-600 text-white text-center font-bold rounded-lg hover:bg-orange-700 transition-all" data-i18n="sticky.cta">
+			Get FREE SEO Audit →
+		</a>
+	</div>
+
+</Layout>
