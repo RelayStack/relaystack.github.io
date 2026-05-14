@@ -1,0 +1,202 @@
+---
+import { getAllCities, getCityData } from '../../lib/city-data';
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import LeadForm from '../../components/forms/LeadForm.astro';
+
+export function getStaticPaths() {
+  return getAllCities().map(city => ({
+    params: { city }
+  }));
+}
+
+const { city } = Astro.params;
+const data = getCityData(city as any);
+const lang = 'en';
+
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const pageTitle = `SEO ${data.name} | Local SEO & Webdesign - buweb.ch`;
+const pageDesc = `Professional SEO & webdesign in ${data.name}, Switzerland. 120-day page-1 guarantee. ${data.localStats.businesses.toLocaleString()} local businesses compete — be the one that ranks.`;
+
+const siteUrl = 'https://buweb.ch';
+
+const localBusinessSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "buweb.ch - SEO & Webdesign",
+  "url": new URL(`/seo/${city}/`, siteUrl).href,
+  "telephone": "+41-76-421-84-25",
+  "priceRange": "$$",
+  "areaServed": {
+    "@type": "City",
+    "name": data.name,
+    "containedInPlace": {
+      "@type": "AdministrativeArea",
+      "name": data.canton
+    }
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": data.schemaAddress.street,
+    "addressLocality": data.schemaAddress.addressLocality,
+    "addressRegion": data.schemaAddress.addressRegion,
+    "postalCode": data.schemaAddress.postalCode,
+    "addressCountry": "CH"
+  }
+});
+---
+
+<Base title={pageTitle} description={pageDesc}>
+  <script type="application/ld+json" set:html={localBusinessSchema} />
+
+  {/* Hero Section */}
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent pointer-events-none"></div>
+
+    <div class="container-custom relative z-10 text-center py-20">
+      <Badge variant="accent" class="mb-6">
+        {data.canton} · {data.population.toLocaleString()} residents · {data.localStats.competitionLevel[lang]} competition
+      </Badge>
+
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 max-w-4xl mx-auto">
+        {data.headline[lang]}
+      </h1>
+
+      <p class="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10">
+        {data.subheadline[lang]}
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button
+          variant="primary"
+          size="lg"
+          onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+        >
+          {t.hero.ctaPrimary}
+        </Button>
+        <Button
+          variant="outline"
+          size="lg"
+          href="tel:+41764218425"
+        >
+          {t.hero.ctaSecondary}
+        </Button>
+      </div>
+
+      {/* Stats */}
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">{data.localStats.businesses.toLocaleString()}</p>
+          <p class="text-xs text-text-muted">{data.localStats.businessLabel[lang]}</p>
+        </div>
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">{data.population.toLocaleString()}</p>
+          <p class="text-xs text-text-muted">residents</p>
+        </div>
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">{data.localStats.avgSeoScore}</p>
+          <p class="text-xs text-text-muted">avg. competitor SEO score</p>
+        </div>
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">120</p>
+          <p class="text-xs text-text-muted">Day Guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Competitor Insight */}
+  <section class="section-padding bg-bg-secondary">
+    <div class="container-custom max-w-3xl mx-auto text-center">
+      <Badge variant="default" class="mb-4">THE LOCAL REALITY</Badge>
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-6">
+        What your {data.name} competitors are doing wrong
+      </h2>
+      <p class="text-text-secondary text-lg leading-relaxed">
+        {data.competitorInsight[lang]}
+      </p>
+    </div>
+  </section>
+
+  {/* Pain Points */}
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <Badge variant="default" class="mb-4">
+          THE PROBLEM
+        </Badge>
+        <h2 class="text-3xl md:text-4xl font-display font-bold">
+          {data.problemTitle[lang]}
+        </h2>
+      </div>
+
+      <div class="space-y-4 max-w-3xl mx-auto">
+        {data.painPoints.map((point: any, i: number) => (
+          <Card class="flex gap-4 items-start">
+            <div class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <span class="text-accent font-bold text-sm">{i + 1}</span>
+            </div>
+            <p class="text-text-secondary">{point[lang]}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Process */}
+  <section class="section-padding bg-bg-secondary">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <Badge variant="accent" class="mb-4">
+          MY METHOD
+        </Badge>
+        <h2 class="text-3xl md:text-4xl font-display font-bold">
+          4 steps to dominate {data.name} search results
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          { num: '1', title: 'Analysis & Audit', desc: `I analyze your ${data.name} competitors, your current rankings, and your technical SEO health.` },
+          { num: '2', title: 'Local Strategy', desc: `Tailored keyword strategy targeting "${data.name} + service" searches that convert.` },
+          { num: '3', title: 'Implementation', desc: 'Technical optimization, local schema markup, and content that outranks generic agency work.' },
+          { num: '4', title: 'Growth', desc: `Continuous optimization and monthly reporting so you stay ahead in ${data.name}.` }
+        ].map((step) => (
+          <Card class="flex gap-4">
+            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center shrink-0">
+              <span class="text-white font-display font-bold">{step.num}</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-text-primary mb-1">{step.title}</h3>
+              <p class="text-text-secondary text-sm">{step.desc}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="section-padding text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        Ready to own {data.name} Google results?
+      </h2>
+      <p class="text-text-secondary mb-8 max-w-xl mx-auto">
+        {data.ctaText[lang]}
+      </p>
+      <Button
+        variant="primary"
+        size="lg"
+        onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+      >
+        {t.hero.ctaPrimary}
+      </Button>
+    </div>
+  </section>
+
+  <LeadForm />
+</Base>

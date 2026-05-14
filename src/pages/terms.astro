@@ -1,0 +1,132 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lang = Astro.currentLocale || 'en';
+const isDe = lang === 'de';
+
+const title = isDe ? 'Allgemeine Geschäftsbedingungen' : 'Terms of Service';
+const description = isDe 
+  ? 'AGB von buweb.ch. Geschäftsbedingungen für unsere Dienstleistungen.'
+  : 'Terms of service of buweb.ch. Business terms for our services.';
+---
+
+<Base title={title} description={description}>
+  <div class="container-custom py-20 max-w-3xl">
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">{title}</h1>
+      <p class="text-text-muted text-sm">
+        {isDe ? 'Zuletzt aktualisiert: ' : 'Last updated: '}14. Mai 2026
+      </p>
+    </div>
+
+    <div class="prose prose-invert max-w-none">
+      {isDe ? (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">1. Geltungsbereich</h2>
+          <p class="text-text-secondary mb-4">
+            Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen 
+            Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen
+            buweb.ch und dem Auftraggeber über die Erbringung von Dienstleistungen im Bereich
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">2. Vertragsschluss</h2>
+          <p class="text-text-secondary mb-4">
+            Ein Vertrag kommt zustande, wenn der Auftraggeber das Angebot von buweb.ch annimmt,
+            entweder schriftlich, per E-Mail oder durch Zahlung der vereinbarten Vergütung.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">3. Leistungsumfang</h2>
+          <p class="text-text-secondary mb-4">
+            Der genaue Leistungsumfang ergibt sich aus dem individuellen Angebot. 
+            Änderungen oder Erweiterungen des Leistungsumfangs bedürfen der schriftlichen Vereinbarung.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">4. Vergütung und Zahlungsbedingungen</h2>
+          <p class="text-text-secondary mb-4">
+            Die vereinbarte Vergütung ist innerhalb von 14 Tagen nach Rechnungsstellung fällig, 
+            sofern nichts anderes vereinbart wurde. Ratenzahlungen sind nach Absprache möglich.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">5. 120-Tage-Garantie</h2>
+          <p class="text-text-secondary mb-4">
+            buweb.ch garantiert bei qualifizierten Projekten eine Platzierung auf Seite 1
+            der Google-Suchergebnisse innerhalb von 120 Tagen nach Go-Live.
+            Voraussetzung: Der Auftraggeber arbeitet nicht parallel mit anderen SEO-Agenturen
+            und folgt den Empfehlungen von buweb.ch. Bei Nichterfüllung erfolgt eine volle Rückerstattung.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">6. Haftungsausschluss</h2>
+          <p class="text-text-secondary mb-4">
+            buweb.ch haftet nicht für Ranking-Verluste, die durch Algorithmus-Updates von Suchmaschinen,
+            Handlungen des Auftraggebers oder Dritter verursacht werden.
+            Die Haftung für grobe Fahrlässigkeit und Vorsatz bleibt vorbehalten.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">7. Kündigung</h2>
+          <p class="text-text-secondary mb-4">
+            Beide Parteien können den Vertrag mit einer Frist von 30 Tagen zum Monatsende kündigen, 
+            sofern nichts anderes vereinbart wurde. Bereits erbrachte Leistungen sind zu vergüten.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">8. Gerichtsstand und anwendbares Recht</h2>
+          <p class="text-text-secondary mb-4">
+            Gerichtsstand ist Basel, Schweiz. Es gilt schweizerisches Recht unter Ausschluss 
+            des UN-Kaufrechts (CISG).
+          </p>
+        </>
+      ) : (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">1. Scope</h2>
+          <p class="text-text-secondary mb-4">
+            These Terms of Service apply to all contracts between buweb.ch and the client
+            for the provision of services in the field of SEO consulting, web development,
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">2. Contract Formation</h2>
+          <p class="text-text-secondary mb-4">
+            A contract is formed when the client accepts buweb.ch's offer,
+            either in writing, by email, or by payment of the agreed fee.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">3. Scope of Services</h2>
+          <p class="text-text-secondary mb-4">
+            The exact scope of services is defined in the individual offer. 
+            Changes or extensions require written agreement.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">4. Fees and Payment Terms</h2>
+          <p class="text-text-secondary mb-4">
+            The agreed fee is due within 14 days of invoicing unless otherwise agreed. 
+            Installment payments are available by arrangement.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">5. 120-Day Guarantee</h2>
+          <p class="text-text-secondary mb-4">
+            For qualified projects, buweb.ch guarantees a page 1 ranking on Google
+            within 120 days of go-live. Conditions: The client does not work with other SEO agencies
+            concurrently and follows buweb.ch's recommendations. If the goal is not met,
+            a full refund will be issued.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">6. Limitation of Liability</h2>
+          <p class="text-text-secondary mb-4">
+            buweb.ch is not liable for ranking losses caused by search engine algorithm updates,
+            actions of the client, or third parties.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">7. Termination</h2>
+          <p class="text-text-secondary mb-4">
+            Either party may terminate the contract with 30 days' notice to the end of the month 
+            unless otherwise agreed. Services already rendered must be paid for.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">8. Governing Law and Jurisdiction</h2>
+          <p class="text-text-secondary mb-4">
+            Place of jurisdiction is Basel, Switzerland. Swiss law applies, excluding the UN Convention 
+            on Contracts for the International Sale of Goods (CISG).
+          </p>
+        </>
+      )}
+    </div>
+  </div>
+</Base>

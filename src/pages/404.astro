@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+---
+
+<Base 
+  title={lang === 'de' ? 'Seite nicht gefunden' : 'Page Not Found'} 
+  description={lang === 'de' ? 'Die gesuchte Seite existiert nicht.' : 'The page you are looking for does not exist.'}
+  noHeader
+>
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="text-center max-w-xl">
+      <h1 class="text-6xl md:text-8xl font-display text-accent mb-4">404</h1>
+      <p class="text-text-secondary text-lg mb-8">
+        {lang === 'de' 
+          ? 'Diese Seite existiert nicht oder wurde verschoben.' 
+          : "This page doesn't exist or has been moved."}
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button href="/" variant="primary">
+          {lang === 'de' ? 'Zurück zur Startseite' : 'Back to Home'}
+        </Button>
+        <Button href="tel:+41764218425" variant="secondary">
+          {lang === 'de' ? 'Anrufen' : 'Call Us'}
+        </Button>
+      </div>
+      
+      <div class="text-text-muted text-sm space-y-2">
+        <p>{lang === 'de' ? 'Beliebte Seiten:' : 'Popular pages:'}</p>
+        <div class="flex flex-wrap gap-3 justify-center">
+          <a href="/" class="text-accent hover:underline">{lang === 'de' ? 'Startseite' : 'Home'}</a>
+          <a href="/#services" class="text-accent hover:underline">{lang === 'de' ? 'Leistungen' : 'Services'}</a>
+          <a href="/#pricing" class="text-accent hover:underline">{lang === 'de' ? 'Preise' : 'Pricing'}</a>
+          <a href="/#faq" class="text-accent hover:underline">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Base>

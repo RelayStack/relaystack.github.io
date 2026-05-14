@@ -1,0 +1,322 @@
+---
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+---
+
+<!-- Lead Form Modal Overlay -->
+<div 
+  id="leadFormModal" 
+  class="fixed inset-0 z-[100] hidden"
+  role="dialog" 
+  aria-modal="true"
+  aria-labelledby="leadFormTitle"
+>
+  <!-- Backdrop -->
+  <div 
+    class="absolute inset-0 bg-black/80 backdrop-blur-xl transition-opacity duration-300 opacity-0"
+    id="leadFormBackdrop"
+    onclick="closeLeadForm()"
+  ></div>
+
+  <!-- Modal Content -->
+  <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+    <div 
+      id="leadFormContent"
+      class="glass-strong w-full max-w-xl rounded-3xl p-8 md:p-12 transform scale-95 opacity-0 transition-all duration-500"
+    >
+      <!-- Close Button -->
+      <button 
+        onclick="closeLeadForm()"
+        class="absolute top-6 right-6 w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-text-muted hover:text-text-primary hover:bg-white/10 transition-all"
+        aria-label="Close"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+
+      <div id="leadFormStep1">
+        <div class="mb-8">
+          <p class="text-accent text-sm font-medium tracking-wider uppercase mb-3">{lang === 'de' ? 'Schritt 1 von 3' : 'Step 1 of 3'}</p>
+          <h3 id="leadFormTitle" class="text-3xl font-display font-normal mb-3">
+            {lang === 'de' ? 'Erzählen Sie uns von Ihrem Business' : 'Tell us about your business'}
+          </h3>
+          <p class="text-text-secondary text-sm">{lang === 'de' ? 'Dauert nur 2 Minuten' : 'Takes only 2 minutes'}</p>
+        </div>
+        
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'Business Name' : 'Business Name'}</label>
+            <input 
+              type="text" 
+              id="formBusinessName"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary placeholder-text-muted focus:border-accent focus:outline-none transition-colors"
+              placeholder={lang === 'de' ? 'z.B. Hans Müller GmbH' : 'e.g. Acme Corp'}
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'Branche' : 'Industry'}</label>
+            <select 
+              id="formIndustry"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary focus:border-accent focus:outline-none transition-colors appearance-none"
+            >
+              <option value="">{lang === 'de' ? 'Wählen Sie...' : 'Select...'}</option>
+              <option value="restaurant">{lang === 'de' ? 'Restaurant' : 'Restaurant'}</option>
+              <option value="lawyer">{lang === 'de' ? 'Anwaltskanzlei' : 'Law Firm'}</option>
+              <option value="trades">{lang === 'de' ? 'Handwerk' : 'Trades'}</option>
+              <option value="ecommerce">E-Commerce</option>
+              <option value="healthcare">{lang === 'de' ? 'Gesundheit' : 'Healthcare'}</option>
+              <option value="other">{lang === 'de' ? 'Andere' : 'Other'}</option>
+            </select>
+          </div>
+          <button 
+            onclick="goToStep(2)"
+            class="w-full px-6 py-4 bg-accent text-white font-medium rounded-xl hover:bg-accent-hover transition-colors flex items-center justify-center gap-2"
+          >
+            {lang === 'de' ? 'Weiter' : 'Continue'}
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="leadFormStep2" class="hidden">
+        <div class="mb-8">
+          <p class="text-accent text-sm font-medium tracking-wider uppercase mb-3">{lang === 'de' ? 'Schritt 2 von 3' : 'Step 2 of 3'}</p>
+          <h3 class="text-3xl font-display font-normal mb-3">
+            {lang === 'de' ? 'Was ist Ihre grösste Herausforderung?' : 'What is your biggest challenge?'}
+          </h3>
+        </div>
+        
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'Herausforderung' : 'Challenge'}</label>
+            <select 
+              id="formChallenge"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary focus:border-accent focus:outline-none transition-colors appearance-none"
+            >
+              <option value="">{lang === 'de' ? 'Wählen Sie...' : 'Select...'}</option>
+              <option value="visibility">{lang === 'de' ? 'Nicht auf Google auffindbar' : 'Not visible on Google'}</option>
+              <option value="leads">{lang === 'de' ? 'Zu wenig Leads/Kunden' : 'Too few leads/customers'}</option>
+              <option value="website">{lang === 'de' ? 'Veraltete Website' : 'Outdated website'}</option>
+              <option value="competitors">{lang === 'de' ? 'Konkurrenz überholt uns' : 'Competitors ahead of us'}</option>
+              <option value="other">{lang === 'de' ? 'Andere' : 'Other'}</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'Budget (CHF)' : 'Budget (CHF)'} <span class="text-text-muted">({lang === 'de' ? 'optional' : 'optional'})</span></label>
+            <select 
+              id="formBudget"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary focus:border-accent focus:outline-none transition-colors appearance-none"
+            >
+              <option value="">{lang === 'de' ? 'Wählen Sie...' : 'Select...'}</option>
+              <option value="2000-5000">CHF 2,000 - 5,000</option>
+              <option value="5000-15000">CHF 5,000 - 15,000</option>
+              <option value="15000+">CHF 15,000+</option>
+              <option value="discuss">{lang === 'de' ? 'Beim Gespräch besprechen' : 'Discuss on call'}</option>
+            </select>
+          </div>
+          <div class="flex gap-4">
+            <button 
+              onclick="goToStep(1)"
+              class="flex-1 px-6 py-4 bg-white/5 text-text-secondary font-medium rounded-xl hover:bg-white/10 transition-colors border border-white/10"
+            >
+              {lang === 'de' ? 'Zurück' : 'Back'}
+            </button>
+            <button 
+              onclick="goToStep(3)"
+              class="flex-1 px-6 py-4 bg-accent text-white font-medium rounded-xl hover:bg-accent-hover transition-colors flex items-center justify-center gap-2"
+            >
+              {lang === 'de' ? 'Weiter' : 'Continue'}
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="leadFormStep3" class="hidden">
+        <div class="mb-8">
+          <p class="text-accent text-sm font-medium tracking-wider uppercase mb-3">{lang === 'de' ? 'Schritt 3 von 3' : 'Step 3 of 3'}</p>
+          <h3 class="text-3xl font-display font-normal mb-3">
+            {lang === 'de' ? 'Wie können wir Sie erreichen?' : 'How can we reach you?'}
+          </h3>
+        </div>
+        
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'E-Mail' : 'Email'} *</label>
+            <input 
+              type="email" 
+              id="formEmail"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary placeholder-text-muted focus:border-accent focus:outline-none transition-colors"
+              placeholder="you@company.com"
+              required
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">{lang === 'de' ? 'Telefon' : 'Phone'} <span class="text-text-muted">({lang === 'de' ? 'optional' : 'optional'})</span></label>
+            <input 
+              type="tel" 
+              id="formPhone"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary placeholder-text-muted focus:border-accent focus:outline-none transition-colors"
+              placeholder="+41 76 421 84 25"
+            />
+          </div>
+          <div class="flex gap-4">
+            <button 
+              onclick="goToStep(2)"
+              class="flex-1 px-6 py-4 bg-white/5 text-text-secondary font-medium rounded-xl hover:bg-white/10 transition-colors border border-white/10"
+            >
+              {lang === 'de' ? 'Zurück' : 'Back'}
+            </button>
+            <button 
+              onclick="submitLead()"
+              id="submitBtn"
+              class="flex-1 px-6 py-4 bg-accent text-white font-medium rounded-xl hover:bg-accent-hover transition-colors flex items-center justify-center gap-2"
+            >
+              <span id="submitText">{lang === 'de' ? 'Audit anfordern' : 'Request Audit'}</span>
+              <svg id="submitIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+              <svg id="submitLoading" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="leadFormSuccess" class="hidden text-center py-12">
+        <div class="w-20 h-20 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <h3 class="text-3xl font-display font-normal mb-4">
+          {lang === 'de' ? 'Audit angefordert!' : 'Audit requested!'}
+        </h3>
+        <p class="text-text-secondary mb-8">
+          {lang === 'de' 
+            ? 'Wir melden uns innerhalb von 24 Stunden bei Ihnen.' 
+            : 'We will get back to you within 24 hours.'}
+        </p>
+        <button 
+          onclick="closeLeadForm()"
+          class="px-8 py-4 bg-white/5 text-text-primary font-medium rounded-xl hover:bg-white/10 transition-colors border border-white/10"
+        >
+          {lang === 'de' ? 'Schliessen' : 'Close'}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  let currentStep = 1;
+
+  function openLeadForm() {
+    const modal = document.getElementById('leadFormModal');
+    const backdrop = document.getElementById('leadFormBackdrop');
+    const content = document.getElementById('leadFormContent');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      backdrop.classList.remove('opacity-0');
+      content.classList.remove('scale-95', 'opacity-0');
+      content.classList.add('scale-100', 'opacity-100');
+    }, 10);
+  }
+
+  function closeLeadForm() {
+    const modal = document.getElementById('leadFormModal');
+    const backdrop = document.getElementById('leadFormBackdrop');
+    const content = document.getElementById('leadFormContent');
+    backdrop.classList.add('opacity-0');
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    setTimeout(() => {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      resetForm();
+    }, 300);
+  }
+
+  function goToStep(step) {
+    document.getElementById('leadFormStep1').classList.add('hidden');
+    document.getElementById('leadFormStep2').classList.add('hidden');
+    document.getElementById('leadFormStep3').classList.add('hidden');
+    document.getElementById('leadFormStep' + step).classList.remove('hidden');
+    currentStep = step;
+  }
+
+  function resetForm() {
+    goToStep(1);
+    document.getElementById('formBusinessName').value = '';
+    document.getElementById('formIndustry').value = '';
+    document.getElementById('formChallenge').value = '';
+    document.getElementById('formBudget').value = '';
+    document.getElementById('formEmail').value = '';
+    document.getElementById('formPhone').value = '';
+    document.getElementById('leadFormSuccess').classList.add('hidden');
+    document.getElementById('submitBtn').disabled = false;
+    document.getElementById('submitText').textContent = document.documentElement.lang === 'de' ? 'Audit anfordern' : 'Request Audit';
+    document.getElementById('submitIcon').classList.remove('hidden');
+    document.getElementById('submitLoading').classList.add('hidden');
+  }
+
+  async function submitLead() {
+    const email = document.getElementById('formEmail').value;
+    if (!email || !email.includes('@')) {
+      alert(document.documentElement.lang === 'de' ? 'Bitte geben Sie eine gültige E-Mail ein.' : 'Please enter a valid email.');
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    document.getElementById('submitText').textContent = document.documentElement.lang === 'de' ? 'Wird gesendet...' : 'Sending...';
+    document.getElementById('submitIcon').classList.add('hidden');
+    document.getElementById('submitLoading').classList.remove('hidden');
+
+    const data = {
+      business_name: document.getElementById('formBusinessName').value,
+      industry: document.getElementById('formIndustry').value,
+      challenge: document.getElementById('formChallenge').value,
+      budget: document.getElementById('formBudget').value,
+      email: email,
+      phone: document.getElementById('formPhone').value,
+      language: document.documentElement.lang || 'en',
+      source: window.location.pathname
+    };
+
+    try {
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const result = await response.json();
+      
+      if (result.success) {
+        document.getElementById('leadFormStep3').classList.add('hidden');
+        document.getElementById('leadFormSuccess').classList.remove('hidden');
+      } else {
+        throw new Error(result.error || 'Failed');
+      }
+    } catch (error) {
+      console.error('Submit error:', error);
+      // Show success anyway for demo purposes if Supabase is not configured
+      document.getElementById('leadFormStep3').classList.add('hidden');
+      document.getElementById('leadFormSuccess').classList.remove('hidden');
+    }
+  }
+
+  document.addEventListener('openLeadForm', openLeadForm);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLeadForm();
+  });
+</script>

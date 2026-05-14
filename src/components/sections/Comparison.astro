@@ -1,0 +1,48 @@
+---
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+---
+
+<section class="relative py-40 overflow-hidden" id="comparison">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary to-bg-primary"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-16">
+      <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.comparison.label}</p>
+      <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal mb-6">
+        {t.comparison.headline}
+      </h2>
+      <p class="reveal reveal-delay-2 text-text-secondary max-w-2xl mx-auto">
+        {t.comparison.subheadline}
+      </p>
+    </div>
+
+    <div class="reveal overflow-x-auto">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="py-5 px-6 text-text-muted font-medium text-sm">{t.comparison.table.feature}</th>
+            <th class="py-5 px-6 text-accent font-bold bg-accent/5 rounded-t-lg">{t.comparison.table.relaystack}</th>
+            <th class="py-5 px-6 text-text-muted font-medium text-sm">{t.comparison.table.agencies}</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm">
+          {t.comparison.table.rows.map((row: any) => (
+            <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
+              <td class="py-5 px-6 text-text-secondary">{row.feature}</td>
+              <td class="py-5 px-6 text-text-primary font-medium bg-accent/5">
+                <span class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                  {row.me}
+                </span>
+              </td>
+              <td class="py-5 px-6 text-text-muted">{row.them}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

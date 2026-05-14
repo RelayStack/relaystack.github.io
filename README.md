@@ -1,8 +1,8 @@
-# RelayStack v2.0
+# buweb.ch v2.0
 
 Professional SEO & Web Development portfolio site with lead capture, admin dashboard, and bilingual support.
 
-## 🚀 What's New in v2.0
+## What's New in v2.0
 
 - **New Architecture**: Component-based Astro 6 with TypeScript
 - **Lead Capture System**: 3-step form with Supabase backend
@@ -12,7 +12,7 @@ Professional SEO & Web Development portfolio site with lead capture, admin dashb
 - **Performance Optimized**: ~25% smaller bundle size
 - **Modern Design**: Dark theme with Swiss precision aesthetic
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 src/
@@ -42,7 +42,7 @@ src/
     └── fonts.css        # Font imports
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: Astro 6 (Static Site Generation)
 - **Styling**: Tailwind CSS 4
@@ -50,7 +50,7 @@ src/
 - **Deployment**: Vercel
 - **Analytics**: Plausible (privacy-first)
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Install Dependencies
 
@@ -66,7 +66,7 @@ Create `.env` file:
 PUBLIC_SUPABASE_URL=your_supabase_project_url
 PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
-PUBLIC_SITE_URL=https://relaystack.vercel.app
+PUBLIC_SITE_URL=https://buweb.ch
 ```
 
 ### 3. Set Up Supabase
@@ -87,7 +87,7 @@ npm run dev
 npm run build
 ```
 
-## 📄 Pages
+## Pages
 
 | Route | Description |
 |-------|-------------|
@@ -98,7 +98,7 @@ npm run build
 | `/admin` | Admin dashboard (protected) |
 | `/api/submit-lead` | Form submission API |
 
-## 🎨 Design System
+## Design System
 
 ### Colors
 - Background: `#050505` (primary), `#0a0a0a` (secondary)
@@ -110,7 +110,7 @@ npm run build
 - Body: IBM Plex Sans (readable)
 - Mono: JetBrains Mono (code, accents)
 
-## 📝 Content Management
+## Content Management
 
 ### Translations
 Edit `src/i18n/en.json` and `src/i18n/de.json`
@@ -121,14 +121,14 @@ Edit `src/lib/industry-data.ts`
 ### Components
 All section components accept data via props from i18n files
 
-## 🔒 Security
+## Security
 
 - RLS enabled on all tables
 - Service role only for API routes
 - No sensitive data in client bundle
 - Form validation on client and server
 
-## 📊 Analytics
+## Analytics
 
 Track custom events with Plausible:
 
@@ -136,7 +136,7 @@ Track custom events with Plausible:
 window.plausible('Form Submit');
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Vercel (Recommended)
 
@@ -154,7 +154,7 @@ SUPABASE_SERVICE_ROLE_KEY
 PUBLIC_SITE_URL
 ```
 
-## 🔄 Migration from v1.x
+## Migration from v1.x
 
 The old monolithic pages are backed up in `backup/` directory.
 
@@ -164,12 +164,11 @@ Key changes:
 - Client-side i18n → Astro i18n routing
 - 6 separate pages → 1 dynamic template
 
-## 📞 Support
+## Support
 
 For issues or questions:
-- Email: relaystack@proton.me
-- Telegram: @relaystack
+- Email: contact@buweb.ch
 
 ---
 
-Built with ❤️ in Basel, Switzerland
+Built with care in Basel, Switzerland

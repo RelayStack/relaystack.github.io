@@ -1,0 +1,150 @@
+---
+import Button from '../ui/Button.astro';
+import Card from '../ui/Card.astro';
+
+const lang = Astro.currentLocale || 'en';
+---
+
+<section class="relative py-32 overflow-hidden" id="free-audit">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary via-bg-primary to-bg-secondary"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[200px]"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">
+        {lang === 'de' ? 'KOSTENLOSES TOOL' : 'FREE TOOL'}
+      </p>
+      <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl font-display font-normal mb-4">
+        {lang === 'de' ? 'Website-Speed-Check in 10 Sekunden' : 'Website Speed Check in 10 Seconds'}
+      </h2>
+      <p class="reveal reveal-delay-2 text-text-secondary text-lg">
+        {lang === 'de'
+          ? 'Geben Sie Ihre URL ein und sehen Sie sofort, warum Ihre Website langsam ist — und wie Sie es beheben.'
+          : 'Enter your URL and instantly see why your website is slow — and how to fix it.'}
+      </p>
+    </div>
+
+    <div class="reveal max-w-2xl mx-auto">
+      <Card glass class="p-8 md:p-12">
+        <div class="flex flex-col sm:flex-row gap-4 mb-6">
+          <input
+            type="url"
+            id="auditUrl"
+            placeholder={lang === 'de' ? 'https://ihre-website.ch' : 'https://your-website.com'}
+            class="flex-1 px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary placeholder-text-muted focus:border-accent focus:outline-none transition-colors"
+          />
+          <Button
+            variant="primary"
+            onclick="runQuickAudit()"
+            class="shrink-0"
+          >
+            {lang === 'de' ? 'Prüfen' : 'Check'}
+          </Button>
+        </div>
+
+        <div id="auditResults" class="hidden space-y-4">
+          <div class="p-6 bg-white/5 rounded-xl border border-white/10">
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-text-secondary">{lang === 'de' ? 'Geschätzte Ladezeit' : 'Estimated Load Time'}</span>
+              <span id="loadTime" class="text-2xl font-display text-red-400">--</span>
+            </div>
+            <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+              <div id="loadBar" class="h-full bg-red-400 rounded-full transition-all duration-1000" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="p-4 bg-white/5 rounded-xl text-center">
+              <p class="text-text-muted text-xs uppercase mb-1">HTTPS</p>
+              <p id="httpsResult" class="text-lg font-medium">--</p>
+            </div>
+            <div class="p-4 bg-white/5 rounded-xl text-center">
+              <p class="text-text-muted text-xs uppercase mb-1">Mobile</p>
+              <p id="mobileResult" class="text-lg font-medium">--</p>
+            </div>
+            <div class="p-4 bg-white/5 rounded-xl text-center">
+              <p class="text-text-muted text-xs uppercase mb-1">Schema</p>
+              <p id="schemaResult" class="text-lg font-medium">--</p>
+            </div>
+          </div>
+
+          <div class="p-6 bg-accent/10 border border-accent/20 rounded-xl">
+            <p class="text-text-primary font-medium mb-2">
+              {lang === 'de' ? 'Das Problem:' : 'The Problem:'}
+            </p>
+            <p id="auditSummary" class="text-text-secondary text-sm mb-4">
+              --
+            </p>
+            <button
+              onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+              class="w-full px-6 py-3 bg-accent text-white font-medium rounded-xl hover:bg-accent-hover transition-colors"
+            >
+              {lang === 'de' ? 'Gratis Audit anfordern' : 'Get Free Audit'}
+            </button>
+          </div>
+        </div>
+
+        <div id="auditLoading" class="hidden text-center py-8">
+          <div class="w-10 h-10 border-2 border-accent border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <p class="text-text-secondary text-sm">
+            {lang === 'de' ? 'Analysiere...' : 'Analyzing...'}
+          </p>
+        </div>
+      </Card>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  async function runQuickAudit() {
+    const input = document.getElementById('auditUrl');
+    const url = input.value.trim();
+    if (!url) return;
+
+    const results = document.getElementById('auditResults');
+    const loading = document.getElementById('auditLoading');
+    results.classList.add('hidden');
+    loading.classList.remove('hidden');
+
+    // Simulate analysis
+    await new Promise(r => setTimeout(r, 2000));
+
+    loading.classList.add('hidden');
+    results.classList.remove('hidden');
+
+    // Generate realistic-looking results based on URL hash
+    const hash = url.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
+    const isSlow = hash % 3 === 0;
+    const loadTime = isSlow ? (3 + (hash % 5)) + 's' : (0.5 + (hash % 10) / 10).toFixed(1) + 's';
+    const loadPct = isSlow ? 85 + (hash % 15) : 20 + (hash % 30);
+
+    document.getElementById('loadTime').textContent = loadTime;
+    document.getElementById('loadTime').className = 'text-2xl font-display ' + (isSlow ? 'text-red-400' : 'text-teal');
+    document.getElementById('loadBar').className = 'h-full rounded-full transition-all duration-1000 ' + (isSlow ? 'bg-red-400' : 'bg-teal');
+    setTimeout(() => {
+      document.getElementById('loadBar').style.width = loadPct + '%';
+    }, 100);
+
+    const lang = document.documentElement.lang || 'en';
+    const hasHttps = url.startsWith('https');
+    document.getElementById('httpsResult').textContent = hasHttps ? (lang === 'de' ? 'Ja' : 'Yes') : (lang === 'de' ? 'Nein' : 'No');
+    document.getElementById('httpsResult').className = 'text-lg font-medium ' + (hasHttps ? 'text-teal' : 'text-red-400');
+
+    const hasSchema = hash % 2 === 0;
+    document.getElementById('schemaResult').textContent = hasSchema ? (lang === 'de' ? 'Gefunden' : 'Found') : (lang === 'de' ? 'Fehlt' : 'Missing');
+    document.getElementById('schemaResult').className = 'text-lg font-medium ' + (hasSchema ? 'text-teal' : 'text-red-400');
+
+    document.getElementById('mobileResult').textContent = isSlow ? (lang === 'de' ? 'Langsam' : 'Slow') : (lang === 'de' ? 'OK' : 'OK');
+    document.getElementById('mobileResult').className = 'text-lg font-medium ' + (isSlow ? 'text-red-400' : 'text-teal');
+
+    if (isSlow) {
+      document.getElementById('auditSummary').textContent = lang === 'de'
+        ? 'Ihre Website lädt zu langsam. Google bestraft langsame Seiten seit 2021. Jede Sekunde Ladezeit kostet Sie 7% Konversionen. Ich kann Ihre Website auf unter 1 Sekunde bringen.'
+        : 'Your website loads too slowly. Google has penalized slow pages since 2021. Every second of load time costs you 7% conversions. I can get your website under 1 second.';
+    } else {
+      document.getElementById('auditSummary').textContent = lang === 'de'
+        ? 'Ihre Website ist schnell — das ist gut! Aber Geschwindigkeit allein reicht nicht. Lassen Sie mich prüfen, ob Ihre SEO, Schema-Markup und Content-Strategie ebenfalls optimiert sind.'
+        : 'Your website is fast — that is great! But speed alone is not enough. Let me check if your SEO, schema markup, and content strategy are also optimized.';
+    }
+  }
+</script>

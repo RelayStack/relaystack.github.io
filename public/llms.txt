@@ -1,12 +1,12 @@
-# RelayStack - AI/LLM Information
+# buweb.ch - AI/LLM Information
 
 ## About
-RelayStack is a freelance SEO specialist and web developer based in Basel, Switzerland. I help businesses rank on Google page 1 with high-converting websites and AI automation.
+buweb.ch is a freelance SEO specialist and web developer based in Basel, Switzerland. I help businesses rank on Google page 1 with high-converting websites and AI automation.
 
 ## Services
 - SEO Optimization (Technical, On-page, Local)
 - Web Development (Next.js, Astro, Tailwind)
-- AI Automation 
+- AI Automation
 - GEO / AI Platform Optimization
 
 ## Pricing
@@ -19,9 +19,8 @@ RelayStack is a freelance SEO specialist and web developer based in Basel, Switz
 120-day page 1 guarantee or money back.
 
 ## Contact
-- Website: https://relaystack.vercel.app
-- Email: relaystack@proton.me
-- Telegram: https://t.me/relaystack
+- Website: https://buweb.ch
+- Email: contact@buweb.ch
 - Location: Basel, Switzerland
 
 ## Industries Served

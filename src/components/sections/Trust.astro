@@ -1,0 +1,87 @@
+---
+import Button from '../ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const techStack = [
+  { name: 'Next.js' },
+  { name: 'Astro' },
+  { name: 'TypeScript' },
+  { name: 'Tailwind' },
+  { name: 'Python' },
+  { name: 'PostgreSQL' },
+];
+---
+
+<section class="relative py-40 overflow-hidden" id="trust">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary to-bg-primary"></div>
+  <div class="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[200px]"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.trust.label}</p>
+        <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal">
+          {t.trust.headline}
+        </h2>
+      </div>
+
+      <div class="reveal glass-strong rounded-3xl p-10 md:p-20 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[150px]"></div>
+
+        <div class="flex flex-col lg:flex-row gap-16 items-start relative z-10">
+          <div class="lg:w-2/5">
+            <div class="w-40 h-40 bg-gradient-to-br from-accent to-orange-600 rounded-3xl flex items-center justify-center mb-8 glow-accent">
+              <span class="text-5xl font-display text-white">BW</span>
+            </div>
+            <h3 class="text-3xl font-display font-normal mb-2">buweb.ch</h3>
+            <p class="text-accent font-medium mb-2">{lang === 'de' ? 'SEO Spezialist & Entwickler' : 'SEO Specialist & Developer'}</p>
+            <p class="text-text-muted">{lang === 'de' ? 'Basel, Schweiz' : 'Basel, Switzerland'}</p>
+          </div>
+
+          <div class="lg:w-3/5">
+            <p class="text-text-secondary text-xl leading-relaxed mb-10">{t.trust.body}</p>
+
+            <div class="stagger-children grid md:grid-cols-2 gap-4 mb-10">
+              {t.trust.features.map((feature: any) => (
+                <div class="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/5">
+                  <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-medium text-text-primary mb-1">{feature.title}</p>
+                    <p class="text-text-muted text-sm">{feature.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div class="border-t border-white/10 pt-8">
+              <p class="text-text-muted text-sm mb-4 uppercase tracking-wider">{lang === 'de' ? 'Tech Stack' : 'Tech Stack'}</p>
+              <div class="flex flex-wrap gap-3">
+                {techStack.map((tech) => (
+                  <div class="px-5 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm font-mono text-text-secondary hover:border-accent/50 transition-colors duration-300">
+                    {tech.name}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal text-center mt-16">
+        <Button 
+          variant="outline" 
+          size="lg"
+          onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+        >
+          {lang === 'de' ? 'Kostenloses Audit anfordern' : 'Request Free Audit'}
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>

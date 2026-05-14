@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+  hover?: boolean;
+  glass?: boolean;
+}
+
+const { 
+  class: className = '',
+  hover = false,
+  glass = true
+} = Astro.props;
+
+const baseStyles = glass 
+  ? 'glass rounded-2xl p-8' 
+  : 'bg-bg-card border border-border rounded-2xl p-8';
+const hoverStyles = hover ? 'hover-lift' : '';
+---
+
+<div class={`${baseStyles} ${hoverStyles} ${className}`}>
+  <slot />
+</div>

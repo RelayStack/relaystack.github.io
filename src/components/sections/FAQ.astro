@@ -1,0 +1,55 @@
+---
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const faqSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": t.faq.items.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q || item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a || item.answer
+    }
+  }))
+});
+---
+
+<script type="application/ld+json" set:html={faqSchema} />
+
+<section class="relative py-40 overflow-hidden" id="faq">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary to-bg-primary"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-20">
+        <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.faq.label}</p>
+        <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal mb-6">{t.faq.headline}</h2>
+        <p class="reveal reveal-delay-2 text-text-secondary text-lg">{t.faq.subheadline}</p>
+      </div>
+
+      <div class="space-y-4">
+        {t.faq.items.map((item: any, i: number) => (
+          <div class="reveal" style={`transition-delay: ${i * 0.05}s`}>
+            <details class="group glass rounded-2xl overflow-hidden transition-all duration-300">
+              <summary class="flex items-center justify-between gap-4 p-8 cursor-none list-none hover:bg-white/5 transition-colors">
+                <span class="text-lg font-medium text-text-primary group-open:text-accent transition-colors">{item.q || item.question}</span>
+                <span class="shrink-0 w-8 h-8 bg-white/5 rounded-full flex items-center justify-center group-open:rotate-45 transition-transform duration-300">
+                  <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                  </svg>
+                </span>
+              </summary>
+              <div class="px-8 pb-8 text-text-secondary leading-relaxed">
+                {item.a || item.answer}
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+</content>
+</invoke>

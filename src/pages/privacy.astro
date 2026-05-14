@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lang = Astro.currentLocale || 'en';
+const isDe = lang === 'de';
+
+const title = isDe ? 'Datenschutzerklärung' : 'Privacy Policy';
+const description = isDe 
+  ? 'Datenschutzerklärung von buweb.ch. Wie wir Ihre Daten schützen.'
+  : 'Privacy policy of buweb.ch. How we protect your data.';
+---
+
+<Base title={title} description={description}>
+  <div class="container-custom py-20 max-w-3xl">
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">{title}</h1>
+      <p class="text-text-muted text-sm">
+        {isDe ? 'Zuletzt aktualisiert: ' : 'Last updated: '}14. Mai 2026
+      </p>
+    </div>
+
+    <div class="prose prose-invert max-w-none">
+      {isDe ? (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">1. Verantwortlicher</h2>
+          <p class="text-text-secondary mb-4">
+            buweb.ch<br/>
+            Basel, Schweiz<br/>
+            E-Mail: contact@buweb.ch<br/>
+            Telefon: +41 76 421 84 25
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">2. Erhebung und Verarbeitung personenbezogener Daten</h2>
+          <p class="text-text-secondary mb-4">
+            Wir erheben personenbezogene Daten nur, wenn Sie uns diese freiwillig mitteilen, 
+            beispielsweise im Rahmen einer Kontaktanfrage oder einer Anmeldung zu unseren Dienstleistungen. 
+            Die erhobenen Daten umfassen Name, E-Mail-Adresse, Telefonnummer und ggf. Website-URL.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">3. Zweck der Datenverarbeitung</h2>
+          <p class="text-text-secondary mb-4">
+            Die von Ihnen bereitgestellten Daten verwenden wir ausschließlich zur Bearbeitung Ihrer Anfragen, 
+            zur Erbringung unserer Dienstleistungen und zur Kommunikation mit Ihnen.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">4. Weitergabe an Dritte</h2>
+          <p class="text-text-secondary mb-4">
+            Wir geben Ihre personenbezogenen Daten nicht an Dritte weiter, es sei denn, 
+            dies ist zur Erfüllung unserer Dienstleistungen erforderlich (z.B. Hosting-Provider) 
+            oder wir sind gesetzlich dazu verpflichtet.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">5. Cookies und Tracking</h2>
+          <p class="text-text-secondary mb-4">
+            Diese Website verwendet keine Tracking-Cookies. Wir nutzen Plausible Analytics, 
+            ein datenschutzfreundliches Analysetool, das keine persönlichen Daten speichert 
+            und vollständig DSGVO-konform ist.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">6. Datensicherheit</h2>
+          <p class="text-text-secondary mb-4">
+            Wir treffen angemessene technische und organisatorische Massnahmen, 
+            um Ihre Daten vor Verlust, Missbrauch und unbefugtem Zugriff zu schützen. 
+            Alle Datenübertragungen erfolgen verschlüsselt via HTTPS.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">7. Ihre Rechte</h2>
+          <p class="text-text-secondary mb-4">
+            Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung 
+            Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter contact@buweb.ch.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">8. Hosting</h2>
+          <p class="text-text-secondary mb-4">
+            Diese Website wird bei Vercel Inc. gehostet. Die Server können sich ausserhalb der Schweiz befinden. 
+            Vercel ist nach EU-US Data Privacy Framework zertifiziert.
+          </p>
+        </>
+      ) : (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">1. Data Controller</h2>
+          <p class="text-text-secondary mb-4">
+            buweb.ch<br/>
+            Basel, Switzerland<br/>
+            Email: contact@buweb.ch<br/>
+            Phone: +41 76 421 84 25
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">2. Collection and Processing of Personal Data</h2>
+          <p class="text-text-secondary mb-4">
+            We collect personal data only when you voluntarily provide it to us, 
+            for example as part of a contact request or sign-up for our services. 
+            Collected data includes name, email address, phone number, and optionally website URL.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">3. Purpose of Data Processing</h2>
+          <p class="text-text-secondary mb-4">
+            We use the data you provide solely to process your inquiries, 
+            deliver our services, and communicate with you.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">4. Disclosure to Third Parties</h2>
+          <p class="text-text-secondary mb-4">
+            We do not share your personal data with third parties unless 
+            required to fulfill our services (e.g., hosting providers) 
+            or we are legally obligated to do so.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">5. Cookies and Tracking</h2>
+          <p class="text-text-secondary mb-4">
+            This website does not use tracking cookies. We use Plausible Analytics, 
+            a privacy-friendly analytics tool that stores no personal data 
+            and is fully GDPR compliant.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">6. Data Security</h2>
+          <p class="text-text-secondary mb-4">
+            We implement appropriate technical and organizational measures 
+            to protect your data from loss, misuse, and unauthorized access. 
+            All data transfers are encrypted via HTTPS.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">7. Your Rights</h2>
+          <p class="text-text-secondary mb-4">
+            You have the right to access, rectify, erase, and restrict processing 
+            of your personal data. Contact us at contact@buweb.ch.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">8. Hosting</h2>
+          <p class="text-text-secondary mb-4">
+            This website is hosted by Vercel Inc. Servers may be located outside Switzerland. 
+            Vercel is certified under the EU-US Data Privacy Framework.
+          </p>
+        </>
+      )}
+    </div>
+  </div>
+</Base>

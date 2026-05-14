@@ -1,0 +1,163 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { 
+  title,
+  description,
+  image = '/og-image.png'
+} = Astro.props;
+
+const lang = Astro.currentLocale || 'en';
+const siteUrl = 'https://buweb.ch';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = new URL(image, siteUrl).href;
+
+const defaultTitle = lang === 'de' 
+  ? 'buweb.ch | SEO Spezialist & Web Entwickler - Schweiz'
+  : 'buweb.ch | SEO Specialist & Web Developer - Switzerland';
+
+const defaultDesc = lang === 'de'
+  ? 'Freelance SEO Spezialist & Web Entwickler in Basel, Schweiz. Ich helfe Unternehmen auf Google Seite 1 mit konvertierenden Websites. 120-Tage Garantie.'
+  : 'Freelance SEO specialist & web developer in Basel, Switzerland. I help businesses rank on Google page 1 with high-converting websites. 120-day guarantee.';
+
+const pageTitle = title ? `${title} | buweb.ch` : defaultTitle;
+const pageDesc = description || defaultDesc;
+
+const enUrl = new URL(getRelativeLocaleUrl('en', Astro.url.pathname), siteUrl).href;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      "name": "buweb.ch",
+      "url": siteUrl,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": { "@type": "EntryPoint", "urlTemplate": `${siteUrl}/?q={search_term_string}` },
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}/#organization`,
+      "name": "buweb.ch",
+      "description": pageDesc,
+      "url": siteUrl,
+      "telephone": "+41764218425",
+      "email": "contact@buweb.ch",
+      "image": `${siteUrl}/og-image.png`,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Basel",
+        "addressLocality": "Basel",
+        "postalCode": "4000",
+        "addressCountry": "CH"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "47.5596",
+        "longitude": "7.5886"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Basel" },
+        { "@type": "City", "name": "Zürich" },
+        { "@type": "City", "name": "Bern" },
+        { "@type": "Country", "name": "Switzerland" }
+      ],
+      "priceRange": "CHF",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": lang === 'de' ? "SEO & Webentwicklung" : "SEO & Web Development",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === 'de' ? "Local SEO Boost" : "Local SEO Boost",
+              "description": lang === 'de' ? "Google Business Profile Optimierung" : "Google Business Profile optimization"
+            },
+            "price": "990",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === 'de' ? "Business Website" : "Business Website",
+              "description": lang === 'de' ? "Professionelle Website mit 5-7 Seiten" : "Professional website with 5-7 pages"
+            },
+            "price": "3900",
+            "priceCurrency": "CHF"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": lang === 'de' ? "SEO + Website Bundle" : "SEO + Website Bundle",
+              "description": lang === 'de' ? "Komplettpaket mit 120-Tage Garantie" : "Complete package with 120-day guarantee"
+            },
+            "price": "4900",
+            "priceCurrency": "CHF"
+          }
+        ]
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+41764218425",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "German"]
+      }
+    }
+  ]
+};
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050505" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{pageTitle}</title>
+<meta name="description" content={pageDesc} />
+<meta name="author" content="buweb.ch" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- llms.txt -->
+<link rel="llms-txt" href="/llms.txt" />
+
+<!-- hreflang -->
+<link rel="alternate" hreflang="en" href={enUrl} />
+<link rel="alternate" hreflang="de" href={new URL(getRelativeLocaleUrl('de', Astro.url.pathname), siteUrl).href} />
+<link rel="alternate" hreflang="x-default" href={enUrl} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:site_name" content="buweb.ch" />
+<meta property="og:locale" content={lang === 'de' ? 'de_CH' : 'en_CH'} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

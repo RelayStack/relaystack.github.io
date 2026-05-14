@@ -1,7 +1,28 @@
+# Dependencies
 node_modules/
+
+# IDE
 .vscode/
-src/
-astro.config.mjs
-tsconfig.json
-package.json
-package-lock.json
+.idea/
+
+# Build outputs
+dist/
+.vercel/output/
+.astro/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Misc
+.cache/
+*.tsbuildinfo

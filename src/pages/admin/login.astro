@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/ui/Button.astro';
+import Input from '../../components/ui/Input.astro';
+
+const lang = Astro.currentLocale || 'en';
+---
+
+<Base title="Admin Login" noHeader noFooter>
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+      <div class="text-center mb-8">
+        <h1 class="text-2xl font-display font-bold mb-2">
+          <span class="text-text-primary">buweb</span><span class="text-accent">.ch</span>
+        </h1>
+        <p class="text-text-muted">Admin Dashboard</p>
+      </div>
+      
+      <div class="bg-bg-card border border-border rounded-xl p-8">
+        <h2 class="text-lg font-semibold mb-6">Sign In</h2>
+        
+        <form id="loginForm" class="space-y-4">
+          <div>
+            <label class="block text-sm text-text-secondary mb-2">Email</label>
+            <Input 
+              type="email" 
+              name="email" 
+              id="loginEmail"
+              placeholder="your@email.com"
+              required
+            />
+          </div>
+          
+          <Button variant="primary" type="submit" class="w-full">
+            Send Magic Link
+          </Button>
+        </form>
+        
+        <p id="loginMessage" class="text-success text-sm mt-4 hidden"></p>
+        <p id="loginError" class="text-error text-sm mt-4 hidden"></p>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('loginEmail').value;
+    const messageEl = document.getElementById('loginMessage');
+    const errorEl = document.getElementById('loginError');
+    
+    messageEl.classList.add('hidden');
+    errorEl.classList.add('hidden');
+    
+    try {
+      // TODO: Implement Supabase Auth magic link
+      // For now, show a message
+      messageEl.textContent = 'Magic link sent! Check your email.';
+      messageEl.classList.remove('hidden');
+    } catch (error) {
+      errorEl.textContent = 'Error sending magic link. Please try again.';
+      errorEl.classList.remove('hidden');
+    }
+  });
+</script>

@@ -1,7 +1,0 @@
-# RelayStack SEO - Robots.txt
-User-agent: *
-Allow: /
-
-Sitemap: https://relaystack.vercel.app/sitemap.xml
-
-# Crawl-delay: 1

@@ -1,0 +1,44 @@
+---
+import Card from '../ui/Card.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+---
+
+<section class="relative py-40 overflow-hidden" id="testimonials">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-primary to-bg-secondary"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[200px]"></div>
+
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-20">
+      <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.testimonials.label}</p>
+      <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal">{t.testimonials.headline}</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {t.testimonials.items.map((item: any, i: number) => (
+        <div class={`reveal reveal-delay-${i + 1}`}>
+          <Card glass class="flex flex-col h-full p-8">
+            <div class="flex text-yellow-500 mb-6 gap-1">
+              {[...Array(5)].map(() => (
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
+            <p class="text-text-secondary italic mb-8 flex-1 leading-relaxed">{item.text}</p>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/5 rounded-full flex items-center justify-center text-accent font-display text-lg">
+                {item.name[0]}
+              </div>
+              <div>
+                <p class="font-medium text-text-primary">{item.name}</p>
+                <p class="text-text-muted text-sm">{item.role}</p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

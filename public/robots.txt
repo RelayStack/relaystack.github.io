@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /admin/
-Disallow: /api/
-
-Sitemap: https://relaystack.vercel.app/sitemap.xml
+Sitemap: https://buweb.ch/sitemap-index.xml

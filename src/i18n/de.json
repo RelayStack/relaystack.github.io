@@ -1,0 +1,255 @@
+{
+  "meta": {
+    "title": "SEO Spezialist & Web Entwickler - Schweiz",
+    "description": "Freelance SEO Spezialist & Web Entwickler in Basel, Schweiz. Ich helfe Unternehmen auf Google Seite 1 mit konvertierenden Websites. 120-Tage Garantie.",
+    "ogImage": "/og-image.png"
+  },
+  "nav": {
+    "services": "Leistungen",
+    "process": "Prozess",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "cta": "Gratis Audit"
+  },
+  "hero": {
+    "badge": "Schweiz-basiert · 10+ Jahre · 120-Tage Garantie",
+    "headline": "Ich bringe Schweizer Unternehmen auf ",
+    "headlineHighlight": "Google Seite 1",
+    "headlineEnd": " in 120 Tagen, oder Sie zahlen nichts.",
+    "subheadline": "SEO (Search Engine Optimization) ist der Prozess, Ihre Website so zu optimieren, dass sie bei Google höher rankt. Laut Backlinko erhält das erste Ergebnis 27,6% aller Klicks — während Seite 2 weniger als 1% erhält. Ich bin ein Basel-basierter SEO-Spezialist mit 10+ Jahren praktischer Erfahrung im Bau schneller, konversionsoptimierter Websites. Keine Agentur. Kein Outsourcing. Nur messbare Ergebnisse.",
+    "ctaPrimary": "Gratis SEO Audit",
+    "ctaSecondary": "Anrufen +41 76 421 84 25",
+    "rating": "50+ zufriedene Kunden",
+    "testimonial": "\"buweb.ch brachte uns von Seite 3 auf Seite 1 in 6 Wochen. Unsere Leads stiegen um 340%. Beste Investition.\"",
+    "testimonialAuthor": "— Thomas M., Basel"
+  },
+  "problem": {
+    "headline": "75% der Nutzer klicken nie auf Seite 2. Jeden Tag, an dem Sie nicht auf Seite 1 sind, stehlen Ihnen Ihre Konkurrenten Kunden.",
+    "stat1": "der Nutzer klicken nie über Seite 1 hinaus (Backlinko, 2024)",
+    "stat2": "der B2B-Käufer starten ihre Recherche mit einer Google-Suche (Google, 2024)",
+    "stat3": "mehr Klicks für Position 1 vs Position 3 (First Page Sage, 2024)",
+    "body": "Suchmaschinenoptimierung (SEO) ist die Praxis, die Sichtbarkeit Ihrer Website auf Suchmaschinen wie Google zu verbessern. Wenn potenzielle Kunden nach Ihren Dienstleistungen suchen, sehen sich 75% nie über die erste Seite hinaus um. Wenn Ihr Unternehmen nicht auf Seite 1 ist, sind Sie praktisch unsichtbar — und diese Unsichtbarkeit kostet Sie jeden Tag Umsatz. Ein typisches Schweizer KMU verliert jährlich CHF 15.000–50.000 durch verpassten organischen Suchverkehr."
+  },
+  "solution": {
+    "label": "DIE LÖSUNG",
+    "headline": "SEO + schnelle Website = mehr Kunden. Ich kümmere mich um alles.",
+    "subheadline": "Technische SEO-Audits, Content-Strategie, Webentwicklung und AI-Automatisierung. Ich baue Websites, die in unter 1 Sekunde laden und innerhalb von 120 Tagen auf Google Seite 1 ranken — garantiert.",
+    "items": [
+      {
+        "title": "Technisches SEO",
+        "desc": "Geschwindigkeitsoptimierung (Core Web Vitals), Mobile-First-Indexierung, strukturierte Daten (Schema.org) und Crawlability-Fixes. Google verwendet seit 2021 die Seitengeschwindigkeit als Ranking-Faktor."
+      },
+      {
+        "title": "Content Strategie",
+        "desc": "Keyword-Recherche, E-E-A-T Content der rankt, und Blogposts optimiert sowohl für traditionelles SEO als auch für AI-Suchmaschinen wie ChatGPT und Perplexity."
+      },
+      {
+        "title": "Web Entwicklung",
+        "desc": "Handcodierte Astro-Sites, die in 0,3s laden, Mobile-First Responsive Design und konversionsoptimierte Layouts, die Leads generieren."
+      },
+      {
+        "title": "AI Plattform Optimierung",
+        "desc": "GEO (Generative Engine Optimization) stellt sicher, dass Ihr Unternehmen von ChatGPT, Google AI Overviews und Perplexity zitiert wird, wenn potenzielle Kunden AI nach Dienstleistungen in Ihrer Branche fragen."
+      }
+    ]
+  },
+  "trust": {
+    "label": "WARUM MIR VERTRAUEN",
+    "headline": "Sie sprechen mit mir. Ich mache die Arbeit.",
+    "body": "Schweiz-basierter Freelance SEO-Spezialist mit über 10 Jahren praktischer Erfahrung. Selbstständig gelernt, kein Bootcamp. Ich persönlich betreue jedes Projekt von Strategie bis Umsetzung. Keine Junioren. Kein Outsourcing.",
+    "features": [
+      { "title": "Technische Expertise", "desc": "Next.js, Astro, TypeScript, Python, Schema.org" },
+      { "title": "SEO Meisterschaft", "desc": "Local SEO, Technisches SEO, Content Strategie, AI Optimierung" },
+      { "title": "AI Automatisierung", "desc": "Individuelle Workflows, Lead-Qualifizierung, Content-Generierung" },
+      { "title": "Lokale Marktkenntnis", "desc": "Basel, Zürich, Bern — DACH-Region Expertise" }
+    ]
+  },
+  "process": {
+    "label": "PROZESS",
+    "headline": "Einfacher 4-Schritte-Prozess",
+    "steps": [
+      { "num": "1", "title": "Discovery Call", "desc": "Kostenloser 30-minütiger Call, um Ihre Ziele zu verstehen, Konkurrenz zu analysieren und Chancen zu identifizieren." },
+      { "num": "2", "title": "Strategie & Angebot", "desc": "Detaillierter Vorschlag mit Zeitplan, Deliverables und transparenten Preisen. Keine versteckten Kosten." },
+      { "num": "3", "title": "Entwicklung & Optimierung", "desc": "Ich entwickle Ihre Site mit integriertem SEO von Tag 1. Wöchentliche Updates und Meilenstein-Reviews." },
+      { "num": "4", "title": "Launch & Skalierung", "desc": "Go-Live mit 120-Tage-Seite-1-Garantie. Laufende Optimierung inklusive." }
+    ]
+  },
+  "services": {
+    "label": "LEISTUNGEN",
+    "headline": "Alles, was Sie brauchen, um die Suche zu dominieren",
+    "subheadline": "Full-Stack-Lösungen, die technische Exzellenz mit Marketingstrategie verbinden.",
+    "items": [
+      {
+        "title": "Suchmaschinenoptimierung",
+        "desc": "Technisches SEO, On-Page-Optimierung, Schema Markup und Content-Strategie. Ich baue Websites, die auf Seite 1 ranken.",
+        "features": ["Technisches Audit & Fixes", "Keyword-Recherche", "Schema Markup", "Core Web Vitals" ]
+      },
+      {
+        "title": "Web Entwicklung",
+        "desc": "Moderne, schnelle Websites, die Besucher in Kunden verwandeln. Gebaut mit Next.js, Astro und Tailwind.",
+        "features": ["Next.js & Astro", "Mobile-First Design", "Konversions-Optimierung", "Performance 90+" ]
+      },
+      {
+        "title": "AI Automatisierung",
+        "desc": "Automatisieren Sie repetitive Aufgaben und sparen Sie 10+ Stunden/Woche mit individuellen AI-Workflows.",
+        "features": ["E-Mail-Automatisierung", "Lead-Qualifizierung", "Content-Generierung", "Individuelle AI-Agenten" ]
+      },
+      {
+        "title": "AI Plattform Optimierung",
+        "desc": "Werden Sie von ChatGPT, Perplexity und Google AI gefunden. Bauen Sie Zitationen, die AI-Systeme empfehlen.",
+        "features": ["Strukturierte Daten", "E-E-A-T Signale", "Zitierbarer Content", "Marken-Mentions-Strategie" ]
+      }
+    ]
+  },
+  "testimonials": {
+    "label": "KUNDENSTIMMEN",
+    "headline": "Was Kunden sagen",
+    "items": [
+      { "text": "\"Von Seite 3 auf Seite 1 in 6 Wochen. Unsere Leads stiegen um 340%. Unglaublicher ROI.\"", "name": "Thomas M.", "role": "CEO, Basel" },
+      { "text": "\"Endlich ein Entwickler, der SEO versteht. Unsere neue Site rankt für 15 Keywords auf Seite 1.\"", "name": "Sarah K.", "role": "Marketing-Leiterin, Zürich" },
+      { "text": "\"Die AI-Automatisierung spart uns 15 Stunden pro Woche. Beste Investition für unser kleines Team.\"", "name": "Markus H.", "role": "Gründer, Bern" }
+    ]
+  },
+  "comparison": {
+    "label": "WARUM EIN FREELANCER?",
+    "headline": "Besser als grosse Agenturen",
+    "subheadline": "Ich habe den Basler Markt recherchiert, damit Sie das nicht müssen. Hier der Vergleich:",
+    "table": {
+      "feature": "Merkmal",
+      "relaystack": "buweb.ch",
+      "agencies": "Grosse Agenturen",
+      "rows": [
+        { "feature": "Standort", "me": "Basel, Schweiz", "them": "Zürich, Zug oder im Ausland" },
+        { "feature": "Seite-1 Garantie", "me": "120 Tage", "them": "Keine" },
+        { "feature": "Einstiegspreis", "me": "CHF 3.900 einmalig", "them": "CHF 1.500+/Monat (mind. 12 Monate)" },
+        { "feature": "Zahlungspläne", "me": "CHF 390/Monat × 10", "them": "Volle Bindung von Anfang an" },
+        { "feature": "Wer macht die Arbeit", "me": "Sie sprechen mit mir — ich mache die Arbeit", "them": "Account Manager → Junior → Outsourced" },
+        { "feature": "Reaktionszeit", "me": "Am selben Tag", "them": "2-3 Werktage" }
+      ]
+    }
+  },
+  "pricing": {
+    "label": "PREISE",
+    "headline": "Investition, die sich bezahlt macht",
+    "subheadline": "Jedes Paket ist darauf ausgelegt, innerhalb von 90 Tagen ROI zu generieren. Keine versteckten Kosten. Keine langfristigen Verträge.",
+    "tiers": [
+      {
+        "name": "Local SEO Boost",
+        "badge": "Schneller Erfolg",
+        "price": "CHF 990",
+        "note": "Einmalig",
+        "features": ["Google Business Profile Optimierung", "5 Brancheneinträge", "NAP-Konsistenz-Check", "Review-Antwort-Vorlagen", "30-Tage Check-in" ],
+        "cta": "Lokal sichtbar werden",
+        "highlight": false
+      },
+      {
+        "name": "Business Website",
+        "badge": "Beliebteste",
+        "price": "CHF 3.900",
+        "note": "oder CHF 390/Monat x 10",
+        "features": ["Professionelle Website (5-7 Seiten)", "Mobile-First + Speed optimiert", "Konversions-Formulare + Tracking", "Schema Markup + GBP Einrichtung", "1 Monat Support", "SEO-Grundlage hinzufugen (+CHF 1.500)" ],
+        "cta": "Website starten",
+        "highlight": true
+      },
+      {
+        "name": "SEO + Website Bundle",
+        "badge": "Bestes Angebot",
+        "price": "CHF 4.900",
+        "note": "oder CHF 490/Monat x 10",
+        "features": ["Alles aus Business Website", "Komplette SEO-Grundlage", "Keyword-Recherche + Content-Briefs", "3 Monate Support", "120-Tage Seite-1 Garantie", "Kein langfristiger Vertrag" ],
+        "cta": "Komplettpaket buchen",
+        "highlight": false
+      }
+    ],
+    "addons": {
+      "label": "Zusatzoptionen",
+      "items": ["Zusatzliche Seite: CHF 300", "Blog-Setup + 3 Posts: CHF 1.200", "Mehrsprachig (FR/IT): CHF 1.500", "E-Commerce (10 Produkte): CHF 1.500" ]
+    },
+    "retainer": {
+      "text": "Kontinuierliches Wachstum nötig? Monatlicher SEO-Retainer ab CHF 790/Monat. 8 Stunden Arbeit, monatliche Reports, kein Mindestvertrag.",
+      "cta": "Retainer besprechen"
+    }
+  },
+  "guarantee": {
+    "title": "120-Tage Seite-1 Garantie",
+    "text": "Wenn Ihre Website nicht innerhalb von 120 Tagen auf Seite 1 kommt, erstatte ich 100% Ihrer Investition. Ohne Wenn und Aber.",
+    "terms": "Bedingungen: Keine gleichzeitige Arbeit mit anderen SEO-Agenturen. Keine Black-Hat-Taktiken."
+  },
+  "faq": {
+    "label": "FAQ",
+    "headline": "Häufige Fragen",
+    "items": [
+      { "q": "Wie lange dauert es bis zu Ergebnissen?", "a": "Die meisten Kunden sehen Verbesserungen innerhalb von 2-4 Wochen. Ich garantiere Seite-1-Rankings innerhalb von 120 Tagen oder Sie erhalten Ihr Geld zurück." },
+      { "q": "Bieten Sie Ratenzahlung an?", "a": "Ja! Sie können in monatlichen Raten zahlen (bis zu 10 Monate) ohne zusätzliche Gebühren." },
+      { "q": "Was wenn ich nicht auf Seite 1 komme?", "a": "Sie erhalten eine volle Rückerstattung. Ohne Wenn und Aber. Ich gewinne nur, wenn Sie gewinnen." },
+      { "q": "Welche Regionen bedienen Sie?", "a": "Ich bin in Basel, Schweiz ansässig und bediene primär die DACH-Region. Ich arbeite remote mit Kunden weltweit." }
+    ]
+  },
+  "form": {
+    "title": "Erhalten Sie Ihr GRATIS Website-Audit",
+    "subtitle": "Entdecken Sie, warum Ihre Konkurrenten besser ranken und wie Sie es beheben. Lieferung innerhalb von 24 Stunden.",
+    "steps": [
+      { "label": "Ihr Geschäft", "title": "Erzählen Sie mir von Ihrem Geschäft" },
+      { "label": "Herausforderung", "title": "Was ist Ihre grösste Herausforderung?" },
+      { "label": "Kontakt", "title": "Wie kann ich Sie erreichen?" }
+    ],
+    "fields": {
+      "website": "Ihre Website URL (optional)",
+      "industry": "Branche",
+      "selectIndustry": "Branche wählen",
+      "challenge": "Was ist Ihre grösste Herausforderung?",
+      "selectChallenge": "Herausforderung wählen",
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "phone": "Telefon (optional)",
+      "budget": "Monatliches Budget (optional)",
+      "timeline": "Zeitrahmen (optional)"
+    },
+    "challenges": [
+      "Zu wenig Leads von Google",
+      "Website ist langsam oder veraltet",
+      "Konkurrenz rankt besser",
+      "Ich tauche nicht in lokaler Suche auf",
+      "Brauche AI Automatisierung"
+    ],
+    "budgets": [
+      { "value": "under500", "label": "Unter CHF 500" },
+      { "value": "500-1000", "label": "CHF 500 - 1.000" },
+      { "value": "1000-3000", "label": "CHF 1.000 - 3.000" },
+      { "value": "3000+", "label": "Über CHF 3.000" }
+    ],
+    "timelines": [
+      { "value": "asap", "label": "So schnell wie möglich" },
+      { "value": "1month", "label": "Innerhalb 1 Monat" },
+      { "value": "3months", "label": "Innerhalb 3 Monate" },
+      { "value": "flexible", "label": "Flexibel" }
+    ],
+    "next": "Weiter",
+    "back": "Zurück",
+    "submit": "Mein Gratis Audit",
+    "submitting": "Wird gesendet...",
+    "disclaimer": "Kein Spam. Keine Kreditkarte nötig. 24h Lieferung.",
+    "errors": {
+      "nameRequired": "Bitte geben Sie Ihren Namen ein",
+      "emailRequired": "Bitte geben Sie eine gültige E-Mail ein",
+      "industryRequired": "Bitte wählen Sie eine Branche"
+    }
+  },
+  "thankYou": {
+    "title": "Vielen Dank!",
+    "message": "Ihre Audit-Anfrage wurde erhalten. Ich schicke Ihr kostenloses SEO-Audit innerhalb von 24 Stunden.",
+    "checkEmail": "Prüfen Sie Ihren Posteingang (und Spam-Ordner) für die Bestätigung.",
+    "cta": "Zurück zur Startseite"
+  },
+  "finalCta": {
+    "headline": "Bereit für mehr Sichtbarkeit?",
+    "subheadline": "Holen Sie sich Ihr kostenloses SEO-Audit und erfahren Sie, was Ihre Website von Seite 1 zurückhält."
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "swiss": "Schweiz-basiert",
+    "exp": "10+ Jahre",
+    "sat": "120-Tage Garantie"
+  }
+}

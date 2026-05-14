@@ -1,0 +1,76 @@
+---
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const icons = [
+  'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  'M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z',
+  'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  'M13 10V3L4 14h7v7l9-11h-7z'
+];
+
+const highlights = [
+  { num: '340%', label: lang === 'de' ? 'Ø Lead-Zuwachs' : 'Avg. Lead Increase' },
+  { num: '50+', label: lang === 'de' ? 'Projekte' : 'Projects' },
+  { num: '120', label: lang === 'de' ? 'Tage Garantie' : 'Day Guarantee' }
+];
+---
+
+<section class="relative py-40 overflow-hidden" id="solution">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-primary to-bg-secondary"></div>
+  <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[200px]"></div>
+
+  <div class="container-custom relative z-10">
+    {/* Header - asymmetric */}
+    <div class="grid lg:grid-cols-12 gap-12 mb-20">
+      <div class="lg:col-span-6">
+        <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.solution.label}</p>
+        <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal leading-tight mb-6">
+          {t.solution.headline}
+        </h2>
+        <p class="reveal reveal-delay-2 text-text-secondary text-lg mb-8 max-w-md">
+          {t.solution.subheadline}
+        </p>
+        <div class="reveal reveal-delay-3">
+          <Button 
+            variant="primary" 
+            size="lg"
+            onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+          >
+            {t.hero.ctaPrimary}
+          </Button>
+        </div>
+      </div>
+
+      {/* Highlights */}
+      <div class="lg:col-span-5 lg:col-start-8 stagger-children flex flex-col justify-center gap-6">
+        {highlights.map((h) => (
+          <div class="glass rounded-2xl p-6 flex items-center gap-6">
+            <div class="text-4xl font-display text-accent">{h.num}</div>
+            <div class="text-text-secondary">{h.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Service Cards - asymmetric grid */}
+    <div class="grid md:grid-cols-2 gap-6">
+      {t.solution.items.map((item: any, i: number) => (
+        <div class={`reveal ${i % 2 === 1 ? 'reveal-delay-1' : ''}`}>
+          <Card glass hover class="h-full p-10 group">
+            <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-transparent rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={icons[i]}/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-display font-normal mb-4">{item.title}</h3>
+            <p class="text-text-secondary leading-relaxed">{item.desc}</p>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

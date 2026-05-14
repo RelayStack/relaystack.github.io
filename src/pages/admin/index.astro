@@ -1,0 +1,169 @@
+---
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+
+const lang = Astro.currentLocale || 'en';
+
+// Mock data - will be replaced with real data from Supabase
+const leads = [
+  { id: '1', name: 'John Doe', email: 'john@example.com', industry: 'restaurants', status: 'new', lead_score: 85, created_at: '2026-04-21' },
+  { id: '2', name: 'Jane Smith', email: 'jane@example.com', industry: 'lawyers', status: 'contacted', lead_score: 120, created_at: '2026-04-20' },
+];
+
+const statusColors: Record<string, string> = {
+  new: 'bg-blue-500',
+  contacted: 'bg-yellow-500',
+  qualified: 'bg-green-500',
+  proposal_sent: 'bg-purple-500',
+  closed_won: 'bg-emerald-500',
+  closed_lost: 'bg-red-500',
+};
+---
+
+<Base title="Admin Dashboard" noHeader noFooter>
+  <div class="min-h-screen bg-bg-secondary">
+    {/* Header */}
+    <header class="bg-bg-primary border-b border-border px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <h1 class="text-xl font-display font-bold">
+            <span class="text-text-primary">buweb</span><span class="text-accent">.ch</span>
+          </h1>
+          <span class="text-text-muted">|</span>
+          <span class="text-text-secondary">Admin</span>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-text-muted text-sm">contact@buweb.ch</span>
+          <Button variant="secondary" size="sm" href="/">Exit</Button>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex">
+      {/* Sidebar */}
+      <aside class="w-64 bg-bg-primary border-r border-border min-h-screen p-4 hidden md:block">
+        <nav class="space-y-2">
+          <a href="#" class="flex items-center gap-3 px-4 py-2 bg-accent/10 text-accent rounded-lg">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+            Leads
+          </a>
+          <a href="#" class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:bg-bg-elevated rounded-lg transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+            Analytics
+          </a>
+          <a href="#" class="flex items-center gap-3 px-4 py-2 text-text-secondary hover:bg-bg-elevated rounded-lg transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            Settings
+          </a>
+        </nav>
+      </aside>
+
+      {/* Main Content */}
+      <main class="flex-1 p-6">
+        {/* Stats */}
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <Card class="p-4">
+            <p class="text-text-muted text-sm mb-1">Total Leads</p>
+            <p class="text-2xl font-display font-bold">{leads.length}</p>
+          </Card>
+          <Card class="p-4">
+            <p class="text-text-muted text-sm mb-1">New This Week</p>
+            <p class="text-2xl font-display font-bold text-accent">2</p>
+          </Card>
+          <Card class="p-4">
+            <p class="text-text-muted text-sm mb-1">Hot Leads</p>
+            <p class="text-2xl font-display font-bold text-green-500">1</p>
+          </Card>
+          <Card class="p-4">
+            <p class="text-text-muted text-sm mb-1">Conversion Rate</p>
+            <p class="text-2xl font-display font-bold">--%</p>
+          </Card>
+        </div>
+
+        {/* Filters */}
+        <div class="flex flex-wrap gap-4 mb-6">
+          <select class="px-4 py-2 bg-bg-card border border-border rounded-lg text-text-primary focus:border-accent focus:outline-none">
+            <option value="">All Status</option>
+            <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="qualified">Qualified</option>
+            <option value="closed_won">Closed Won</option>
+          </select>
+          <select class="px-4 py-2 bg-bg-card border border-border rounded-lg text-text-primary focus:border-accent focus:outline-none">
+            <option value="">All Industries</option>
+            <option value="restaurants">Restaurants</option>
+            <option value="lawyers">Lawyers</option>
+            <option value="trades">Trades</option>
+            <option value="ecommerce">E-Commerce</option>
+            <option value="healthcare">Healthcare</option>
+          </select>
+          <input 
+            type="text" 
+            placeholder="Search leads..."
+            class="px-4 py-2 bg-bg-card border border-border rounded-lg text-text-primary placeholder-text-muted focus:border-accent focus:outline-none"
+          />
+        </div>
+
+        {/* Leads Table */}
+        <Card class="overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead class="bg-bg-elevated">
+                <tr>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Name</th>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Industry</th>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Score</th>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Status</th>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Date</th>
+                  <th class="px-6 py-3 text-xs font-medium text-text-muted uppercase">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-border">
+                {leads.map((lead) => (
+                  <tr class="hover:bg-bg-elevated/50 transition-colors">
+                    <td class="px-6 py-4">
+                      <div>
+                        <p class="font-medium text-text-primary">{lead.name}</p>
+                        <p class="text-sm text-text-muted">{lead.email}</p>
+                      </div>
+                    </td>
+                    <td class="px-6 py-4">
+                      <span class="capitalize text-text-secondary">{lead.industry}</span>
+                    </td>
+                    <td class="px-6 py-4">
+                      <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${lead.lead_score >= 100 ? 'bg-red-500/20 text-red-500' : lead.lead_score >= 75 ? 'bg-yellow-500/20 text-yellow-500' : 'bg-blue-500/20 text-blue-500'}`}>
+                        {lead.lead_score}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4">
+                      <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white ${statusColors[lead.status] || 'bg-gray-500'}`}>
+                        {lead.status}
+                      </span>
+                    </td>
+                    <td class="px-6 py-4 text-text-secondary text-sm">
+                      {lead.created_at}
+                    </td>
+                    <td class="px-6 py-4">
+                      <button class="text-accent hover:text-accent-hover text-sm font-medium">
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Card>
+      </main>
+    </div>
+  </div>
+</Base>

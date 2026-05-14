@@ -1,0 +1,91 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = Astro.currentLocale || 'en';
+
+const nav = {
+  en: {
+    services: 'Services',
+    process: 'Process',
+    pricing: 'Pricing',
+    faq: 'FAQ',
+    cta: 'Get FREE Audit'
+  },
+  de: {
+    services: 'Leistungen',
+    process: 'Prozess',
+    pricing: 'Preise',
+    faq: 'FAQ',
+    cta: 'Gratis Audit'
+  }
+}[lang];
+
+const otherLang = lang === 'en' ? 'de' : 'en';
+const otherLangLabel = lang === 'en' ? 'DE' : 'EN';
+const currentPath = Astro.url.pathname.replace(/^\/(en|de)\//, '/').replace(/^\/$/, '/');
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent" id="main-header">
+  <div class="container-custom">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href={getRelativeLocaleUrl(lang, '/')} class="group relative z-10">
+        <span class="text-xl md:text-2xl font-bold tracking-tight font-body">
+          <span class="text-text-primary group-hover:text-accent transition-colors duration-300">buweb</span>
+          <span class="text-accent">.ch</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-10">
+        <a href="#services" class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-300 relative group">
+          {nav.services}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#process" class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-300 relative group">
+          {nav.process}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#pricing" class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-300 relative group">
+          {nav.pricing}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="#faq" class="text-sm text-text-secondary hover:text-text-primary transition-colors duration-300 relative group">
+          {nav.faq}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        
+        <a 
+          href={getRelativeLocaleUrl(otherLang, currentPath)}
+          class="px-3 py-1.5 text-xs font-medium text-text-muted border border-border rounded-full hover:border-accent hover:text-accent transition-all duration-300"
+        >
+          {otherLangLabel}
+        </a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-4">
+        <a 
+          href="#audit"
+          class="magnetic hidden sm:inline-flex items-center gap-2 px-6 py-3 bg-accent text-white text-sm font-medium rounded-full hover:bg-accent-hover transition-colors duration-300"
+          onclick="document.dispatchEvent(new CustomEvent('openLeadForm')); return false;"
+        >
+          {nav.cta}
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
+        
+        <a 
+          href={getRelativeLocaleUrl(otherLang, currentPath)}
+          class="md:hidden px-3 py-1.5 text-xs font-medium text-text-muted border border-border rounded-full hover:border-accent hover:text-accent transition-all duration-300"
+        >
+          {otherLangLabel}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer -->
+<div class="h-20"></div>

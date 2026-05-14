@@ -1,0 +1,99 @@
+---
+import Button from '../ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const stepDetails = [
+  {
+    deliverables: lang === 'de' 
+      ? ['SEO-Score Report', 'Konkurrenz-Analyse', 'Keyword-Opportunities']
+      : ['SEO Score Report', 'Competitor Analysis', 'Keyword Opportunities'],
+    duration: '30 min'
+  },
+  {
+    deliverables: lang === 'de'
+      ? ['Detaillierter Plan', 'Transparentes Angebot', 'Zeitplan']
+      : ['Detailed Plan', 'Transparent Quote', 'Timeline'],
+    duration: '48h'
+  },
+  {
+    deliverables: lang === 'de'
+      ? ['Wöchentliche Updates', 'SEO-Integration', 'Performance-Optimierung']
+      : ['Weekly Updates', 'SEO Integration', 'Performance Optimization'],
+    duration: '2-4 Wochen'
+  },
+  {
+    deliverables: lang === 'de'
+      ? ['Seite-1 Garantie', 'Monatliche Reports', 'Kontinuierliches Wachstum']
+      : ['Page 1 Guarantee', 'Monthly Reports', 'Continuous Growth'],
+    duration: '120 Tage'
+  }
+];
+---
+
+<section class="relative py-40 overflow-hidden" id="process">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-primary to-bg-secondary"></div>
+  
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-24">
+      <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.process.label}</p>
+      <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal mb-6">{t.process.headline}</h2>
+      <p class="reveal reveal-delay-2 text-text-secondary text-lg max-w-2xl mx-auto">
+        {lang === 'de' 
+          ? 'Ein bewährter Prozess, der Ergebnisse liefert — nicht nur Versprechen.'
+          : 'A proven process that delivers results — not just promises.'}
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto">
+      {t.process.steps.map((step: any, i: number) => (
+        <div class="reveal relative flex gap-8 mb-16 last:mb-0">
+          {/* Connector line */}
+          {i < 3 && (
+            <div class="absolute left-[31px] top-20 w-px h-[calc(100%+4rem)] bg-gradient-to-b from-accent/50 to-transparent"></div>
+          )}
+          
+          {/* Number */}
+          <div class="shrink-0 w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shadow-lg shadow-accent/20 z-10">
+            <span class="text-white font-display text-2xl">{step.num}</span>
+          </div>
+          
+          {/* Content */}
+          <div class="flex-1 pb-8">
+            <div class="glass rounded-2xl p-8 hover:border-accent/30 transition-all duration-500 group">
+              <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                <h3 class="text-2xl font-display font-normal group-hover:text-accent transition-colors duration-300">{step.title}</h3>
+                <span class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 text-accent text-sm rounded-full font-mono">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  {stepDetails[i].duration}
+                </span>
+              </div>
+              <p class="text-text-secondary mb-6">{step.desc}</p>
+              
+              <div class="flex flex-wrap gap-2">
+                {stepDetails[i].deliverables.map((d: string) => (
+                  <span class="px-4 py-2 bg-white/5 border border-white/10 rounded-full text-sm text-text-muted">
+                    {d}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="reveal text-center mt-20">
+      <Button 
+        variant="primary" 
+        size="lg"
+        onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+      >
+        {lang === 'de' ? 'Jetzt Discovery Call buchen' : 'Book Discovery Call Now'}
+      </Button>
+    </div>
+  </div>
+</section>

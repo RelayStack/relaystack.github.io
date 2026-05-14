@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/sections/Hero.astro';
+import Problem from '../components/sections/Problem.astro';
+import Solution from '../components/sections/Solution.astro';
+import Trust from '../components/sections/Trust.astro';
+import Process from '../components/sections/Process.astro';
+import Services from '../components/sections/Services.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Comparison from '../components/sections/Comparison.astro';
+import Pricing from '../components/sections/Pricing.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+import FreeAuditTool from '../components/sections/FreeAuditTool.astro';
+import LeadForm from '../components/forms/LeadForm.astro';
+
+const t = await import('../i18n/en.json').then(m => m.default);
+---
+
+<Base 
+  title={t.meta.title}
+  description={t.meta.description}
+>
+  <Hero />
+  <Problem />
+  <Solution />
+  <Trust />
+  <Process />
+  <Services />
+  <Testimonials />
+  <Comparison />
+  <Pricing />
+  <FAQ />
+  <FinalCTA />
+  <FreeAuditTool />
+  <LeadForm />
+</Base>

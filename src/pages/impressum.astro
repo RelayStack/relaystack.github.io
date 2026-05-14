@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+
+const lang = Astro.currentLocale || 'en';
+const isDe = lang === 'de';
+
+const title = isDe ? 'Impressum' : 'Legal Notice';
+const description = isDe 
+  ? 'Impressum von buweb.ch. Rechtliche Informationen gemäss Schweizer Recht.'
+  : 'Legal notice of buweb.ch. Legal information according to Swiss law.';
+---
+
+<Base title={title} description={description}>
+  <div class="container-custom py-20 max-w-3xl">
+    <div class="mb-12">
+      <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">{title}</h1>
+      <p class="text-text-muted text-sm">
+        {isDe ? 'Pflichtangaben gemäss Schweizer Recht' : 'Mandatory information according to Swiss law'}
+      </p>
+    </div>
+
+    <div class="prose prose-invert max-w-none">
+      <div class="glass-strong rounded-2xl p-8 mb-12">
+        <h2 class="text-2xl font-display font-bold mb-6">{isDe ? 'Kontakt' : 'Contact'}</h2>
+        <div class="space-y-4 text-text-secondary">
+          <p>
+            <strong class="text-text-primary">{isDe ? 'Unternehmen' : 'Company'}:</strong><br/>
+            buweb.ch
+          </p>
+          <p>
+            <strong class="text-text-primary">{isDe ? 'Rechtsform' : 'Legal Form'}:</strong><br/>
+            {isDe ? 'Einzelunternehmen' : 'Sole proprietorship'}
+          </p>
+          <p>
+            <strong class="text-text-primary">{isDe ? 'Anschrift' : 'Address'}:</strong><br/>
+            Basel, Schweiz
+          </p>
+          <p>
+            <strong class="text-text-primary">{isDe ? 'E-Mail' : 'Email'}:</strong><br/>
+            <a href="mailto:contact@buweb.ch" class="text-accent hover:underline">contact@buweb.ch</a>
+          </p>
+          <p>
+            <strong class="text-text-primary">{isDe ? 'Telefon' : 'Phone'}:</strong><br/>
+            <a href="tel:+41764218425" class="text-accent hover:underline">+41 76 421 84 25</a>
+          </p>
+          <p>
+            <strong class="text-text-primary">Website:</strong><br/>
+            <a href="https://buweb.ch" class="text-accent hover:underline">https://buweb.ch</a>
+          </p>
+        </div>
+      </div>
+
+      {isDe ? (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">Haftungsausschluss</h2>
+          <p class="text-text-secondary mb-4">
+            Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt erstellt. 
+            Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte übernehmen wir jedoch keine Gewähr.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">Urheberrecht</h2>
+          <p class="text-text-secondary mb-4">
+            Die auf dieser Website veröffentlichten Inhalte und Werke unterliegen dem schweizerischen Urheberrecht. 
+            Jede Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung ausserhalb der Grenzen 
+            des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">Externe Links</h2>
+          <p class="text-text-secondary mb-4">
+            Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. 
+            Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+          </p>
+        </>
+      ) : (
+        <>
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">Liability Disclaimer</h2>
+          <p class="text-text-secondary mb-4">
+            The content of this website has been created with the greatest possible care. 
+            However, we do not guarantee the accuracy, completeness, or timeliness of the content.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">Copyright</h2>
+          <p class="text-text-secondary mb-4">
+            The content and works published on this website are subject to Swiss copyright law. 
+            Any duplication, processing, distribution, or any form of commercialization beyond 
+            the scope of copyright law requires the prior written consent of the respective author or creator.
+          </p>
+
+          <h2 class="text-2xl font-display font-bold mt-12 mb-4">External Links</h2>
+          <p class="text-text-secondary mb-4">
+            This website contains links to external third-party websites over whose content we have no influence. 
+            Therefore, we cannot assume any liability for these external contents.
+          </p>
+        </>
+      )}
+    </div>
+  </div>
+</Base>

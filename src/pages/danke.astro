@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import Button from '../components/ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../i18n/${lang}.json`).then(m => m.default);
+---
+
+<Base noHeader>
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="text-center max-w-xl">
+      <div class="w-20 h-20 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-8">
+        <svg class="w-10 h-10 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+        </svg>
+      </div>
+      
+      <h1 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        {t.thankYou.title}
+      </h1>
+      
+      <p class="text-text-secondary text-lg mb-2">
+        {t.thankYou.message}
+      </p>
+      
+      <p class="text-text-muted mb-8">
+        {t.thankYou.checkEmail}
+      </p>
+      
+      <Button href="/" variant="primary">
+        {t.thankYou.cta}
+      </Button>
+    </div>
+  </div>
+</Base>

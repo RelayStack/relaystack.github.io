@@ -1,0 +1,165 @@
+---
+import { getAllIndustries, getIndustryData } from '../../lib/industry-data';
+import Base from '../../layouts/Base.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import Badge from '../../components/ui/Badge.astro';
+import LeadForm from '../../components/forms/LeadForm.astro';
+
+export function getStaticPaths() {
+  return getAllIndustries().map(industry => ({
+    params: { industry }
+  }));
+}
+
+const { industry } = Astro.params;
+const data = getIndustryData(industry as any);
+const lang = Astro.currentLocale || 'en';
+
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const title = data.headline[lang];
+const description = data.subheadline[lang];
+
+const pageTitle = lang === 'de'
+  ? `SEO für ${industry} in der Schweiz — buweb.ch`
+  : `SEO for ${industry} in Switzerland — buweb.ch`;
+const pageDesc = lang === 'de'
+  ? `Professionelles SEO für ${industry} in Basel, Zürich und Bern. 120-Tage Seite-1 Garantie. Kostenloses Audit.`
+  : `Professional SEO for ${industry} in Basel, Zürich & Bern. 120-day page 1 guarantee. Free audit.`;
+---
+
+<Base title={pageTitle} description={pageDesc}>
+  {/* Hero Section */}
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent pointer-events-none"></div>
+    
+    <div class="container-custom relative z-10 text-center py-20">
+      <Badge variant="accent" class="mb-6">
+        {lang === 'de' ? 'Branchen-spezifisches SEO' : 'Industry-Specific SEO'}
+      </Badge>
+      
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6 max-w-4xl mx-auto">
+        {title}
+      </h1>
+      
+      <p class="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10">
+        {description}
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button 
+          variant="primary" 
+          size="lg"
+          onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+        >
+          {t.hero.ctaPrimary}
+        </Button>
+        <Button 
+          variant="outline" 
+          size="lg"
+          href="tel:+41764218425"
+        >
+          {t.hero.ctaSecondary}
+        </Button>
+      </div>
+      
+      {/* Stats */}
+      <div class="grid grid-cols-3 gap-4 max-w-xl mx-auto">
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">{data.stats.conversion}</p>
+          <p class="text-xs text-text-muted">{data.stats.conversionLabel[lang]}</p>
+        </div>
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">{data.stats.revenue}</p>
+          <p class="text-xs text-text-muted">{data.stats.revenueLabel[lang]}</p>
+        </div>
+        <div class="bg-bg-card p-4 rounded-lg">
+          <p class="text-2xl font-display font-bold text-accent">120</p>
+          <p class="text-xs text-text-muted">{lang === 'de' ? 'Tage Garantie' : 'Day Guarantee'}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Pain Points */}
+  <section class="section-padding bg-bg-secondary">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <Badge variant="default" class="mb-4">
+          {lang === 'de' ? 'DAS PROBLEM' : 'THE PROBLEM'}
+        </Badge>
+        <h2 class="text-3xl md:text-4xl font-display font-bold">
+          {lang === 'de' ? `Warum ${industry} bei Google verlieren` : `Why ${industry} lose on Google`}
+        </h2>
+      </div>
+      
+      <div class="space-y-4 max-w-3xl mx-auto">
+        {data.painPoints.map((point: any, i: number) => (
+          <Card class="flex gap-4 items-start">
+            <div class="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+              <span class="text-accent font-bold text-sm">{i + 1}</span>
+            </div>
+            <p class="text-text-secondary">{point[lang]}</p>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* Solution Process */}
+  <section class="section-padding">
+    <div class="container-custom">
+      <div class="text-center mb-12">
+        <Badge variant="accent" class="mb-4">
+          {lang === 'de' ? 'MEINE METHODE' : 'MY METHOD'}
+        </Badge>
+        <h2 class="text-3xl md:text-4xl font-display font-bold">
+          {lang === 'de' ? '4 Schritte zu mehr Erfolg' : '4 steps to more success'}
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        {[
+          { num: '1', title: lang === 'de' ? 'Analyse & Audit' : 'Analysis & Audit', desc: lang === 'de' ? 'Ich analysiere Ihre aktuelle Situation und Konkurrenz.' : 'I analyze your current situation and competitors.' },
+          { num: '2', title: lang === 'de' ? 'Strategie' : 'Strategy', desc: lang === 'de' ? 'Maßgeschneiderte Strategie für Ihre Branche.' : 'Tailored strategy for your industry.' },
+          { num: '3', title: lang === 'de' ? 'Umsetzung' : 'Implementation', desc: lang === 'de' ? 'Technische Optimierung und Content.' : 'Technical optimization and content.' },
+          { num: '4', title: lang === 'de' ? 'Wachstum' : 'Growth', desc: lang === 'de' ? 'Kontinuierliche Optimierung und Reporting.' : 'Continuous optimization and reporting.' }
+        ].map((step) => (
+          <Card class="flex gap-4">
+            <div class="w-12 h-12 bg-accent rounded-lg flex items-center justify-center shrink-0">
+              <span class="text-white font-display font-bold">{step.num}</span>
+            </div>
+            <div>
+              <h3 class="font-semibold text-text-primary mb-1">{step.title}</h3>
+              <p class="text-text-secondary text-sm">{step.desc}</p>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA */}
+  <section class="section-padding bg-bg-secondary text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">
+        {lang === 'de' ? 'Bereit für mehr Erfolg?' : 'Ready for more success?'}
+      </h2>
+      <p class="text-text-secondary mb-8 max-w-xl mx-auto">
+        {lang === 'de' 
+          ? `Holen Sie sich Ihr kostenloses SEO-Audit speziell für ${industry}.`
+          : `Get your free SEO audit specifically for ${industry}.`}
+      </p>
+      <Button 
+        variant="primary" 
+        size="lg"
+        onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+      >
+        {t.hero.ctaPrimary}
+      </Button>
+    </div>
+  </section>
+
+  <LeadForm />
+</Base>

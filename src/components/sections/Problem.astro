@@ -1,0 +1,131 @@
+---
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+---
+
+<section class="relative py-40 overflow-hidden" id="problem">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary via-bg-primary to-bg-secondary"></div>
+  <div class="absolute top-1/2 left-0 w-[600px] h-[600px] bg-red-500/5 rounded-full blur-[200px] -translate-y-1/2"></div>
+
+  <div class="container-custom relative z-10">
+    {/* Header - asymmetric layout */}
+    <div class="grid lg:grid-cols-12 gap-12 mb-24">
+      <div class="lg:col-span-5">
+        <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.problem.label}</p>
+        <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal leading-tight">
+          {lang === 'de' 
+            ? 'Jeden Tag verlieren Sie Kunden an Ihre Konkurrenz'
+            : 'Every day you lose customers to your competitors'}
+        </h2>
+      </div>
+      <div class="lg:col-span-5 lg:col-start-8 flex items-end">
+        <p class="reveal reveal-delay-2 text-text-secondary text-lg leading-relaxed">
+          {t.problem.body}
+        </p>
+      </div>
+    </div>
+
+    {/* Stats - large editorial numbers */}
+    <div class="grid md:grid-cols-3 gap-8 mb-24">
+      <div class="reveal group">
+        <Card glass class="h-full p-12 text-center relative overflow-hidden hover-lift">
+          <div class="relative z-10">
+            <div class="text-8xl md:text-9xl font-display text-red-500/80 mb-4 leading-none">75<span class="text-5xl">%</span></div>
+            <p class="text-text-secondary text-lg">{t.problem.stat1}</p>
+            <div class="mt-6 w-full h-px bg-gradient-to-r from-transparent via-red-500/30 to-transparent"></div>
+          </div>
+        </Card>
+      </div>
+      
+      <div class="reveal reveal-delay-1 group">
+        <Card glass class="h-full p-12 text-center relative overflow-hidden hover-lift">
+          <div class="relative z-10">
+            <div class="text-8xl md:text-9xl font-display text-orange-500/80 mb-4 leading-none">67<span class="text-5xl">%</span></div>
+            <p class="text-text-secondary text-lg">{t.problem.stat2}</p>
+            <div class="mt-6 w-full h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent"></div>
+          </div>
+        </Card>
+      </div>
+      
+      <div class="reveal reveal-delay-2 group">
+        <Card glass class="h-full p-12 text-center relative overflow-hidden hover-lift">
+          <div class="relative z-10">
+            <div class="text-8xl md:text-9xl font-display text-accent/80 mb-4 leading-none">3×</div>
+            <p class="text-text-secondary text-lg">{t.problem.stat3}</p>
+            <div class="mt-6 w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent"></div>
+          </div>
+        </Card>
+      </div>
+    </div>
+
+    {/* Calculator - editorial card */}
+    <div class="reveal max-w-4xl mx-auto">
+      <Card glass class="p-12 border-gradient">
+        <h3 class="text-3xl font-display text-center mb-10">
+          {lang === 'de' ? 'Was kostet Sie Unsichtbarkeit?' : 'What does invisibility cost you?'}
+        </h3>
+        <div class="grid md:grid-cols-3 gap-8 mb-10">
+          <div>
+            <label class="block text-sm text-text-muted mb-3 font-medium">{lang === 'de' ? 'Kundenwert (CHF)' : 'Customer Value (CHF)'}</label>
+            <input 
+              type="number" 
+              id="customerValue" 
+              value="3000"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary text-lg focus:border-accent focus:outline-none transition-colors"
+              oninput="calculateLoss()"
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-text-muted mb-3 font-medium">{lang === 'de' ? 'Verlorene Kunden/Monat' : 'Lost Customers/Month'}</label>
+            <input 
+              type="number" 
+              id="lostCustomers" 
+              value="5"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary text-lg focus:border-accent focus:outline-none transition-colors"
+              oninput="calculateLoss()"
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-text-muted mb-3 font-medium">{lang === 'de' ? 'Monate/Jahr' : 'Months/Year'}</label>
+            <input 
+              type="number" 
+              id="monthsPerYear" 
+              value="12"
+              class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-text-primary text-lg focus:border-accent focus:outline-none transition-colors"
+              oninput="calculateLoss()"
+            />
+          </div>
+        </div>
+        <div class="p-8 bg-gradient-to-r from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-2xl text-center">
+          <p class="text-text-secondary mb-2 text-sm uppercase tracking-wider">{lang === 'de' ? 'Jährlicher Umsatzverlust' : 'Annual Revenue Loss'}</p>
+          <p id="lossAmount" class="text-5xl md:text-6xl font-display text-red-400">CHF 180,000</p>
+        </div>
+      </Card>
+    </div>
+
+    {/* CTA */}
+    <div class="reveal text-center mt-16">
+      <p class="text-text-secondary mb-6 text-lg">{lang === 'de' ? 'Stoppen Sie den Blutverlust.' : 'Stop the bleeding.'}</p>
+      <Button 
+        variant="primary" 
+        size="lg"
+        onclick="document.dispatchEvent(new CustomEvent('openLeadForm'))"
+      >
+        {t.hero.ctaPrimary}
+      </Button>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  function calculateLoss() {
+    const value = parseFloat(document.getElementById('customerValue').value) || 3000;
+    const lost = parseFloat(document.getElementById('lostCustomers').value) || 5;
+    const months = parseFloat(document.getElementById('monthsPerYear').value) || 12;
+    const total = value * lost * months;
+    document.getElementById('lossAmount').textContent = 'CHF ' + total.toLocaleString();
+  }
+</script>

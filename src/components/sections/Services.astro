@@ -1,0 +1,53 @@
+---
+import Card from '../ui/Card.astro';
+
+const lang = Astro.currentLocale || 'en';
+const t = await import(`../../i18n/${lang}.json`).then(m => m.default);
+
+const icons = [
+  'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  'M13 10V3L4 14h7v7l9-11h-7z'
+];
+---
+
+<section class="relative py-40 overflow-hidden" id="services">
+  <div class="absolute inset-0 bg-gradient-to-b from-bg-secondary to-bg-primary"></div>
+  
+  <div class="container-custom relative z-10">
+    <div class="text-center mb-20">
+      <p class="reveal text-accent text-sm font-medium tracking-wider uppercase mb-4">{t.services.label}</p>
+      <h2 class="reveal reveal-delay-1 text-4xl md:text-5xl lg:text-6xl font-display font-normal mb-6">
+        {t.services.headline}
+      </h2>
+      <p class="reveal reveal-delay-2 text-text-secondary text-lg max-w-2xl mx-auto">
+        {t.services.subheadline}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {t.services.items.map((service: any, i: number) => (
+        <div class={`reveal ${i % 2 === 1 ? 'reveal-delay-1' : ''}`}>
+          <Card glass hover class="p-10 group">
+            <div class="w-14 h-14 bg-accent/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-accent/20 transition-colors duration-500">
+              <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={icons[i]}/>
+              </svg>
+            </div>
+            <h3 class="text-2xl font-display font-normal mb-4">{service.title}</h3>
+            <p class="text-text-secondary mb-8 leading-relaxed">{service.desc}</p>
+            <ul class="space-y-3">
+              {service.features.map((feature: string) => (
+                <li class="flex items-center gap-3 text-sm text-text-muted">
+                  <span class="w-1.5 h-1.5 bg-accent rounded-full shrink-0"></span>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
