@@ -103,4 +103,4 @@ Ja — Antworten erhöhen die Sichtbarkeit des Profils und sind das, was neue Ku
 
 ---
 
-*Passende Leistung: [Lokale SEO](/leistungen/lokale-seo/) — Unternehmensprofil, Bewertungsprozess und Website-Angaben auf einen Stand bringen.*
+*Passende Leistung: [Lokale SEO](/leistungen/lokale-sichtbarkeit/) — Unternehmensprofil, Bewertungsprozess und Website-Angaben auf einen Stand bringen.*

@@ -33,8 +33,8 @@ const navItems =
     : [
         { href: "/leistungen/", label: "Leistungen" },
         { href: "/preise/", label: "Preise" },
-        { href: "/referenzen/", label: "Referenzen" },
-        { href: "/wissen/", label: "Wissen" },
+        { href: "/referenzen/", label: "Referenzen", secondary: true },
+        { href: "/wissen/", label: "Wissen", secondary: true },
         { href: "/kontakt/", label: "Kontakt" },
       ];
 
@@ -86,13 +86,18 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
         <nav class="nav" aria-label={lang === "en" ? "Main navigation" : "Hauptnavigation"}>
           {
             navItems.map((item) => (
-              <a href={item.href} aria-current={isCurrent(item.href) ? "page" : undefined}>
+              <a
+                href={item.href}
+                data-secondary={item.secondary ? "" : undefined}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
                 {item.label}
               </a>
             ))
           }
           <a class="tape tape--sm" href={site.telegram} rel="me" style="--rot:-0.7deg">
-            {lang === "en" ? "Ask on Telegram" : "Auf Telegram fragen"}
+            <span class="nav__wide">{lang === "en" ? "Ask on Telegram" : "Auf Telegram fragen"}</span>
+            <span class="nav__narrow">{lang === "en" ? "Telegram" : "Telegram"}</span>
           </a>
         </nav>
       </div>

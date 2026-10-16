@@ -3,40 +3,42 @@
  * The mechanism, drawn. A schematic rather than a photograph: it explains how a
  * question becomes an answer, which is the whole product. Pure geometry in the
  * world's own palette — no invented data, nothing that pretends to be a chart.
+ *
+ * Two drawings, not one that scrolls: on a phone the horizontal flow hid both
+ * payload nodes ("IHRE SEITE", "DIE ANTWORT") behind an inner horizontal scroll.
+ * The narrow version stacks the same four steps vertically and keeps the last
+ * line, in that order, on screen.
  */
+const label = "Eine Frage erreicht Google oder einen KI-Assistenten. Beide lesen, was maschinenlesbar auf der Seite steht: Sitemap, strukturierte Daten und zitierfähige Absätze. Daraus entsteht die Antwort.";
 ---
 <div class="mech">
   <svg
+    class="mech__wide"
     viewBox="0 0 1160 400"
     role="img"
-    aria-label="Eine Frage erreicht Google oder einen KI-Assistenten. Beide lesen, was maschinenlesbar auf der Seite steht: Sitemap, strukturierte Daten und zitierfähige Absätze. Daraus entsteht die Antwort."
+    aria-label={label}
     font-family="Archivo Narrow, Archivo, sans-serif"
   >
     <defs>
-      <marker id="mech-arrow" viewBox="0 0 10 10" refX="9" refY="5"
-              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <marker id="ma" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
         <path d="M0 0 L10 5 L0 10 z" fill="#1b1b1e"/>
       </marker>
     </defs>
 
-    <!-- the question -->
     <rect x="8" y="150" width="196" height="76" fill="none" stroke="#1b1b1e" stroke-width="2"/>
     <text x="106" y="196" text-anchor="middle" font-size="26" font-weight="700" fill="#16181c" letter-spacing="1">DIE FRAGE</text>
     <text x="106" y="252" text-anchor="middle" font-size="19" fill="#5a5750">„Wer macht das bei mir?“</text>
 
-    <line x1="212" y1="188" x2="288" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+    <line x1="212" y1="188" x2="288" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#ma)"/>
 
-    <!-- the two readers -->
     <rect x="296" y="96" width="232" height="60" fill="#1b1b1e"/>
     <text x="412" y="134" text-anchor="middle" font-size="24" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">GOOGLE</text>
-
     <rect x="296" y="222" width="232" height="60" fill="#1b1b1e"/>
     <text x="412" y="260" text-anchor="middle" font-size="24" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">KI-ASSISTENT</text>
 
-    <line x1="536" y1="126" x2="608" y2="176" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
-    <line x1="536" y1="252" x2="608" y2="202" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+    <line x1="536" y1="126" x2="608" y2="176" stroke="#1b1b1e" stroke-width="2" marker-end="url(#ma)"/>
+    <line x1="536" y1="252" x2="608" y2="202" stroke="#1b1b1e" stroke-width="2" marker-end="url(#ma)"/>
 
-    <!-- what both of them can read -->
     <rect x="616" y="84" width="238" height="210" fill="#dedbd4" stroke="#1b1b1e" stroke-width="2"/>
     <text x="735" y="120" text-anchor="middle" font-size="19" font-weight="700" fill="#16181c" letter-spacing="1.6">IHRE SEITE</text>
     <line x1="636" y1="136" x2="834" y2="136" stroke="#1b1b1e" stroke-width="1"/>
@@ -46,25 +48,70 @@
       <text x="640" y="252">· zitierfähige Absätze</text>
     </g>
 
-    <line x1="862" y1="188" x2="930" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+    <line x1="862" y1="188" x2="930" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#ma)"/>
 
-    <!-- the answer -->
     <rect x="938" y="150" width="214" height="76" fill="#e2542a"/>
     <text x="1045" y="196" text-anchor="middle" font-size="26" font-weight="700" fill="#1b1b1e" letter-spacing="1">DIE ANTWORT</text>
     <text x="1045" y="256" text-anchor="middle" font-size="19" fill="#5a5750">genannt, oder nicht</text>
 
-    <!-- the part nobody can skip -->
     <line x1="8" y1="330" x2="1152" y2="330" stroke="#cfccc4" stroke-width="1"/>
-    <text x="8" y="364" font-size="19" fill="#5a5750">
-      Ohne Indexierung gibt es nichts zu zitieren: erst gefunden, dann genannt.
-    </text>
+    <text x="8" y="364" font-size="19" fill="#5a5750">Ohne Indexierung gibt es nichts zu zitieren: erst gefunden, dann genannt.</text>
+  </svg>
+
+  <svg
+    class="mech__tall"
+    viewBox="0 0 420 660"
+    role="img"
+    aria-label={label}
+    font-family="Archivo Narrow, Archivo, sans-serif"
+  >
+    <defs>
+      <marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="#1b1b1e"/>
+      </marker>
+    </defs>
+
+    <rect x="86" y="14" width="248" height="58" fill="none" stroke="#1b1b1e" stroke-width="2"/>
+    <text x="210" y="52" text-anchor="middle" font-size="24" font-weight="700" fill="#16181c" letter-spacing="1">DIE FRAGE</text>
+    <text x="210" y="96" text-anchor="middle" font-size="17" fill="#5a5750">„Wer macht das bei mir?“</text>
+
+    <line x1="210" y1="110" x2="210" y2="140" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mb)"/>
+
+    <rect x="70" y="146" width="280" height="52" fill="#1b1b1e"/>
+    <text x="210" y="180" text-anchor="middle" font-size="23" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">GOOGLE</text>
+    <rect x="70" y="210" width="280" height="52" fill="#1b1b1e"/>
+    <text x="210" y="244" text-anchor="middle" font-size="23" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">KI-ASSISTENT</text>
+
+    <line x1="210" y1="270" x2="210" y2="300" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mb)"/>
+
+    <rect x="46" y="306" width="328" height="182" fill="#dedbd4" stroke="#1b1b1e" stroke-width="2"/>
+    <text x="210" y="342" text-anchor="middle" font-size="18" font-weight="700" fill="#16181c" letter-spacing="1.6">IHRE SEITE</text>
+    <line x1="68" y1="358" x2="352" y2="358" stroke="#1b1b1e" stroke-width="1"/>
+    <g font-size="18" fill="#3c3f45">
+      <text x="72" y="394">· Sitemap</text>
+      <text x="72" y="428">· strukturierte Daten</text>
+      <text x="72" y="462">· zitierfähige Absätze</text>
+    </g>
+
+    <line x1="210" y1="496" x2="210" y2="526" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mb)"/>
+
+    <rect x="86" y="532" width="248" height="58" fill="#e2542a"/>
+    <text x="210" y="570" text-anchor="middle" font-size="24" font-weight="700" fill="#1b1b1e" letter-spacing="1">DIE ANTWORT</text>
+
+    <line x1="0" y1="606" x2="420" y2="606" stroke="#cfccc4" stroke-width="1"/>
+    <text x="0" y="632" font-size="14" fill="#5a5750">Ohne Indexierung gibt es nichts zu zitieren.</text>
+    <text x="0" y="652" font-size="14" fill="#5a5750">Erst gefunden, dann genannt.</text>
   </svg>
 </div>
 
 <style>
-  .mech svg { width: 100%; height: auto; display: block; }
+  .mech svg { width: 100%; height: auto; }
+  /* Set per class, not on `.mech svg` — that selector out-specifies both
+     classes and would show both drawings at every width. */
+  .mech__wide { display: block; }
+  .mech__tall { display: none; }
   @media (max-width: 52rem) {
-    .mech svg { min-width: 640px; }
-    .mech { overflow-x: auto; }
+    .mech__wide { display: none; }
+    .mech__tall { display: block; }
   }
 </style>

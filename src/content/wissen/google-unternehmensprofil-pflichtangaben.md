@@ -86,4 +86,4 @@ Nein. Google nennt das „Keyword Stuffing“ und kann das Profil sperren. Der N
 
 ---
 
-*Passende Leistung: [Lokale SEO](/leistungen/lokale-seo/) — Profil, Website und Verzeichnisse auf einen Stand bringen.*
+*Passende Leistung: [Lokale SEO](/leistungen/lokale-sichtbarkeit/) — Profil, Website und Verzeichnisse auf einen Stand bringen.*

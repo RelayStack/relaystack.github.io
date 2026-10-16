@@ -21,3 +21,8 @@ dist/
 # is tracked because it regenerates a published asset; these two are not.
 scripts/shoot.mjs
 scripts/measure.mjs
+
+# The product record and the design system. Kept at the project root so the
+# design tooling can find them, and deliberately not published.
+PRODUCT.md
+DESIGN.md

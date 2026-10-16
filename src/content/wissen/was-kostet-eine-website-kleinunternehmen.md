@@ -86,4 +86,4 @@ Ja. Ihr Google-Unternehmensprofil und Ihre Social-Profile sind fremde Plattforme
 
 ---
 
-*Passende Leistung: [Website erstellen lassen](/leistungen/astro-website/) — Festpreis, ohne laufende Plugin-Kosten. Oder sehen Sie sich die [Preise](/preise/) an.*
+*Passende Leistung: [Website erstellen lassen](/leistungen/website/) — Festpreis, ohne laufende Plugin-Kosten. Oder sehen Sie sich die [Preise](/preise/) an.*

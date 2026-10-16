@@ -34,6 +34,10 @@ jobs:
           for f in dist/sitemap.xml dist/robots.txt dist/llms.txt; do
             test -s "$f" || { echo "missing or empty: $f"; exit 1; }
           done
+      # Three articles shipped 404s to non-existent service slugs. Nothing was
+      # checking internal links at all.
+      - name: No broken internal links
+        run: node scripts/check-links.mjs
       - uses: actions/upload-pages-artifact@v5
         with:
           path: dist

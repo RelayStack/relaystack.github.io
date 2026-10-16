@@ -25,8 +25,13 @@ npm run dev        # http://localhost:4321
 npm run build      # -> dist/
 npm run preview    # serve the built output
 npm run check      # astro check: types, content schemas, a11y hints
-npm run verify     # check + README price sync + build, the same gates CI runs
+npm run verify     # check + README price sync + build + link check — the gates CI runs
+npm run study      # measure a domain list; see below
 ```
+
+`PRODUCT.md` and `DESIGN.md` sit at the project root so the design tooling can find them, and are
+**gitignored** — they record product truth and the visual system, and are deliberately not
+published.
 
 ## Editing the business
 
@@ -162,5 +167,33 @@ src/
 public/
   fonts/                 variable woff2
   og-card.png            generated; see above
-scripts/og-card.mjs      regenerates it
+scripts/
+  og-card.mjs            regenerates the share card (needs puppeteer, installed ad hoc)
+  sync-readme.mjs        splices the price table into README.md from src/config.ts
+  check-links.mjs        fails on any internal link whose target does not exist
+  visibility-study.mjs   measures a list of sites; see "The visibility study" below
 ```
+
+## The visibility study
+
+`scripts/visibility-study.mjs` measures, for a list of real business websites, whether a search
+engine or an assistant can read and quote them: HTTPS, viewport, meta description, canonical,
+structured data (including LocalBusiness and FAQPage), sitemap, `llms.txt`, whether `robots.txt`
+blocks AI crawlers, and page weight.
+
+```bash
+npm run study data/domains.txt --out data/study-2026.json
+```
+
+The input is one domain per line, optionally `domain,country,sector`. It runs sequentially,
+rate-limits itself, identifies itself in the user agent, and reads only public pages.
+
+**Two limits it will not hide, and a published study must state both:**
+
+1. **It does not measure AI mentions.** That needs model API keys and a fixed prompt set. The
+   generated summary says so explicitly, so the numbers cannot be reported as AI visibility.
+2. **It reads server-rendered HTML only.** Sites that inject JSON-LD with JavaScript are counted as
+   having none. It understates and never overstates.
+
+Nothing here is a substitute for the sample: the domain list has to be a real, defined population,
+and the study is only as honest as that list.
