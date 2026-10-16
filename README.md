@@ -1,164 +1,97 @@
-# relaystack.github.io
+# Websites und SEO für Handwerk, Praxen und lokale Betriebe
 
-The RelayStack marketing site — **https://relaystack.github.io/**
+**Sichtbar bei Google — und in KI-Antworten.** Für Unternehmen in Deutschland, Österreich
+und der Schweiz. Festpreise, gemessene Werte, kein Baukasten.
 
-Websites and SEO visibility for the German-speaking market (Germany, Austria, Switzerland).
-German at the root, English at `/en/`.
+**[→ Live ansehen](https://relaystack.github.io/)** · **[→ Auf Telegram fragen](https://t.me/relaystack)**
 
-## Stack
-
-- **Astro 7**, static output. One runtime dependency; two dev dependencies.
-- **Zero client-side JavaScript.** The counters below are from the built output, not an aspiration.
-- **Self-hosted variable fonts** (Archivo, Archivo Narrow). No `fonts.googleapis.com`, so there is no
-  third-party request and therefore no cookie banner.
-- Native endpoints for `sitemap.xml`, `robots.txt` and `llms.txt` — no `@astrojs/sitemap`, so the
-  URL list is explicit and reviewable.
-
-```
-19 pages built   0 JS files   10.6 KB stylesheet   368 KB total
-astro check      0 errors, 0 warnings, 0 hints
-```
-
-## Running it
-
-```bash
-npm install
-npm run dev        # http://localhost:4321
-npm run build      # -> dist/
-npm run preview    # serve the built output
-npm run check      # astro check: types, content schemas, a11y hints
-```
-
-## Editing the business
-
-**`src/config.ts` is the one file that matters.** Business name, the Telegram contact, the service
-area, the published prices, and the market research the prices were placed against. The footer,
-the schema, the price page and `llms.txt` all read from it, so they cannot contradict each other.
-
-Prices are the owner's own numbers, sitting against recorded market figures rather than invented
-ones. The euro price is converted at a stated rate — if you change it, change the rate note too.
-
-## Adding a service
-
-Drop a Markdown file in `src/content/leistungen/`. The filename becomes the URL.
-
-```md
----
-seoTitle: "Website erstellen lassen – Festpreis, wartungsfrei"   # <title>
-h1: "Website erstellen lassen"                                    # on-page heading
-title: Website                                                    # short name for nav and lists
-description: 50–220 characters. Becomes the meta description and the llms.txt line.
-summary: One sentence for listings.
-order: 1
-includes:
-  - "A concrete, checkable inclusion"
-faqs:
-  - q: A question a customer actually asks
-    a: A short, self-contained answer.
 ---
 
-Body copy. The FAQ frontmatter is emitted as FAQPage schema **and** rendered as a
-`<details>` block from the same source, so the two can never disagree.
-```
+## Das Problem in einem Satz
 
-Then add the matching entry to `prices` in `src/config.ts`, and add the route to
-`src/pages/sitemap.xml.ts` (the collection pages are picked up automatically; the static list is not).
+Die meisten Betriebe haben eine Website, aber keine Anfragen. Nicht weil die Seite schlecht
+aussieht, sondern weil Google und KI-Assistenten nicht auslesen können, was dort steht: welche
+Leistung, welcher Ort, welche Öffnungszeiten, was es kostet.
 
-## Adding an article
+Zwei Dinge entscheiden darüber, ob Sie gefunden werden. Beide sind messbar:
 
-Drop a Markdown file in `src/content/wissen/`. Same pattern, no `includes`. Extra frontmatter keys
-are allowed and ignored. The leading `#` heading is rendered by the layout, so start the body with
-the answer — the first paragraph is the part assistants quote.
+| | Was zählt | Woran es meistens scheitert |
+| --- | --- | --- |
+| **Google** | Sitemap, Indexierung, zitierfähige Inhalte, ein vollständiges Unternehmensprofil | eine Sammelseite für sechs Leistungen statt je einer Seite |
+| **KI-Assistenten** | strukturierte Angaben, klare Antwortabsätze, `llms.txt` | nichts davon vorhanden, also wird die Konkurrenz genannt |
 
-## How the SEO files are generated
+## Leistungen und Preise
 
-All three read the same content collections the pages do:
+Alle Preise als Festpreis. Euro-Preis zum Kurs 1 EUR = 0.93 CHF. Jede Zahl steht mit
+Marktvergleich auf der [Preisseite](https://relaystack.github.io/preise/).
 
-| File | Source |
-| --- | --- |
-| `sitemap.xml` | static route list + both collections, with `lastmod` |
-| `robots.txt` | AI crawlers allowed on purpose — blocking them removes you from AI answers |
-| `llms.txt` | services, prices, articles and contact details |
+| Leistung | Preis | Worum es geht |
+| --- | --- | --- |
+| **Website** | **CHF 3’200** / EUR 3’450 | Fünf bis acht Seiten, eine eigene Seite je Leistung, statisch ausgeliefert. Keine Plugins, keine Wartungsrechnung. |
+| **Lokale Sichtbarkeit** | **CHF 2’400** / EUR 2’600 | Google-Unternehmensprofil, Ortsseiten, ein Bewertungsweg ohne Anreize. |
+| **KI-Sichtbarkeit** | **CHF 1’600** / EUR 1’700 | Gemessen, was Assistenten über Sie sagen — fünf Abfragen je Modell, mit Datum. |
+| **Betreuung** | **CHF 890** / EUR 950 pro Monat | Inhalte pflegen, monatlich messen, kleine Änderungen inklusive. |
+| **Website + Lokale Sichtbarkeit** | **CHF 5’100** / EUR 5’500 | Beides zusammen, 500 Franken weniger. |
 
-`/impressum/` is excluded from the sitemap and set to `noindex` until its mandatory details are
-filled in. Nothing else is.
+Zur Einordnung: Freelancer verlangen für eine siebenseitige Website im Schnitt CHF 2’100,
+Kleinagenturen CHF 6’800 ([Preisstudie Zürich 2026](https://relaystack.github.io/preise/)).
 
-## Deploying
+## Was ich veröffentliche
 
-Push to `main`. `.github/workflows/deploy.yml` builds, verifies that `sitemap.xml`, `robots.txt`
-and `llms.txt` exist and are non-empty, and deploys to GitHub Pages. A build that ships without
-them fails rather than publishing.
+Ohne Kundenstimmen bleibt der Code die Referenz — und der ist nachprüfbar:
 
-One-time setup, already done for this repo: **Settings → Pages → Source = GitHub Actions**. It must
-not be left on "Deploy from a branch" — that mode serves files straight from the branch without
-running a build, which is why this repo's Pages previously sat in an errored state with a 404.
+- **[astro-seo-toolkit](https://github.com/RelayStack/astro-seo-toolkit)** — `llms.txt`, Sitemap,
+  `robots.txt`, JSON-LD und IndexNow für Astro. Auf npm, 33 Tests, keine Abhängigkeiten.
+- **[astro-local-business](https://github.com/RelayStack/astro-local-business)** — Vorlage für
+  lokale Dienstleister: Leistungen und Orte als Inhalte, Schema und Sitemap beim Build.
+- **[smmscout-data](https://github.com/RelayStack/smmscout-data)** — offener Datensatz mit 129
+  Anbietern, gemessener Latenz und Risikowerten.
 
-## The share card
+Kundenstimmen, Kundennamen und Prozentwerte aus fremden Projekten veröffentliche ich nicht. Nicht
+weil es keine gäbe, sondern weil ich dafür die schriftliche Einwilligung des Betriebs bräuchte.
+Die geprüften Zahlen bekommen Sie im Gespräch.
 
-`public/og-card.png` is committed, but it is generated — `/og-card/` is a real page rendered by the
-site's own stylesheet and typefaces, then captured at exactly 1200×630. Regenerate it after any
-change to the headline or the palette:
+## Was nicht wirkt
 
-```bash
-npm run preview            # in one terminal
-npm i --no-save puppeteer  # in another
-node scripts/og-card.mjs
-```
+Das steht hier, weil es sonst niemand schreibt:
 
-Puppeteer is deliberately not a dependency: the deploy runs `npm ci` and should not download a
-browser.
+- **`llms.txt` bringt nichts bei Google.** Google liest die Datei nicht. Sie wirkt auf Assistenten.
+  Wer sie Ihnen als Ranking-Hebel verkauft, verkauft Ihnen eine Datei.
+- **Keine Garantie auf Nennung.** KI-Antworten sind nicht deterministisch. Ich kann die Grundlagen
+  herstellen, aber nicht versprechen, dass ein Modell Sie morgen nennt.
+- **Keine Zahl ohne Quelle.** Die einzigen Zahlen auf dieser Seite sind Marktdaten mit Herkunft.
 
-## Design rules
+## So läuft es ab
 
-The site is built in one world — the embossed label tape of a German workshop — and these rules are
-what hold it together. Breaking one is a decision, not an edit.
+1. **Sie schreiben** — zwei Sätze: was Sie anbieten und wo. Über
+   [Telegram](https://t.me/relaystack), kein Formular.
+2. **Ich messe** — Ladezeit, strukturierte Daten, Unternehmensprofil, Nennung in KI-Antworten.
+   Kostenlos, Ergebnis mit Datum.
+3. **Wir entscheiden** — auf Basis der Messung, nicht auf Basis eines Verkaufsgesprächs. Wenn sich
+   nichts lohnt, sage ich das.
 
-- **The tape strip is the only container.** Headings, section labels and actions are tape. There are
-  no cards, no pills and no rounded panels anywhere.
-- **One orange strip per screen, and it is always the action.** The accent is functional.
-- **Two faces, both self-hosted.** Tape and display type is Archivo Narrow; text is Archivo.
-- **Depth is the tape's own lift and emboss.** Nothing else casts a shadow.
-- **No JavaScript.** Interaction is `<details>`, `:target` and scroll-driven CSS, all of which
-  degrade to something that still works.
+## Diese Seite selbst
 
-## Content rules
+Gebaut mit Astro, statisch ausgeliefert, **0 KB JavaScript**, Schriftarten selbst gehostet, keine
+Tracker und damit kein Zustimmungsfenster. Gemessen: 19 Seiten, 10.6 KB CSS, 368 KB gesamt —
+weil ich das messe, was ich verkaufe.
 
-These are correctness rules, not preferences. The site's credibility rests on them.
+---
 
-- **No location is published.** No city, no canton, no region. The business is explicitly remote.
-- **No invented proof.** No testimonials, no client names, no percentages, no guarantees, no
-  years-of-experience claims. Client work is described by sector only.
-- **Illustrative values are labelled as such.** Any example measurement on the site carries a visible
-  note saying it is not real client data.
-- **Numbers cite their source.** Market figures come with an attribution or they do not ship.
-- **The Impressum must be completed before commercial use.** A DACH Impressum requires a name and an
-  address; the page is a marked draft until those exist.
+<details>
+<summary><strong>Für Entwickler — Aufbau, Deployment, Mitbauen</strong></summary>
 
-## Structure
+Die Entwicklerdokumentation steht in **[DEVELOPING.md](DEVELOPING.md)**: Stack, lokale Einrichtung,
+wo Geschäftsdaten und Preise liegen, wie eine Leistung oder ein Artikel angelegt wird, wie die
+SEO-Dateien entstehen, wie deployed wird und welche Gestaltungs- und Inhaltsregeln das Projekt
+zusammenhalten.
 
-```
-src/
-  config.ts              business facts, prices, market research  ← edit this first
-  content.config.ts      collection schemas
-  content/
-    leistungen/          one Markdown file per service
-    wissen/              articles
-  lib/schema.ts          Organization, Service, FAQPage, BreadcrumbList
-  components/            Header-less bits: Footer, JsonLd, IconTelegram, Mechanism
-  layouts/Base.astro     head, meta, nav, canonical, hreflang
-  pages/                 routes; sitemap.xml.ts, robots.txt.ts, llms.txt.ts, og-card.astro
-  styles/                fonts.css (self-hosted faces), global.css (the design system)
-public/
-  fonts/                 variable woff2
-  og-card.png            generated; see above
-scripts/og-card.mjs      regenerates it
-```
+</details>
 
-## Licence
+## Rechtliches
 
-Proprietary — all rights reserved. This is a business site, not a template; the design, copy and
-pricing are not for reuse.
+Impressum und Datenschutzerklärung: [relaystack.github.io/impressum](https://relaystack.github.io/impressum/) ·
+[relaystack.github.io/datenschutz](https://relaystack.github.io/datenschutz/)
 
-The open-source tooling it links to is separate and MIT licensed:
-[`astro-seo-toolkit`](https://github.com/RelayStack/astro-seo-toolkit) and
-[`astro-local-business`](https://github.com/RelayStack/astro-local-business).
+Dieses Repository enthält den Quellcode der geschäftlichen Website. Er ist nicht zur
+Wiederverwendung freigegeben. Die oben verlinkten Werkzeuge stehen unter MIT-Lizenz.
