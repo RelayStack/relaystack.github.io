@@ -14,7 +14,8 @@
 
   /* The tape. */
   --tape: #1b1b1e;
-  --tape-2: #26262a;
+  --tape: #1b1b1e;
+  --emboss: #f5f4f0;
   --emboss: #f5f4f0;
   --tape-hi: rgba(255, 255, 255, 0.16);
   --tape-lo: rgba(0, 0, 0, 0.55);
@@ -75,6 +76,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+/* Measured values and prices are tabular: columns of digits must line up. */
+.price, .market, .year, .hero__area, code { font-variant-numeric: tabular-nums; }
 
 /* Browser surfaces carry the design too. */
 ::selection { background: var(--signal); color: var(--tape); }
@@ -284,7 +288,7 @@ a.tape--signal:hover, a.tape--signal:focus-visible {
 .year {
   font-family: var(--face-tape);
   font-weight: 700;
-  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-size: var(--t-3);
   line-height: 0.9;
   letter-spacing: 0.02em;
   color: var(--ink);
@@ -399,7 +403,7 @@ a.tape--signal:hover, a.tape--signal:focus-visible {
 
 @media (max-width: 60rem) {
   .hero__body { grid-template-columns: 1fr; }
-  .tape--display { white-space: normal; font-size: clamp(2.1rem, 9vw, 3.2rem); }
+  .tape--display { white-space: normal; }
   .pricerows > li { grid-template-columns: 1fr; gap: 0.75rem; }
   .price { text-align: left; }
   .market li { grid-template-columns: 1fr; gap: 0.3rem; }

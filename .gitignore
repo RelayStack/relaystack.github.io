@@ -12,5 +12,8 @@ dist/
 .impeccable/build/
 
 # Development-only: Impeccable artifacts and the local screenshot helper
-.impeccable/
+# Development-only Impeccable artifacts. The documented design system ships;
+# mocks, review captures, build state and the direction contract do not.
+.impeccable/*
+!.impeccable/design.json
 scripts/shoot.mjs
