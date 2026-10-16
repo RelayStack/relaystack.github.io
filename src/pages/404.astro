@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../config";
+---
+<Base
+  title="Seite nicht gefunden"
+  description="Diese Adresse existiert nicht. Zurück zur Startseite oder direkt über Telegram fragen."
+  noindex={true}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1.2deg;font-size:var(--t-3)">
+        404 — die Seite gibt es nicht
+      </h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Diese Adresse führt nirgendwo hin. Vielleicht hat sie sich geändert, vielleicht hat sie
+        nie existiert.
+      </p>
+      <p style="margin-top:2rem">
+        <a class="tape tape--md" href="/" style="--rot:-0.5deg">Zur Startseite</a>
+      </p>
+      <p style="margin-top:1.5rem">
+        <a class="tape tape--md" href="/leistungen/" style="--rot:0.6deg">Leistungen</a>
+      </p>
+      <p style="margin-top:1.5rem">
+        <a class="tape tape--md tape--signal" href={site.telegram} rel="me" style="--rot:-0.4deg">
+          Auf Telegram fragen
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

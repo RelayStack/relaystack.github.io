@@ -1,0 +1,13 @@
+---
+interface Props {
+  schemas?: unknown[];
+}
+const { schemas = [] } = Astro.props;
+// Escape "<" so a value can never close the script element early.
+const json = (v: unknown) => JSON.stringify(v).replace(/</g, "\\u003c");
+---
+{
+  schemas.filter(Boolean).map((schema) => (
+    <script type="application/ld+json" set:html={json(schema)} />
+  ))
+}

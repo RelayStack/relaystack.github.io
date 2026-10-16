@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { site, prices } from "../../config";
+import { organization, breadcrumbs } from "../../lib/schema";
+
+const items = (await getCollection("leistungen")).sort((a, b) => a.data.order - b.data.order);
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Leistungen", path: "/leistungen/" },
+  ]),
+];
+---
+<Base title="Leistungen" description="Vier Leistungen: Website, lokale Sichtbarkeit, KI-Sichtbarkeit und Betreuung. Jede mit Preis und Umfang." schemas={schemas}>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Leistungen</h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Vier Dinge, die aufeinander aufbauen. Die Website ist die Grundlage, lokale Sichtbarkeit
+        bringt die Anfragen aus der Umgebung, KI-Sichtbarkeit die aus Assistenten. Betreuung
+        hält alles mit dem deckungsgleich, was Sie tatsächlich tun.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          items.map((entry) => {
+            const price = prices.find((p) => p.slug === entry.id);
+            return (
+              <li>
+                <div>
+                  <h2 style="font-size:var(--t-1);margin-bottom:0.35rem">
+                    <a href={`/leistungen/${entry.id}/`}>{entry.data.title}</a>
+                  </h2>
+                  <p>{entry.data.summary}</p>
+                </div>
+                {price && (
+                  <div class="price">
+                    <b>CHF {price.chf}</b>
+                    <span class="eur">EUR {price.eur}</span>
+                    <em>{price.unit}</em>
+                  </div>
+                )}
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

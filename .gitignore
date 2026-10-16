@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+.DS_Store
+*.log
+
+# Impeccable build/review artefacts stay local
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/build/
+
+# Development-only: Impeccable artifacts and the local screenshot helper
+.impeccable/
+scripts/shoot.mjs

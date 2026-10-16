@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { site } from "../../config";
+import { organization, breadcrumbs } from "../../lib/schema";
+
+const items = (await getCollection("wissen")).sort((a, b) => a.data.title.localeCompare(b.data.title));
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Wissen", path: "/wissen/" },
+  ]),
+];
+---
+<Base
+  title="Wissen"
+  description="Erklärungen zu Website-Kosten, Google-Unternehmensprofil und Bewertungen — in der Sprache, in der Unternehmer danach suchen."
+  schemas={schemas}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Wissen</h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Drei Fragen, die mir am häufigsten gestellt werden, ausführlich beantwortet. Ohne
+        Verkaufsanhang und ohne erfundene Zahlen.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          items.map((entry) => (
+            <li style="grid-template-columns:1fr">
+              <div>
+                <h2 style="font-size:var(--t-1);margin-bottom:0.35rem">
+                  <a href={`/wissen/${entry.id}/`}>{entry.data.title}</a>
+                </h2>
+                <p>{entry.data.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</Base>

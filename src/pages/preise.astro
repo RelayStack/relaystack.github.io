@@ -1,0 +1,136 @@
+---
+import Base from "../layouts/Base.astro";
+import { site, prices, bundle } from "../config";
+import { organization, breadcrumbs } from "../lib/schema";
+
+const schemas = [
+  organization({
+    makesOffer: prices.map((p) => ({
+      "@type": "Offer",
+      name: p.name,
+      price: p.chf,
+      priceCurrency: "CHF",
+      description: p.summary,
+    })),
+  }),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Preise", path: "/preise/" },
+  ]),
+];
+---
+<Base
+  title="Preise"
+  description="Preise für Website, lokale Sichtbarkeit, KI-Sichtbarkeit und Betreuung — mit dem Marktvergleich, aus dem sie abgeleitet sind."
+  schemas={schemas}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Preise</h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Festpreise in Franken, mit dem Euro-Preis daneben. Keine Stundenzettel, keine
+        Nachträge, keine Pauschale für etwas, das nicht passiert ist.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          prices.map((p) => (
+            <li>
+              <div>
+                <h2 style="font-size:var(--t-2)">
+                  <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
+                </h2>
+                <p>{p.summary}</p>
+                <ul>
+                  {p.includes.map((i) => (
+                    <li>{i}</li>
+                  ))}
+                </ul>
+              </div>
+              <div class="price">
+                <b>CHF {p.chf}</b>
+                <span class="eur">EUR {p.eur}</span>
+                <em>{p.unit}</em>
+              </div>
+            </li>
+          ))
+        }
+        <li>
+          <div>
+            <h2 style="font-size:var(--t-2)">{bundle.name}</h2>
+            <p>{bundle.note}</p>
+          </div>
+          <div class="price">
+            <b>CHF {bundle.chf}</b>
+            <span class="eur">EUR {bundle.eur}</span>
+            <em>zusammen</em>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.6deg">Woher diese Zahlen kommen</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Fast jede Agentur im deutschsprachigen Raum schreibt «auf Anfrage». Ich schreibe die
+        Preise hin und dazu, wo der Markt liegt — damit Sie beide Zahlen haben und selbst
+        einordnen können, ob das teuer ist.
+      </p>
+
+      <ul class="market" style="margin-top:1.75rem">
+        {
+          site.market.map((m) => (
+            <li>
+              <b>{m.label}</b>
+              <span>
+                {m.detail}
+                <small>Quelle: {m.source}</small>
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="note" style="margin-top:1.75rem">
+        Marktwerte aus öffentlich zugänglichen Preisübersichten und Umfragen 2026, nicht aus
+        einem amtlichen Verzeichnis — ein solches gibt es für SEO-Preise nicht. Angaben sind
+        Orientierung, keine geprüften Durchschnitte.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.6deg">Was die Preise nicht enthalten</h2>
+      <div class="prose" style="margin-top:1.5rem">
+        <p>
+          Domain und Hosting laufen auf Ihren Namen und werden direkt bei Ihrem Anbieter
+          bezahlt. Kostet üblicherweise 50 bis 150 Franken im Jahr, je nach Anbieter.
+        </p>
+        <p>
+          Texte und Bilder: Wenn Sie sie liefern, ist es im Preis. Muss ich sie schreiben oder
+          fotografieren lassen, kommt das dazu — mit Betrag, bevor es losgeht.
+        </p>
+        <p>
+          Größere Umbauten in der Betreuung. Alles über etwa einer Stunde Arbeit wird separat
+          angeboten, nicht stillschweigend eingerechnet.
+        </p>
+        <p>
+          Mehrwertsteuer: Die Zahlen sind ohne MwSt. beziehungsweise ohne Schweizer MWST.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p style="margin:0">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Auf Telegram fragen
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

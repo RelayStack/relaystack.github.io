@@ -1,0 +1,408 @@
+/* ===========================================================================
+   Werkstattbeschriftung — the workshop labelling system.
+
+   One container in this world: the embossed tape strip. Headings, section
+   labels, navigation and the single action are all tape, stuck on a painted
+   steel wall. There are no cards, no pills and no rounded panels.
+   =========================================================================== */
+
+:root {
+  /* The wall: painted steel sheeting, warm light grey. */
+  --wall: #e7e5df;
+  --wall-seam: #dcd9d1;
+  --wall-deep: #dedbd4;
+
+  /* The tape. */
+  --tape: #1b1b1e;
+  --tape-2: #26262a;
+  --emboss: #f5f4f0;
+  --tape-hi: rgba(255, 255, 255, 0.16);
+  --tape-lo: rgba(0, 0, 0, 0.55);
+
+  /* One orange strip per screen, and it is always the action. */
+  --signal: #e2542a;
+  --signal-deep: #c8451d;
+
+  --ink: #16181c;
+  --ink-2: #5a5750; /* tinted from the wall hue, never neutral grey */
+  --rule: #cfccc4;
+
+  --wrap: 72rem;
+  --gutter: clamp(1.15rem, 4.5vw, 3rem);
+
+  --t--1: 0.855rem;
+  --t-0: 1.02rem;
+  --t-1: 1.3rem;
+  --t-2: 1.75rem;
+  --t-3: 2.45rem;
+  --t-4: clamp(2.6rem, 6.2vw, 5.5rem); /* display, stays under 6rem */
+
+  --face-tape: "Archivo Narrow", "Archivo", sans-serif;
+  --face-text: "Archivo", system-ui, sans-serif;
+
+  --lift: 0 10px 22px -8px rgba(27, 27, 30, 0.4), 0 2px 5px rgba(27, 27, 30, 0.16);
+  --lift-hi: 0 16px 30px -10px rgba(27, 27, 30, 0.46), 0 3px 7px rgba(27, 27, 30, 0.2);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--tape) var(--wall-deep);
+  /* The headline tape is meant to run past both edges. `clip` rather than
+     `hidden`: it prevents a horizontal scrollbar without creating a scroll
+     container, so the sticky header keeps working. */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--face-text);
+  font-size: var(--t-0);
+  line-height: 1.62;
+  color: var(--ink);
+  background-color: var(--wall);
+  /* Painted steel: horizontal sheeting seams. One axis, material only. */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 118px,
+    var(--wall-seam) 118px 119px
+  );
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Browser surfaces carry the design too. */
+::selection { background: var(--signal); color: var(--tape); }
+:focus-visible {
+  outline: 3px solid var(--tape);
+  outline-offset: 3px;
+}
+input, textarea, select, button { caret-color: var(--signal); font: inherit; }
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; }
+
+h1, h2, h3, h4 {
+  font-family: var(--face-tape);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+p { margin: 0 0 1.1em; max-width: 70ch; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 600; }
+
+/* --------------------------------------------------------------------------
+   The tape strip. The only container in this world.
+   -------------------------------------------------------------------------- */
+
+.tape {
+  --rot: -1.1deg;
+  display: inline-block;
+  position: relative;
+  background: var(--tape);
+  color: var(--emboss);
+  font-family: var(--face-tape);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  padding: 0.62em 1.05em 0.66em;
+  border-radius: 2px;
+  box-shadow: var(--lift), inset 0 1px 0 var(--tape-hi);
+  transform: rotate(var(--rot));
+  text-decoration: none;
+  /* Raised letters: light catches the top edge, shadow falls below. */
+  text-shadow: 0 1px 1px var(--tape-lo), 0 -1px 0 rgba(255, 255, 255, 0.09);
+}
+
+.tape--display {
+  display: block;
+  font-size: var(--t-4);
+  letter-spacing: 0.01em;
+  padding: 0.24em 0.34em 0.3em;
+  white-space: nowrap;
+}
+
+.tape--lg { font-size: var(--t-2); }
+.tape--md { font-size: var(--t-1); }
+.tape--sm { font-size: var(--t--1); letter-spacing: 0.1em; }
+
+.tape--signal {
+  background: var(--signal);
+  color: var(--tape);
+  box-shadow: var(--lift), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+a.tape, button.tape { cursor: pointer; border: 0; }
+
+a.tape { transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease; }
+a.tape:hover, a.tape:focus-visible {
+  transform: rotate(0deg) translateY(-2px);
+  box-shadow: var(--lift-hi), inset 0 1px 0 var(--tape-hi);
+}
+a.tape--signal:hover, a.tape--signal:focus-visible {
+  background: var(--signal-deep);
+  box-shadow: var(--lift-hi), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* An unbroken run of tape crossing the whole viewport and past both edges. */
+.tape--run {
+  display: block;
+  margin-inline: calc(var(--gutter) * -1);
+  padding-inline: calc(var(--gutter) + 1.5rem);
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Layout
+   -------------------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: clamp(2.5rem, 5.5vw, 4.5rem); }
+.section > .wrap > * + * { margin-top: 1.4rem; }
+
+.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  background: var(--tape);
+  color: var(--emboss);
+  padding: 0.7rem 1rem;
+  z-index: 20;
+}
+.skip:focus { left: 0; top: 0; }
+
+/* --------------------------------------------------------------------------
+   Header
+   -------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--wall);
+  background-image: repeating-linear-gradient(to bottom, transparent 0 118px, var(--wall-seam) 118px 119px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 5.25rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-family: var(--face-tape);
+  font-weight: 700;
+  font-size: var(--t-1);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-inline-start: auto;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  text-decoration: none;
+  font-family: var(--face-tape);
+  font-weight: 700;
+  font-size: var(--t--1);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5em 0.75em 0.55em;
+  border-radius: 2px;
+  color: var(--ink);
+  background: transparent;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.nav a:hover, .nav a:focus-visible { background: var(--tape); color: var(--emboss); }
+.nav a[aria-current="page"] { background: var(--tape); color: var(--emboss); text-shadow: 0 1px 1px var(--tape-lo); }
+
+/* --------------------------------------------------------------------------
+   Hero — the first viewport. Nothing is centred.
+   -------------------------------------------------------------------------- */
+
+.hero { padding-block: clamp(2rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3.25rem); }
+
+.hero__head { margin: 0 0 clamp(1.75rem, 4vw, 2.75rem); }
+
+.hero__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(1.75rem, 5vw, 4rem);
+  /* Contract: both the service tapes and the sentence sit low in the
+     viewport, under the headline — never stacked against it. */
+  align-items: end;
+  margin-top: clamp(1.5rem, 4vw, 2.75rem);
+}
+
+.hero__services { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; }
+
+.hero__action { margin-top: 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+.hero__claim { font-size: var(--t-0); color: var(--ink-2); max-width: 46ch; }
+
+.hero__foot {
+  margin-top: clamp(2rem, 5vw, 3rem);
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: flex-end;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem;
+}
+
+.year {
+  font-family: var(--face-tape);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.hero__area { font-size: var(--t--1); color: var(--ink-2); text-align: right; }
+
+/* --------------------------------------------------------------------------
+   Content
+   -------------------------------------------------------------------------- */
+
+.prose { max-width: 70ch; }
+.prose h2 { font-size: var(--t-2); margin-top: 2.2em; }
+.prose h3 { font-size: var(--t-1); margin-top: 1.7em; margin-bottom: 0.5em; }
+.prose ul, .prose ol { padding-left: 1.15rem; max-width: 70ch; }
+.prose li + li { margin-top: 0.4rem; }
+.prose a { text-underline-offset: 0.22em; text-decoration-thickness: 2px; }
+
+.lede { font-size: var(--t-1); color: var(--ink-2); max-width: 62ch; }
+
+/* Price list — rows, not cards. */
+.pricerows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.pricerows > li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.pricerows h3 { font-size: var(--t-1); margin-bottom: 0.35rem; }
+.pricerows p { font-size: var(--t--1); color: var(--ink-2); max-width: 52ch; }
+.pricerows ul { margin: 0.9rem 0 0; padding-left: 1.1rem; font-size: var(--t--1); color: var(--ink-2); }
+.pricerows ul li + li { margin-top: 0.3rem; }
+.price { text-align: right; font-family: var(--face-tape); font-weight: 700; }
+.price b { display: block; font-size: var(--t-3); letter-spacing: 0; }
+.price .eur { display: block; font-size: var(--t-1); color: var(--ink-2); }
+.price em { display: block; font-style: normal; font-size: var(--t--1); color: var(--ink-2);
+            font-family: var(--face-text); font-weight: 400; text-transform: none; letter-spacing: 0; }
+
+/* Market figures — the receipts, not hidden. */
+.market { list-style: none; margin: 0; padding: 0; font-size: var(--t--1); }
+.market li { padding: 0.85rem 0; border-bottom: 1px solid var(--rule); display: grid;
+             grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 1.25rem; }
+.market b { font-family: var(--face-tape); text-transform: uppercase; letter-spacing: 0.06em;
+            font-size: 0.92em; }
+.market span { color: var(--ink-2); }
+.market small { display: block; color: var(--ink-2); opacity: 0.85; }
+
+/* FAQ */
+.faq { border-top: 1px solid var(--rule); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.05rem 0;
+  font-family: var(--face-tape);
+  font-weight: 700;
+  font-size: var(--t-1);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--signal-deep); font-size: 1.3em; line-height: 1; }
+.faq details[open] summary::after { content: "–"; }
+.faq p { color: var(--ink-2); margin: 0 0 1.15rem; max-width: 66ch; }
+
+/* Note / disclaimer — stated plainly, never decorative. */
+.note {
+  border-top: 3px solid var(--tape);
+  padding-top: 0.9rem;
+  font-size: var(--t--1);
+  color: var(--ink-2);
+  max-width: 70ch;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer { border-top: 1px solid var(--rule); padding-block: 2.75rem; margin-top: 3rem; }
+.footer__grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.footer h3 { font-size: var(--t--1); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.7rem; }
+.footer ul { list-style: none; margin: 0; padding: 0; font-size: var(--t--1); }
+.footer li + li { margin-top: 0.4rem; }
+.footer a { text-underline-offset: 0.2em; }
+.footer__base { margin-top: 2.5rem; font-size: var(--t--1); color: var(--ink-2); }
+
+/* --------------------------------------------------------------------------
+   Motion — one authored moment: the tape settles, as if just stuck on.
+   -------------------------------------------------------------------------- */
+
+@keyframes settle {
+  from { opacity: 0; transform: rotate(var(--rot)) translateY(-10px) scale(0.985); }
+  to   { opacity: 1; transform: rotate(var(--rot)) translateY(0) scale(1); }
+}
+
+.settle { animation: settle 620ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+.settle--2 { animation-delay: 90ms; }
+.settle--3 { animation-delay: 170ms; }
+.settle--4 { animation-delay: 240ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .settle, .tape { opacity: 1; }
+}
+
+/* --------------------------------------------------------------------------
+   Small screens
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 60rem) {
+  .hero__body { grid-template-columns: 1fr; }
+  .tape--display { white-space: normal; font-size: clamp(2.1rem, 9vw, 3.2rem); }
+  .pricerows > li { grid-template-columns: 1fr; gap: 0.75rem; }
+  .price { text-align: left; }
+  .market li { grid-template-columns: 1fr; gap: 0.3rem; }
+  .hero__foot { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .hero__area { text-align: left; }
+}

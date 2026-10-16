@@ -1,0 +1,260 @@
+---
+import Base from "../layouts/Base.astro";
+import IconTelegram from "../components/IconTelegram.astro";
+import { site, prices, bundle } from "../config";
+import { organization, faqPage } from "../lib/schema";
+
+const faqs = [
+  {
+    q: "Was passiert bei einer Messung?",
+    a: "Ich prüfe, was Suchmaschinen und KI-Assistenten über Ihr Unternehmen finden: Ladezeit auf dem Handy, strukturierte Daten, Google-Unternehmensprofil, und ob Sie überhaupt in Antworten genannt werden. Sie bekommen die Werte mit Datum, nicht eine Note.",
+  },
+  {
+    q: "Arbeiten Sie nur mit Astro?",
+    a: "Nein. Astro ist mein Werkzeug für neue Websites, weil dabei kein Wartungsaufwand entsteht. Bestehende Seiten auf WordPress oder einem Baukasten messe ich genauso und sage Ihnen, ob ein Umbau sinnvoll ist oder nicht.",
+  },
+  {
+    q: "Was kostet der Einstieg?",
+    a: "Eine Messung kostet nichts. Die Website kostet 2’900 Franken, lokale Sichtbarkeit 1’900, KI-Sichtbarkeit 1’400. Jede Zahl steht mit Marktvergleich auf der Preisseite, damit Sie sie einordnen können.",
+  },
+  {
+    q: "Wie läuft die Zusammenarbeit ab?",
+    a: "Alles über Telegram. Sie schreiben, ich antworte innerhalb eines Werktags. Es gibt kein Formular, kein Portal und kein Ticket-System.",
+  },
+  {
+    q: "Warum steht hier kein Ort und keine Referenz?",
+    a: "Ich arbeite für Kunden in Deutschland, Österreich und der Schweiz — über das Netz, nicht über die Nachbarschaft. Referenzen veröffentliche ich nicht mit Namen und Zahlen, weil ich ohne Einwilligung keine Kundendaten veröffentliche. Was ich stattdessen veröffentliche, ist der Code: Werkzeuge auf npm, offen und nachlesbar.",
+  },
+  {
+    q: "Helfen llms.txt und strukturierte Daten bei Google?",
+    a: "llms.txt hilft bei Google nicht. Google liest die Datei nicht. Sie wirkt auf Assistenten wie ChatGPT, Claude und Perplexity. Für Google zählen Sitemap, Indexierung und zitierfähige Inhalte. Beides kommt hier vor, und ich sage dazu, welcher Teil was bewirkt.",
+  },
+];
+
+// Illustrative only. Labelled as such in the markup below.
+const example = [
+  { label: "Ladezeit mobil, LCP", before: "5,9 s", after: "1,2 s" },
+  { label: "Strukturierte Daten", before: "keine", after: "gültig" },
+  { label: "Nennung in KI-Antworten, 5 Abfragen", before: "0 von 5", after: "2 von 5" },
+  { label: "Unternehmensprofil", before: "nicht beansprucht", after: "vollständig" },
+];
+
+const schemas = [organization(), faqPage(faqs)];
+
+const serviceTapes = [
+  { label: "Websites", href: "/leistungen/website/" },
+  { label: "Lokale Sichtbarkeit", href: "/leistungen/lokale-sichtbarkeit/" },
+  { label: "KI-Sichtbarkeit", href: "/leistungen/ki-sichtbarkeit/" },
+];
+---
+<Base title={site.name} description={site.claim} schemas={schemas} hreflang>
+  <!-- FIRST VIEWPORT: one tape strip crossing both edges, nothing centred. -->
+  <section class="hero">
+    <div class="hero__head">
+      <h1 class="tape tape--display tape--run settle" style="--rot:-1.4deg">
+        {site.headline}
+      </h1>
+    </div>
+
+    <div class="wrap">
+      <div class="hero__body">
+        <div>
+          <div class="hero__services">
+            {
+              serviceTapes.map((s, i) => (
+                <a
+                  class={`tape tape--md settle settle--${i + 2}`}
+                  href={s.href}
+                  style={`--rot:${[-0.9, 0.5, -0.4][i]}deg`}
+                >
+                  {s.label}
+                </a>
+              ))
+            }
+          </div>
+
+          <div class="hero__action">
+            <a class="tape tape--lg tape--signal settle settle--4" href={site.telegram} rel="me" style="--rot:-0.6deg">
+              <span style="display:inline-flex;align-items:center;gap:0.55em">
+                <IconTelegram size={22} />
+                Messung anfragen
+              </span>
+            </a>
+            <span style="font-size:var(--t--1);color:var(--ink-2)">Nichts installieren, nichts ausfüllen.</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="hero__claim">
+            Eine Website, die schnell lädt, ist die Grundlage. Gefunden werden heißt danach:
+            Sitemap, strukturierte Daten, zitierfähige Antworten. Und weil Suchanfragen
+            zunehmend von Assistenten beantwortet werden, gehört auch das gemessen — statt
+            es zu behaupten.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero__foot">
+        <div class="year">{new Date().getFullYear()}</div>
+        <p class="hero__area">
+          {site.serviceArea}<br />{site.languages}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- What gets measured. Values are illustrative and labelled. -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.8deg">Was gemessen wird</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Vier Werte, die darüber entscheiden, ob ein Betrieb gefunden wird. Alle vier sind
+        messbar, keiner davon ist eine Meinung.
+      </p>
+
+      <ul class="pricerows" style="margin-top:1.75rem">
+        {
+          example.map((row) => (
+            <li style="grid-template-columns:minmax(0,1fr) minmax(0,0.6fr)">
+              <div>
+                <h3 style="font-size:var(--t-1)">{row.label}</h3>
+              </div>
+              <div class="price" style="font-size:var(--t-1);display:flex;gap:0.9rem;justify-content:flex-start">
+                <span style="color:var(--ink-2);text-decoration:line-through">{row.before}</span>
+                <span>→ {row.after}</span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="note" style="margin-top:1.5rem">
+        Beispielwerte zur Veranschaulichung, keine Kundendaten. Eine echte Messung liefert
+        Ihre Zahlen mit Datum und Quelle.
+      </p>
+    </div>
+  </section>
+
+  <!-- Proof: only real, verifiable artefacts. -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.6deg">Was ich veröffentliche</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Ohne Kundenstimmen bleibt der Code die Referenz. Alles hier ist öffentlich und
+        nachlesbar.
+      </p>
+
+      <ul class="pricerows" style="margin-top:1.75rem">
+        {
+          site.proof.map((item) => (
+            <li style="grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr)">
+              <div>
+                <h3 style="font-size:var(--t-1)">
+                  <a href={item.href}>{item.name}</a>
+                </h3>
+              </div>
+              <p style="font-size:var(--t--1);color:var(--ink-2);max-width:52ch">{item.note}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Prices, with the market figures that place them. -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.5deg">Preise</h2>
+
+      <ul class="pricerows" style="margin-top:1.75rem">
+        {
+          prices.map((p) => (
+            <li>
+              <div>
+                <h3>
+                  <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
+                </h3>
+                <p>{p.summary}</p>
+              </div>
+              <div class="price">
+                <b>CHF {p.chf}</b>
+                <span class="eur">EUR {p.eur}</span>
+                <em>{p.unit}</em>
+              </div>
+            </li>
+          ))
+        }
+        <li>
+          <div>
+            <h3>{bundle.name}</h3>
+            <p>{bundle.note}</p>
+          </div>
+          <div class="price">
+            <b>CHF {bundle.chf}</b>
+            <span class="eur">EUR {bundle.eur}</span>
+            <em>zusammen</em>
+          </div>
+        </li>
+      </ul>
+
+      <p style="margin-top:1.5rem">
+        <a class="tape tape--md" href="/preise/" style="--rot:0.4deg">Marktvergleich ansehen</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- The honest limits. This is the differentiator, not a disclaimer. -->
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.7deg">Was nicht wirkt</h2>
+      <div class="prose" style="margin-top:1.5rem">
+        <p>
+          <strong>llms.txt bringt nichts bei Google.</strong> Google liest die Datei nicht.
+          Sie wirkt auf Assistenten. Wer Ihnen llms.txt als Ranking-Hebel verkauft, verkauft
+          Ihnen eine Datei und nennt es Strategie.
+        </p>
+        <p>
+          <strong>Keine Garantie auf Nennung.</strong> KI-Antworten sind nicht
+          deterministisch. Ich kann die Grundlagen herstellen — zitierfähige Absätze,
+          strukturierte Angaben, saubere Indexierung — aber ich kann nicht versprechen, dass
+          ein Modell Sie morgen nennt. Wer das verspricht, hat es nicht gemessen.
+        </p>
+        <p>
+          <strong>Keine Zahlen aus fremden Projekten.</strong> Ich veröffentliche keine
+          Prozentwerte aus Kundenarbeit und keine Bewertungen ohne Einwilligung. Die einzigen
+          Zahlen auf dieser Seite sind Marktdaten mit Quelle, und Beispielwerte, die als
+          solche gekennzeichnet sind.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.5deg">Häufige Fragen</h2>
+      <div class="faq" style="margin-top:1.75rem">
+        {
+          faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p style="margin:0">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Auf Telegram fragen
+        </a>
+      </p>
+      <p style="margin-top:1.25rem;font-size:var(--t--1);color:var(--ink-2)">
+        Antwort innerhalb eines Werktags. Kein Formular, kein Portal.
+      </p>
+    </div>
+  </section>
+</Base>

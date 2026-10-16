@@ -1,0 +1,186 @@
+---
+import Base from "../../layouts/Base.astro";
+import IconTelegram from "../../components/IconTelegram.astro";
+import { site, prices, bundle } from "../../config";
+import { organization, faqPage } from "../../lib/schema";
+
+const faqs = [
+  {
+    q: "What does a measurement involve?",
+    a: "I check what search engines and AI assistants can actually find about your business: mobile load time, structured data, your Google Business Profile, and whether you are named in assistant answers at all. You get the values with a date, not a score.",
+  },
+  {
+    q: "Is this only for Astro sites?",
+    a: "No. Astro is what I build new sites with, because it leaves nothing to maintain. Existing WordPress or builder sites get measured the same way, and I will tell you plainly whether a rebuild is worth it.",
+  },
+  {
+    q: "Does llms.txt help with Google?",
+    a: "No. Google does not read it. It serves assistants such as ChatGPT, Claude and Perplexity. For Google, sitemaps, indexation and quotable content are what count — and this site covers both halves while saying which one does what.",
+  },
+];
+
+const schemas = [organization(), faqPage(faqs)];
+---
+<Base
+  title="Astro websites and SEO visibility for the German-speaking market"
+  description="Websites that get found — and measured. Astro websites, local visibility and AI-answer visibility for businesses in Germany, Austria and Switzerland."
+  schemas={schemas}
+  lang="en"
+  hreflang
+>
+  <section class="hero">
+    <div class="hero__head">
+      <h1 class="tape tape--display tape--run settle" style="--rot:-1.4deg">
+        Websites that get found
+      </h1>
+    </div>
+
+    <div class="wrap">
+      <div class="hero__body">
+        <div>
+          <div class="hero__services">
+            <a class="tape tape--md settle settle--2" href="/leistungen/website/" style="--rot:-0.9deg">Websites</a>
+            <a class="tape tape--md settle settle--3" href="/leistungen/lokale-sichtbarkeit/" style="--rot:0.5deg">Local visibility</a>
+            <a class="tape tape--md settle settle--4" href="/leistungen/ki-sichtbarkeit/" style="--rot:-0.4deg">AI visibility</a>
+          </div>
+
+          <div class="hero__action">
+            <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.6deg">
+              <span style="display:inline-flex;align-items:center;gap:0.55em">
+                <IconTelegram size={22} />
+                Ask for a measurement
+              </span>
+            </a>
+            <span style="font-size:var(--t--1);color:var(--ink-2)">Nothing to install, no form.</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="hero__claim">
+            A fast site is the floor, not the goal. Being found means a sitemap, structured
+            data and answers written to be quoted. And because a growing share of questions is
+            answered by assistants, that part gets measured too — instead of claimed.
+          </p>
+          <p style="margin-top:1.25rem;font-size:var(--t--1);color:var(--ink-2)">
+            The site is in German at <a href="/">relaystack.github.io</a>. This page is the short
+            English version.
+          </p>
+        </div>
+      </div>
+
+      <div class="hero__foot">
+        <div class="year">{new Date().getFullYear()}</div>
+        <p class="hero__area">
+          Germany, Austria, Switzerland<br />German and English
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.8deg">Prices</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Fixed prices in Swiss francs with the euro price beside them. No hourly billing, no
+        add-ons after the fact.
+      </p>
+
+      <ul class="pricerows" style="margin-top:1.75rem">
+        {
+          prices.map((p) => (
+            <li>
+              <div>
+                <h3 style="font-size:var(--t-1)">
+                  <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
+                </h3>
+                <p>{p.summary}</p>
+              </div>
+              <div class="price">
+                <b>CHF {p.chf}</b>
+                <span class="eur">EUR {p.eur}</span>
+                <em>{p.unit}</em>
+              </div>
+            </li>
+          ))
+        }
+        <li>
+          <div>
+            <h3 style="font-size:var(--t-1)">{bundle.name}</h3>
+            <p>{bundle.note}</p>
+          </div>
+          <div class="price">
+            <b>CHF {bundle.chf}</b>
+            <span class="eur">EUR {bundle.eur}</span>
+            <em>together</em>
+          </div>
+        </li>
+      </ul>
+      <p style="margin-top:1.5rem;font-size:var(--t--1);color:var(--ink-2)">
+        Page titles and body copy are German on this site; the work itself is done in German or English.
+        Full market context sits on the <a href="/preise/">price page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.6deg">What I publish</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        With no client testimonials, the code is the reference. All of it is public.
+      </p>
+      <ul class="pricerows" style="margin-top:1.75rem">
+        {
+          site.proof.map((item) => (
+            <li style="grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr)">
+              <div>
+                <h3 style="font-size:var(--t-1)">
+                  <a href={item.href}>{item.name}</a>
+                </h3>
+              </div>
+              <p style="font-size:var(--t--1);color:var(--ink-2);max-width:52ch">{item.note}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.7deg">What does not work</h2>
+      <div class="prose" style="margin-top:1.5rem">
+        <p>
+          <strong>llms.txt does nothing for Google.</strong> Google does not read the file. It
+          serves assistants. Anyone selling it to you as a ranking lever is selling you a file
+          and calling it a strategy.
+        </p>
+        <p>
+          <strong>No guarantee of being named.</strong> Assistant answers are not
+          deterministic. I can build the inputs — quotable paragraphs, structured facts, clean
+          indexation — but nobody can promise a model names you tomorrow.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.5deg">Questions</h2>
+      <div class="faq" style="margin-top:1.75rem">
+        {
+          faqs.map((f) => (
+            <details>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))
+        }
+      </div>
+      <p style="margin-top:2.5rem">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Ask on Telegram
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,71 @@
+---
+import Base from "../layouts/Base.astro";
+import IconTelegram from "../components/IconTelegram.astro";
+import { site } from "../config";
+import { organization, breadcrumbs } from "../lib/schema";
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Kontakt", path: "/kontakt/" },
+  ]),
+];
+---
+<Base
+  title="Kontakt"
+  description="Kontakt über Telegram. Antwort innerhalb eines Werktags. Kein Formular, kein Portal, keine Ticketnummer."
+  schemas={schemas}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Kontakt</h1>
+
+      <p class="lede" style="margin-top:1.75rem">
+        Der einfachste Weg ist Telegram. Schreiben Sie zwei Sätze: was Sie anbieten und wo.
+        Den Rest frage ich.
+      </p>
+
+      <p style="margin-top:2rem">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          <span style="display:inline-flex;align-items:center;gap:0.55em">
+            <IconTelegram size={24} />
+            {site.telegramLabel} auf Telegram
+          </span>
+        </a>
+      </p>
+
+      <ul class="market" style="margin-top:2.5rem">
+        <li>
+          <b>Antwortzeit</b>
+          <span>Innerhalb eines Werktags. Meist schneller.</span>
+        </li>
+        <li>
+          <b>Erstkontakt</b>
+          <span>Kostenlos. Auch eine Einschätzung, ob sich etwas für Sie lohnt.</span>
+        </li>
+        <li>
+          <b>Einsatzgebiet</b>
+          <span>{site.serviceArea}. Alles läuft über das Netz, es gibt keinen Vor-Ort-Termin.</span>
+        </li>
+        <li>
+          <b>Sprachen</b>
+          <span>{site.languages}</span>
+        </li>
+      </ul>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h2 class="tape tape--lg" style="--rot:0.5deg">Warum kein Formular</h2>
+        <p style="margin-top:1.5rem">
+          Ein Formular schreibt in eine Datenbank, die jemand betreiben und absichern muss, und
+          es fragt nach Daten, die ich für eine erste Antwort nicht brauche. Telegram macht
+          dasselbe mit weniger Angaben von Ihnen — und Sie sehen, wer Ihnen antwortet.
+        </p>
+        <p>
+          Wenn Sie nicht bei Telegram sind: Schreiben Sie mir über
+          <a href="https://github.com/RelayStack">GitHub</a>. Dauert etwas länger, funktioniert aber.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

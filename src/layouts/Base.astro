@@ -1,0 +1,100 @@
+---
+import { site } from "../config";
+import Footer from "../components/Footer.astro";
+import JsonLd from "../components/JsonLd.astro";
+import "../styles/fonts.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  schemas?: unknown[];
+  noindex?: boolean;
+  lang?: "de" | "en";
+  /** Only set on the / ↔ /en/ pair. */
+  hreflang?: boolean;
+}
+
+const {
+  title,
+  description = site.claim,
+  schemas = [],
+  noindex = false,
+  lang = "de",
+  hreflang = false,
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? site.url).href;
+const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+
+const navItems =
+  lang === "en"
+    ? [{ href: "/", label: "Deutsch" }]
+    : [
+        { href: "/leistungen/", label: "Leistungen" },
+        { href: "/preise/", label: "Preise" },
+        { href: "/wissen/", label: "Wissen" },
+        { href: "/kontakt/", label: "Kontakt" },
+      ];
+
+const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {
+      hreflang && (
+        <>
+          <link rel="alternate" hreflang="de" href={`${site.url}/`} />
+          <link rel="alternate" hreflang="en" href={`${site.url}/en/`} />
+          <link rel="alternate" hreflang="x-default" href={`${site.url}/`} />
+        </>
+      )
+    }
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === "en" ? "en" : "de"} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/ArchivoNarrow-var.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/Archivo-var.woff2" crossorigin />
+  </head>
+  <body>
+    <a class="skip" href="#main">Zum Inhalt springen</a>
+
+    <header class="header">
+      <div class="wrap header__inner">
+        <a class="brand" href={lang === "en" ? "/en/" : "/"}>{site.name}</a>
+        <nav class="nav" aria-label={lang === "en" ? "Main navigation" : "Hauptnavigation"}>
+          {
+            navItems.map((item) => (
+              <a href={item.href} aria-current={isCurrent(item.href) ? "page" : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+          <a class="tape tape--sm" href={site.telegram} rel="me" style="--rot:-0.7deg">
+            {lang === "en" ? "Ask on Telegram" : "Auf Telegram fragen"}
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+    <JsonLd schemas={schemas} />
+  </body>
+</html>

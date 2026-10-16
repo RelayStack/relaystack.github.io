@@ -1,0 +1,17 @@
+/* Self-hosted variable faces. No fonts.googleapis.com, no CDN. */
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/Archivo-var.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Archivo Narrow';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/ArchivoNarrow-var.woff2') format('woff2-variations');
+}

@@ -1,0 +1,94 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { site, prices } from "../../config";
+import { service, faqPage, breadcrumbs } from "../../lib/schema";
+
+export async function getStaticPaths() {
+  const items = await getCollection("leistungen");
+  return items.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const price = prices.find((p) => p.slug === entry.id);
+
+const schemas = [
+  service({
+    name: entry.data.title,
+    description: entry.data.description,
+    path: `/leistungen/${entry.id}/`,
+    price: price?.chf,
+  }),
+  entry.data.faqs.length > 0 ? faqPage(entry.data.faqs) : null,
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Leistungen", path: "/leistungen/" },
+    { name: entry.data.title, path: `/leistungen/${entry.id}/` },
+  ]),
+];
+---
+<Base title={entry.data.title} description={entry.data.description} schemas={schemas}>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-0.9deg;font-size:var(--t-3)">
+        {entry.data.title}
+      </h1>
+
+      <p class="lede" style="margin-top:1.75rem">{entry.data.summary}</p>
+
+      {
+        price && (
+          <p style="margin-top:1.5rem;font-family:var(--face-tape);font-weight:700;font-size:var(--t-2)">
+            CHF {price.chf} <span style="font-size:var(--t-1);color:var(--ink-2)">· EUR {price.eur} · {price.unit}</span>
+          </p>
+        )
+      }
+
+      {
+        entry.data.includes.length > 0 && (
+          <ul class="prose" style="margin-top:1.5rem;font-size:var(--t--1)">
+            {entry.data.includes.map((line) => (
+              <li>{line}</li>
+            ))}
+          </ul>
+        )
+      }
+
+      <article class="prose" style="margin-top:clamp(2rem,5vw,3rem)">
+        <Content />
+      </article>
+    </div>
+  </section>
+
+  {
+    entry.data.faqs.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <h2 class="tape tape--lg" style="--rot:0.5deg">Fragen zu {entry.data.title}</h2>
+          <div class="faq" style="margin-top:1.75rem">
+            {entry.data.faqs.map((f) => (
+              <details>
+                <summary>{f.q}</summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section">
+    <div class="wrap">
+      <p style="margin:0">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Auf Telegram fragen
+        </a>
+      </p>
+      <p style="margin-top:1.25rem;font-size:var(--t--1);color:var(--ink-2)">
+        <a href="/leistungen/">Alle Leistungen</a> · <a href="/preise/">Preise mit Marktvergleich</a>
+      </p>
+    </div>
+  </section>
+</Base>

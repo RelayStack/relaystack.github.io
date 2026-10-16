@@ -1,0 +1,35 @@
+---
+import { site, absoluteUrl } from "../config";
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="wrap footer__grid">
+    <div>
+      <h3>Kontakt</h3>
+      <ul>
+        <li><a href={site.telegram} rel="me">Telegram {site.telegramLabel}</a></li>
+        <li><a href={site.proof[0].href}>astro-seo-toolkit auf GitHub</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Seiten</h3>
+      <ul>
+        <li><a href="/leistungen/">Leistungen</a></li>
+        <li><a href="/preise/">Preise</a></li>
+        <li><a href="/wissen/">Wissen</a></li>
+        <li><a href="/kontakt/">Kontakt</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Rechtliches</h3>
+      <ul>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+        <li><a href={absoluteUrl("/llms.txt")}>llms.txt</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer__base">
+    <p>© {year} {site.name} · Einsatzgebiet: {site.serviceArea} · {site.languages}</p>
+  </div>
+</footer>

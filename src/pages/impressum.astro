@@ -1,0 +1,77 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../config";
+// Deliberately noindex and visibly marked as a draft: the mandatory details are
+// not published yet, and inventing an address would be worse than showing the gap.
+const noindex = true;
+---
+<Base
+  title="Impressum"
+  description="Impressum und Anbieterkennzeichnung."
+  noindex={noindex}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Impressum</h1>
+
+      <p class="note" style="margin-top:1.75rem">
+        <strong>Entwurf.</strong> Die Pflichtangaben sind noch nicht eingetragen. In
+        Deutschland (§ 5 DDG), Österreich (§ 5 ECG) und für geschäftliche Angebote in der
+        Schweiz sind Name, Anschrift und Kontaktweg Pflicht, sobald die Seite geschäftlich
+        genutzt wird. Diese Seite ist absichtlich auf <code>noindex</code> gesetzt, bis die
+        Angaben stehen. Eine Adresse zu erfinden wäre schlechter als die Lücke zu zeigen.
+      </p>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h2>Anbieter</h2>
+        <p>
+          [Name oder Firma]<br />
+          [Strasse und Hausnummer]<br />
+          [Postleitzahl und Ort]<br />
+          [Land]
+        </p>
+
+        <h2>Kontakt</h2>
+        <p>
+          Telegram: <a href={site.telegram} rel="me">{site.telegramLabel}</a><br />
+          [E-Mail-Adresse]
+        </p>
+
+        <h2>Vertretungsberechtigt</h2>
+        <p>[Name der vertretungsberechtigten Person]</p>
+
+        <h2>Registereintrag und Nummern</h2>
+        <p>
+          Handelsregister: [Nummer, falls vorhanden]<br />
+          Umsatzsteuer-Identifikationsnummer beziehungsweise Schweizer UID:
+          [Nummer, falls vorhanden]
+        </p>
+
+        <h2>Verantwortlich für den Inhalt</h2>
+        <p>[Name, Anschrift]</p>
+
+        <h2>Haftung für Inhalte</h2>
+        <p>
+          Die Inhalte dieser Seiten werden mit Sorgfalt erstellt. Für die Richtigkeit,
+          Vollständigkeit und Aktualität kann keine Gewähr übernommen werden. Als
+          Diensteanbieter bin ich für eigene Inhalte nach den allgemeinen Gesetzen
+          verantwortlich.
+        </p>
+
+        <h2>Haftung für Links</h2>
+        <p>
+          Diese Seite verweist auf externe Websites, unter anderem auf GitHub, npm und
+          Telegram. Auf deren Inhalte habe ich keinen Einfluss. Für die Inhalte der verlinkten
+          Seiten ist stets der jeweilige Anbieter verantwortlich.
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Die Inhalte dieser Seite unterliegen dem Urheberrecht. Der Quellcode der hier
+          verlinkten Werkzeuge steht unter der MIT-Lizenz, nachlesbar im jeweiligen
+          Repository.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
