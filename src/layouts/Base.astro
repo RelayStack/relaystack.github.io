@@ -29,7 +29,11 @@ const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
 
 const navItems =
   lang === "en"
-    ? [{ href: "/", label: "Deutsch" }]
+    ? [
+        { href: "/en/services/", label: "Services" },
+        { href: "/en/pricing/", label: "Pricing" },
+        { href: "/en/contact/", label: "Contact", secondary: true },
+      ]
     : [
         { href: "/leistungen/", label: "Leistungen" },
         { href: "/preise/", label: "Preise" },
@@ -107,7 +111,7 @@ const isCurrent = (href: string) => Astro.url.pathname.startsWith(href);
       <slot />
     </main>
 
-    <Footer />
+    <Footer lang={lang} />
     <JsonLd schemas={schemas} />
   </body>
 </html>

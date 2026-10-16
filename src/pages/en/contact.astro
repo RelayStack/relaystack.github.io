@@ -1,0 +1,72 @@
+---
+import Base from "../../layouts/Base.astro";
+import IconTelegram from "../../components/IconTelegram.astro";
+import { site } from "../../config";
+import { organization, breadcrumbs } from "../../lib/schema";
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/en/" },
+    { name: "Contact", path: "/en/contact/" },
+  ]),
+];
+---
+<Base
+  title="Contact over Telegram"
+  description="Contact over Telegram. Answer within one working day. No form, no portal, no ticket number."
+  schemas={schemas}
+  lang="en"
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Contact</h1>
+
+      <p class="lede" style="margin-top:1.75rem">
+        Telegram is the quickest way. Two sentences is enough: what you do and where. I will ask
+        the rest.
+      </p>
+
+      <p style="margin-top:2rem">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          <span style="display:inline-flex;align-items:center;gap:0.55em">
+            <IconTelegram size={24} />
+            {site.telegramLabel} on Telegram
+          </span>
+        </a>
+      </p>
+
+      <ul class="market" style="margin-top:2.5rem">
+        <li>
+          <b>Response time</b>
+          <span>Within one working day. Usually sooner.</span>
+        </li>
+        <li>
+          <b>First contact</b>
+          <span>Free, including an honest view on whether this is worth doing for you.</span>
+        </li>
+        <li>
+          <b>Where I work</b>
+          <span>{site.serviceArea}. Everything runs over the network; there is no site visit.</span>
+        </li>
+        <li>
+          <b>Languages</b>
+          <span>German and English. The service pages are in German.</span>
+        </li>
+      </ul>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h2 class="tape tape--lg" style="--rot:0.5deg">Why there is no form</h2>
+        <p style="margin-top:1.5rem">
+          A form writes into a database that someone has to run and secure, and it asks for details
+          I do not need for a first answer. Telegram does the same job with less from you — and you
+          can see who is answering.
+        </p>
+        <p>
+          Not on Telegram? Reach me through <a href="https://github.com/RelayStack">GitHub</a>.
+          Slower, but it works.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

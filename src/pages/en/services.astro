@@ -1,0 +1,95 @@
+---
+import Base from "../../layouts/Base.astro";
+import { site, prices } from "../../config";
+import { organization, service, breadcrumbs } from "../../lib/schema";
+
+const en = {
+  website: {
+    name: "Websites",
+    summary: "Five to eight pages, one page per service. Static, nothing to maintain.",
+  },
+  "lokale-sichtbarkeit": {
+    name: "Local visibility",
+    summary: "Google Business Profile, location pages, a review process without incentives.",
+  },
+  "ki-sichtbarkeit": {
+    name: "AI visibility",
+    summary: "Measured: what assistants say about you, five questions per model, dated.",
+  },
+  betreuung: {
+    name: "Ongoing care",
+    summary: "Monthly: content kept current, measured, small changes included.",
+  },
+};
+
+const schemas = [
+  organization(),
+  ...prices.map((p) =>
+    service({
+      name: en[p.slug].name,
+      description: en[p.slug].summary,
+      path: `/en/services/`,
+      price: p.chf,
+    }),
+  ),
+  breadcrumbs([
+    { name: site.name, path: "/en/" },
+    { name: "Services", path: "/en/services/" },
+  ]),
+];
+---
+<Base
+  title="Services: websites, local visibility, AI visibility"
+  description="Websites, local visibility, AI visibility and ongoing care for businesses in Germany, Austria and Switzerland. Fixed prices."
+  schemas={schemas}
+  lang="en"
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Services</h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Four things that build on each other. The website is the floor, local visibility brings the
+        enquiries from your area, AI visibility the ones from assistants. Ongoing care keeps it all
+        level with what you actually do.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          prices.map((p) => (
+            <li>
+              <div>
+                <h2 style="font-size:var(--t-1);margin-bottom:0.35rem">
+                  <a href={`/leistungen/${p.slug}/`}>{en[p.slug].name}</a>
+                </h2>
+                <p>{en[p.slug].summary}</p>
+              </div>
+              <div class="price">
+                <b>CHF {p.chf}</b>
+                <span class="eur">EUR {p.eur}</span>
+                <em>{p.unit}</em>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="note" style="margin-top:1.75rem">
+        Full detail for each service is in German — that is the working language, and the pages carry
+        the specifics rather than a summary. <a href="/en/pricing/">Prices in English</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p style="margin:0">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Ask on Telegram
+        </a>
+      </p>
+      <p style="margin-top:1.25rem;font-size:var(--t--1);color:color-mix(in srgb, var(--emboss) 74%, var(--tape))">
+        A free measurement first. Answer within one working day.
+      </p>
+    </div>
+  </section>
+</Base>

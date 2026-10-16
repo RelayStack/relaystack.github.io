@@ -83,8 +83,8 @@ Das steht hier, weil es sonst niemand schreibt:
 ## Diese Website selbst
 
 Gebaut mit Astro, statisch ausgeliefert, **0 KB JavaScript**, Schriftarten selbst gehostet, keine
-Tracker und damit kein Zustimmungsfenster — weil ich das messe, was ich verkaufe. Gemessen mit
-Lighthouse: **100/100/100/100** auf dem Handy wie auf dem Desktop, LCP 1.4 s, Layout-Shift 0.
+Tracker und damit kein Zustimmungsfenster — weil ich das messe, was ich verkaufe. Gemessen mit Lighthouse: **100/100/100/100** auf dem Handy wie auf dem Desktop, LCP 1.4 s,
+Layout-Shift 0 — bei 22 Seiten und 11 KB CSS.
 
 ## Für Entwickler
 

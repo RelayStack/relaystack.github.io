@@ -1,0 +1,96 @@
+---
+import Base from "../../layouts/Base.astro";
+import { site, prices, bundle, fx } from "../../config";
+import { organization, breadcrumbs } from "../../lib/schema";
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/en/" },
+    { name: "Pricing", path: "/en/pricing/" },
+  ]),
+];
+---
+<Base
+  title="Pricing for websites and SEO – with the market comparison"
+  description="Fixed prices for websites, local visibility, AI visibility and ongoing care, in Swiss francs and euros, with the DACH market figures they were placed against."
+  schemas={schemas}
+  lang="en"
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Pricing</h1>
+      <p class="lede" style="margin-top:1.75rem">
+        Fixed prices in Swiss francs with the euro price beside them. Converted at {fx.rate},{" "}
+        {fx.note}. The franc figure is the binding one.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          prices.map((p) => (
+            <li>
+              <div>
+                <h2 style="font-size:var(--t-2)">
+                  <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
+                </h2>
+                <p>{p.summary}</p>
+                <p style="font-size:var(--t--1);color:var(--ink-2);margin-top:0.4rem">
+                  <strong>Market:</strong> {p.against}
+                </p>
+              </div>
+              <div class="price">
+                <b>CHF {p.chf}</b>
+                <span class="eur">EUR {p.eur}</span>
+                <em>{p.unit}</em>
+              </div>
+            </li>
+          ))
+        }
+        <li>
+          <div>
+            <h2 style="font-size:var(--t-2)">{bundle.name}</h2>
+            <p>{bundle.note}</p>
+          </div>
+          <div class="price">
+            <b>CHF {bundle.chf}</b>
+            <span class="eur">EUR {bundle.eur}</span>
+            <em>together</em>
+          </div>
+        </li>
+      </ul>
+
+      <p class="note" style="margin-top:1.75rem">
+        Almost every agency in the German-speaking market writes "on request". The figures above sit
+        next to the market ranges they were placed against, so you can judge them yourself rather
+        than take my word for it. Sources are listed on the{" "}
+        <a href="/preise/">German price page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:0.6deg">Not included</h2>
+      <div class="prose" style="margin-top:1.5rem">
+        <p>
+          Domain and hosting run in your name and are paid directly to your provider — usually CHF
+          50 to 150 a year. Text and photography are included if you supply them.
+        </p>
+        <p>
+          Larger rebuilds during ongoing care are quoted separately rather than quietly folded into
+          the monthly figure. All prices exclude VAT.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <p style="margin:0">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Ask on Telegram
+        </a>
+      </p>
+    </div>
+  </section>
+</Base>

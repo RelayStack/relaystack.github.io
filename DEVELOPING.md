@@ -13,7 +13,7 @@ Developer documentation for the RelayStack site. The sales copy lives in
   URL list is explicit and reviewable.
 
 ```
-19 pages built   0 JS files   10.6 KB stylesheet   368 KB total
+22 pages built   0 JS files   11 KB stylesheet   424K total
 astro check      0 errors, 0 warnings, 0 hints
 ```
 
