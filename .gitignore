@@ -1,19 +1,23 @@
+# Dependencies
 node_modules/
+
+# Astro build output
 dist/
 .astro/
+
+# Environment
 .env
 .env.*
+
+# Editor and OS
 .DS_Store
 *.log
 
-# Impeccable build/review artefacts stay local
-.impeccable/mocks/
-.impeccable/review/
-.impeccable/build/
+# Local development artifacts. Holds the product record, the design system and
+# tooling output; none of it is part of the site, so none of it belongs here.
+.impeccable/
 
-# Development-only: Impeccable artifacts and the local screenshot helper
-# Development-only Impeccable artifacts. The documented design system ships;
-# mocks, review captures, build state and the direction contract do not.
-.impeccable/*
-!.impeccable/design.json
-scripts/
+# Screenshot helpers that need a browser installed ad hoc. scripts/og-card.mjs
+# is tracked because it regenerates a published asset; these two are not.
+scripts/shoot.mjs
+scripts/measure.mjs
