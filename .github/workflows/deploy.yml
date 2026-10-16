@@ -24,6 +24,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The README is the repository's front page and carries the price table.
+      # It cannot read from src/config.ts, so this is what keeps them honest.
+      - name: README price table must match src/config.ts
+        run: npm run sync:readme -- --check
       - run: npm run build
       - name: Fail if the SEO files are missing or empty
         run: |

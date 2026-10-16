@@ -25,6 +25,7 @@ npm run dev        # http://localhost:4321
 npm run build      # -> dist/
 npm run preview    # serve the built output
 npm run check      # astro check: types, content schemas, a11y hints
+npm run verify     # check + README price sync + build, the same gates CI runs
 ```
 
 ## Editing the business
@@ -33,9 +34,17 @@ npm run check      # astro check: types, content schemas, a11y hints
 area, the published prices, and the market research the prices were placed against. The footer, the
 schema, the price page and `llms.txt` all read from it, so they cannot contradict each other.
 
-**One exception:** the price table in `README.md` is hand-written Markdown, not generated. If you
-change a price, update `src/config.ts` *and* the README table — nothing will fail the build if you
-forget, and the two will quietly disagree.
+**The README's price table is generated from it.** `README.md` is Markdown and cannot import the
+config, so the table between the `<!-- prices:start -->` and `<!-- prices:end -->` markers is spliced
+in by `scripts/sync-readme.mjs`:
+
+```bash
+npm run sync:readme            # rewrite the table from src/config.ts
+npm run sync:readme -- --check # fail if it has drifted (the deploy runs this)
+```
+
+Change a price in `src/config.ts` and run `npm run sync:readme`. If you forget, the deploy stops
+rather than publishing a page and a README that disagree.
 
 Prices are the owner's own numbers, sitting against recorded market figures rather than invented
 ones. The euro price is converted at a stated rate — if you change it, change the rate note too.
