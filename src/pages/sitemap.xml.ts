@@ -21,10 +21,10 @@ export const GET: APIRoute = async () => {
     "/ueber/",
     "/wissen/",
     "/kontakt/",
+    "/datenschutz/",
     ...leistungen.map((e) => `/leistungen/${e.id}/`),
     ...wissen.map((e) => `/wissen/${e.id}/`),
-    // Excluded on purpose: /impressum/ (marked draft), /datenschutz/ and
-    // /og-card/ (both noindex).
+    // Excluded on purpose: /impressum/ (a marked draft) and /og-card/ (noindex).
   ];
 
   // lastmod is the build date: honest, and enough for crawlers to re-fetch.
