@@ -7,6 +7,10 @@ const leistungen = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/leistungen" }),
   schema: z.object({
     title: z.string(),
+    /** Keyword-led <title>. Falls back to `title`. */
+    seoTitle: z.string().optional(),
+    /** Keyword-led on-page H1. Falls back to `title`. */
+    h1: z.string().optional(),
     /** Becomes the meta description and the llms.txt line. */
     description: z.string().min(50).max(220),
     summary: z.string(),

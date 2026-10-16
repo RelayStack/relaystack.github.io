@@ -1,0 +1,96 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../config";
+import { organization, breadcrumbs } from "../lib/schema";
+
+// Sector descriptions only. No client names, no percentages — see PRODUCT.md.
+const work = [
+  {
+    sector: "Schlüsseldienst und Schreinerei",
+    task: "Dringende Anfragen, nachts und am Wochenende",
+    done: [
+      "Eine eigene Seite für den Notdienst statt eines Abschnitts auf der Startseite",
+      "Leistungs- und Ortsseiten getrennt, damit beide Suchabsichten bedient werden",
+      "Strukturierte Daten für Betrieb, Leistung und häufige Fragen",
+      "Ladezeit auf dem Handy unter einer Sekunde",
+    ],
+  },
+  {
+    sector: "Medizinisch-ästhetische Praxis",
+    task: "Terminanfragen von einem Handy aus",
+    done: [
+      "Behandlungen als einzelne Seiten mit klaren Antworten im ersten Absatz",
+      "Kontaktweg ohne Formular-Zwischenschritt",
+      "Lokale Angaben maschinenlesbar, damit Profil und Website übereinstimmen",
+      "Bilder so ausgeliefert, dass sie die Ladezeit nicht bestimmen",
+    ],
+  },
+  {
+    sector: "Dienstleister für Bahn und Industrie",
+    task: "Seriosität gegenüber Ausschreibenden",
+    done: [
+      "Statische Seite ohne Wartungssoftware",
+      "Referenz- und Leistungsdarstellung ohne Werbeton",
+      "Vertragsdaten und Ansprechpartner klar auffindbar",
+    ],
+  },
+];
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Referenzen", path: "/referenzen/" },
+  ]),
+];
+---
+<Base
+  title="Referenzen – welche Aufgaben, welche Lösung"
+  description="Projekte nach Branche beschrieben: Aufgabe, Lösung, technische Umsetzung. Ohne Kundennamen und ohne Prozentwerte aus fremden Projekten."
+  schemas={schemas}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Referenzen</h1>
+
+      <p class="lede" style="margin-top:1.75rem">
+        Beschrieben nach Branche und Aufgabe. Kundennamen und Zahlen aus fremden Projekten
+        veröffentliche ich nur mit Einwilligung — für einen konkreten Einblick fragen Sie mich
+        direkt, dann zeige ich Ihnen lebende Beispiele.
+      </p>
+
+      <ul class="pricerows" style="margin-top:2rem">
+        {
+          work.map((w) => (
+            <li style="grid-template-columns:minmax(0,0.75fr) minmax(0,1.25fr)">
+              <div>
+                <h2 style="font-size:var(--t-1);margin-bottom:0.35rem">{w.sector}</h2>
+                <p>{w.task}</p>
+              </div>
+              <ul style="font-size:var(--t--1);color:var(--ink-2);margin:0">
+                {w.done.map((d) => (
+                  <li>{d}</li>
+                ))}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="note" style="margin-top:2rem">
+        Bewusst ohne Kennzahlen: Ich veröffentliche keine Fortschrittswerte aus Kundenarbeit,
+        ohne dass der Betrieb dem zugestimmt hat. Die geprüften Zahlen bekommen Sie im
+        Gespräch, zusammen mit der Methode, mit der sie erhoben wurden.
+      </p>
+
+      <p style="margin-top:2.5rem">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Beispiele anfragen
+        </a>
+      </p>
+      <p style="margin-top:1.25rem;font-size:var(--t--1);color:var(--ink-2)">
+        <a href="/ueber/">Wie ich arbeite</a> · <a href="/preise/">Preise</a>
+      </p>
+    </div>
+  </section>
+</Base>

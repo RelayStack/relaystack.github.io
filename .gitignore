@@ -16,4 +16,4 @@ dist/
 # mocks, review captures, build state and the direction contract do not.
 .impeccable/*
 !.impeccable/design.json
-scripts/shoot.mjs
+scripts/

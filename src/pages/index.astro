@@ -1,21 +1,25 @@
 ---
 import Base from "../layouts/Base.astro";
 import IconTelegram from "../components/IconTelegram.astro";
-import { site, prices, bundle } from "../config";
-import { organization, faqPage } from "../lib/schema";
+import Mechanism from "../components/Mechanism.astro";
+import { getCollection } from "astro:content";
+import { site, prices, bundle, fx } from "../config";
+import { organization, faqPage, service } from "../lib/schema";
+
+const articles = (await getCollection("wissen")).sort((a, b) => a.data.title.localeCompare(b.data.title));
 
 const faqs = [
   {
+    q: "Was kostet eine Website bei Ihnen?",
+    a: "3’200 Franken beziehungsweise 3’450 Euro für fünf bis acht Seiten mit einer eigenen Seite je Leistung. Der Preis steht samt Marktvergleich auf der Preisseite — Freelancer liegen im Schnitt bei 2’100 Franken, Kleinagenturen bei 6’800.",
+  },
+  {
     q: "Was passiert bei einer Messung?",
-    a: "Ich prüfe, was Suchmaschinen und KI-Assistenten über Ihr Unternehmen finden: Ladezeit auf dem Handy, strukturierte Daten, Google-Unternehmensprofil, und ob Sie überhaupt in Antworten genannt werden. Sie bekommen die Werte mit Datum, nicht eine Note.",
+    a: "Ich prüfe, was Suchmaschinen und KI-Assistenten über Ihr Unternehmen finden: Ladezeit auf dem Handy, strukturierte Daten, Google-Unternehmensprofil, und ob Sie überhaupt in Antworten genannt werden. Sie bekommen Werte mit Datum, nicht eine Note.",
   },
   {
     q: "Arbeiten Sie nur mit Astro?",
     a: "Nein. Astro ist mein Werkzeug für neue Websites, weil dabei kein Wartungsaufwand entsteht. Bestehende Seiten auf WordPress oder einem Baukasten messe ich genauso und sage Ihnen, ob ein Umbau sinnvoll ist oder nicht.",
-  },
-  {
-    q: "Was kostet der Einstieg?",
-    a: "Eine Messung kostet nichts. Die Website kostet 2’900 Franken, lokale Sichtbarkeit 1’900, KI-Sichtbarkeit 1’400. Jede Zahl steht mit Marktvergleich auf der Preisseite, damit Sie sie einordnen können.",
   },
   {
     q: "Wie läuft die Zusammenarbeit ab?",
@@ -23,7 +27,7 @@ const faqs = [
   },
   {
     q: "Warum steht hier kein Ort und keine Referenz?",
-    a: "Ich arbeite für Kunden in Deutschland, Österreich und der Schweiz — über das Netz, nicht über die Nachbarschaft. Referenzen veröffentliche ich nicht mit Namen und Zahlen, weil ich ohne Einwilligung keine Kundendaten veröffentliche. Was ich stattdessen veröffentliche, ist der Code: Werkzeuge auf npm, offen und nachlesbar.",
+    a: "Ich arbeite für Kunden in Deutschland, Österreich und der Schweiz — über das Netz, nicht über die Nachbarschaft. Kundenstimmen veröffentliche ich nicht ohne Einwilligung. Was ich stattdessen veröffentliche, ist der Code: Werkzeuge auf npm, offen und nachlesbar.",
   },
   {
     q: "Helfen llms.txt und strukturierte Daten bei Google?",
@@ -31,15 +35,20 @@ const faqs = [
   },
 ];
 
-// Illustrative only. Labelled as such in the markup below.
-const example = [
+const signals = [
   { label: "Ladezeit mobil, LCP", before: "5,9 s", after: "1,2 s" },
   { label: "Strukturierte Daten", before: "keine", after: "gültig" },
   { label: "Nennung in KI-Antworten, 5 Abfragen", before: "0 von 5", after: "2 von 5" },
-  { label: "Unternehmensprofil", before: "nicht beansprucht", after: "vollständig" },
+  { label: "Google-Unternehmensprofil", before: "nicht beansprucht", after: "vollständig" },
 ];
 
-const schemas = [organization(), faqPage(faqs)];
+const schemas = [
+  organization(),
+  ...prices.map((p) =>
+    service({ name: p.name, description: p.summary, path: `/leistungen/${p.slug}/`, price: p.chf }),
+  ),
+  faqPage(faqs),
+];
 
 const serviceTapes = [
   { label: "Websites", href: "/leistungen/website/" },
@@ -47,12 +56,20 @@ const serviceTapes = [
   { label: "KI-Sichtbarkeit", href: "/leistungen/ki-sichtbarkeit/" },
 ];
 ---
-<Base title={site.name} description={site.claim} schemas={schemas} hreflang>
-  <!-- FIRST VIEWPORT: one tape strip crossing both edges, nothing centred. -->
+<Base
+  title="Website & SEO für Handwerk und lokale Betriebe"
+  description="Websites und SEO für Handwerk, Praxen und lokale Betriebe in Deutschland, Österreich und der Schweiz. Festpreise, gemessene Werte, offengelegter Code."
+  schemas={schemas}
+  hreflang
+>
+  <!-- FIRST VIEWPORT: the tape at full strength, two lines, nothing centred. -->
   <section class="hero">
     <div class="hero__head">
-      <h1 class="tape tape--display tape--run settle" style="--rot:-1.4deg">
-        {site.headline}
+      <h1 class="hero__stack">
+        <span class="tape tape--display tape--run settle" style="--rot:-1.4deg">Websites und SEO,</span>
+        <span class="tape tape--display tape--run settle settle--2" style="--rot:0.45deg">
+          {" die gefunden werden"}
+        </span>
       </h1>
     </div>
 
@@ -63,7 +80,7 @@ const serviceTapes = [
             {
               serviceTapes.map((s, i) => (
                 <a
-                  class={`tape tape--md settle settle--${i + 2}`}
+                  class={`tape tape--md settle settle--${i + 3}`}
                   href={s.href}
                   style={`--rot:${[-0.9, 0.5, -0.4][i]}deg`}
                 >
@@ -86,10 +103,10 @@ const serviceTapes = [
 
         <div>
           <p class="hero__claim">
-            Eine Website, die schnell lädt, ist die Grundlage. Gefunden werden heißt danach:
-            Sitemap, strukturierte Daten, zitierfähige Antworten. Und weil Suchanfragen
-            zunehmend von Assistenten beantwortet werden, gehört auch das gemessen — statt
-            es zu behaupten.
+            Für Handwerk, Praxen und lokale Betriebe im deutschsprachigen Raum. Eine Website,
+            die schnell lädt, ist die Grundlage — gefunden werden heißt danach: Sitemap,
+            strukturierte Daten, zitierfähige Antworten. Und weil Suchanfragen zunehmend von
+            Assistenten beantwortet werden, gehört auch das gemessen.
           </p>
         </div>
       </div>
@@ -103,32 +120,43 @@ const serviceTapes = [
     </div>
   </section>
 
-  <!-- What gets measured. Values are illustrative and labelled. -->
+  <!-- Shown, not told: the mechanism, as a schematic. -->
   <section class="section">
     <div class="wrap">
-      <h2 class="tape tape--lg" style="--rot:-0.8deg">Was gemessen wird</h2>
+      <h2 class="tape tape--lg" style="--rot:-0.8deg">Wie eine Frage zu einer Antwort wird</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Ob Google oder ein Assistent: beide lesen dasselbe. Was maschinenlesbar auf der Seite
+        steht, entscheidet, ob Ihr Betrieb in der Antwort vorkommt.
+      </p>
+      <div class="rise" style="margin-top:2rem">
+        <Mechanism />
+      </div>
+    </div>
+  </section>
+
+  <!-- The dark band: the page's second peak, and where the numbers live. -->
+  <section class="band">
+    <div class="wrap">
+      <h2 class="tape tape--xl" style="--rot:0.5deg">Was gemessen wird</h2>
       <p class="lede" style="margin-top:1.5rem">
         Vier Werte, die darüber entscheiden, ob ein Betrieb gefunden wird. Alle vier sind
         messbar, keiner davon ist eine Meinung.
       </p>
 
-      <ul class="pricerows" style="margin-top:1.75rem">
+      <ul class="measure" style="margin-top:1.5rem">
         {
-          example.map((row) => (
-            <li style="grid-template-columns:minmax(0,1fr) minmax(0,0.6fr)">
-              <div>
-                <h3 style="font-size:var(--t-1)">{row.label}</h3>
-              </div>
-              <div class="price" style="font-size:var(--t-1);display:flex;gap:0.9rem;justify-content:flex-start">
-                <span style="color:var(--ink-2);text-decoration:line-through">{row.before}</span>
-                <span>→ {row.after}</span>
-              </div>
+          signals.map((s) => (
+            <li>
+              <span class="label">{s.label}</span>
+              <span class="io">
+                <s>{s.before}</s> → <b>{s.after}</b>
+              </span>
             </li>
           ))
         }
       </ul>
 
-      <p class="note" style="margin-top:1.5rem">
+      <p class="note" style="margin-top:1.75rem">
         Beispielwerte zur Veranschaulichung, keine Kundendaten. Eine echte Messung liefert
         Ihre Zahlen mit Datum und Quelle.
       </p>
@@ -161,10 +189,13 @@ const serviceTapes = [
     </div>
   </section>
 
-  <!-- Prices, with the market figures that place them. -->
+  <!-- Prices, each with the market figure it was placed against. -->
   <section class="section">
     <div class="wrap">
       <h2 class="tape tape--lg" style="--rot:-0.5deg">Preise</h2>
+      <p class="lede" style="margin-top:1.5rem">
+        Festpreise in Franken, mit Euro-Preis daneben. Umrechnung zum Kurs {fx.rate}, {fx.note}.
+      </p>
 
       <ul class="pricerows" style="margin-top:1.75rem">
         {
@@ -175,6 +206,9 @@ const serviceTapes = [
                   <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
                 </h3>
                 <p>{p.summary}</p>
+                <p style="font-size:var(--t--1);color:var(--ink-2);margin-top:0.4rem">
+                  Markt: {p.against}
+                </p>
               </div>
               <div class="price">
                 <b>CHF {p.chf}</b>
@@ -203,11 +237,11 @@ const serviceTapes = [
     </div>
   </section>
 
-  <!-- The honest limits. This is the differentiator, not a disclaimer. -->
+  <!-- The honest limits, at display scale. This is the differentiator. -->
   <section class="section">
     <div class="wrap">
-      <h2 class="tape tape--lg" style="--rot:-0.7deg">Was nicht wirkt</h2>
-      <div class="prose" style="margin-top:1.5rem">
+      <h2 class="tape tape--xl" style="--rot:-0.7deg">Was nicht wirkt</h2>
+      <div class="prose" style="margin-top:1.75rem">
         <p>
           <strong>llms.txt bringt nichts bei Google.</strong> Google liest die Datei nicht.
           Sie wirkt auf Assistenten. Wer Ihnen llms.txt als Ranking-Hebel verkauft, verkauft
@@ -229,9 +263,26 @@ const serviceTapes = [
     </div>
   </section>
 
+  <!-- Internal linking into the articles. -->
   <section class="section">
     <div class="wrap">
-      <h2 class="tape tape--lg" style="--rot:0.5deg">Häufige Fragen</h2>
+      <h2 class="tape tape--lg" style="--rot:0.4deg">Zum Nachlesen</h2>
+      <ul class="nextread" style="margin-top:1.5rem">
+        {
+          articles.map((a) => (
+            <li>
+              <a href={`/wissen/${a.id}/`}>{a.data.title}</a>
+              <span>{a.data.description}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <h2 class="tape tape--lg" style="--rot:-0.5deg">Häufige Fragen</h2>
       <div class="faq" style="margin-top:1.75rem">
         {
           faqs.map((f) => (
@@ -248,7 +299,7 @@ const serviceTapes = [
   <section class="section">
     <div class="wrap">
       <p style="margin:0">
-        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+        <a class="tape tape--xl tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
           Auf Telegram fragen
         </a>
       </p>

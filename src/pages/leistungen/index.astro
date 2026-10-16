@@ -14,7 +14,7 @@ const schemas = [
   ]),
 ];
 ---
-<Base title="Leistungen" description="Vier Leistungen: Website, lokale Sichtbarkeit, KI-Sichtbarkeit und Betreuung. Jede mit Preis und Umfang." schemas={schemas}>
+<Base title="Leistungen: Website, lokale SEO und KI-Sichtbarkeit" description="Vier Leistungen: Website, lokale Sichtbarkeit, KI-Sichtbarkeit und Betreuung. Jede mit Preis und Umfang." schemas={schemas}>
   <section class="section">
     <div class="wrap">
       <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Leistungen</h1>
@@ -32,7 +32,7 @@ const schemas = [
               <li>
                 <div>
                   <h2 style="font-size:var(--t-1);margin-bottom:0.35rem">
-                    <a href={`/leistungen/${entry.id}/`}>{entry.data.title}</a>
+                    <a href={`/leistungen/${entry.id}/`}>{entry.data.h1 ?? entry.data.title}</a>
                   </h2>
                   <p>{entry.data.summary}</p>
                 </div>

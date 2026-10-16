@@ -1,4 +1,6 @@
 ---
+seoTitle: "Lokale SEO: Google-Unternehmensprofil optimieren"
+h1: "Lokale SEO und Google-Unternehmensprofil"
 title: Lokale Sichtbarkeit
 description: Google-Unternehmensprofil, Ortsseiten und ein Bewertungsweg ohne Anreize. Name, Adresse und Telefon überall gleich — das ist der Großteil lokaler Sichtbarkeit.
 summary: Unternehmensprofil, Ortsseiten und ein Bewertungsweg. Die Angaben müssen überall gleich lauten.

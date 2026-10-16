@@ -17,16 +17,20 @@ export const GET: APIRoute = async () => {
     "/en/",
     "/leistungen/",
     "/preise/",
+    "/referenzen/",
+    "/ueber/",
     "/wissen/",
     "/kontakt/",
     ...leistungen.map((e) => `/leistungen/${e.id}/`),
     ...wissen.map((e) => `/wissen/${e.id}/`),
-    // /impressum/ and /datenschutz/ are intentionally excluded: the Impressum is
-    // a marked draft and the Datenschutz page is noindex until the details land.
+    // Excluded on purpose: /impressum/ (marked draft), /datenschutz/ and
+    // /og-card/ (both noindex).
   ];
 
+  // lastmod is the build date: honest, and enough for crawlers to re-fetch.
+  const lastmod = new Date().toISOString().slice(0, 10);
   const urls = paths
-    .map((p) => `  <url><loc>${absoluteUrl(p)}</loc></url>`)
+    .map((p) => `  <url><loc>${absoluteUrl(p)}</loc><lastmod>${lastmod}</lastmod></url>`)
     .join("\n");
 
   const xml = [

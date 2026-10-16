@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { site, prices, bundle } from "../config";
+import { site, prices, bundle, fx } from "../config";
 import { organization, breadcrumbs } from "../lib/schema";
 
 const schemas = [
@@ -20,7 +20,7 @@ const schemas = [
 ];
 ---
 <Base
-  title="Preise"
+  title="Preise für Website und SEO – mit Marktvergleich"
   description="Preise für Website, lokale Sichtbarkeit, KI-Sichtbarkeit und Betreuung — mit dem Marktvergleich, aus dem sie abgeleitet sind."
   schemas={schemas}
 >
@@ -30,6 +30,10 @@ const schemas = [
       <p class="lede" style="margin-top:1.75rem">
         Festpreise in Franken, mit dem Euro-Preis daneben. Keine Stundenzettel, keine
         Nachträge, keine Pauschale für etwas, das nicht passiert ist.
+      </p>
+      <p class="note" style="margin-top:1.5rem">
+        Umrechnung zum Kurs {fx.rate}, {fx.note}. Der Kurs schwankt; massgeblich ist der
+        Franken-Betrag.
       </p>
 
       <ul class="pricerows" style="margin-top:2rem">
@@ -41,6 +45,9 @@ const schemas = [
                   <a href={`/leistungen/${p.slug}/`}>{p.name}</a>
                 </h2>
                 <p>{p.summary}</p>
+                <p style="font-size:var(--t--1);color:var(--ink-2);margin-top:0.5rem">
+                  <strong>Markt:</strong> {p.against}
+                </p>
                 <ul>
                   {p.includes.map((i) => (
                     <li>{i}</li>

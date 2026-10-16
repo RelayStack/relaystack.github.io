@@ -1,0 +1,70 @@
+---
+/**
+ * The mechanism, drawn. A schematic rather than a photograph: it explains how a
+ * question becomes an answer, which is the whole product. Pure geometry in the
+ * world's own palette — no invented data, nothing that pretends to be a chart.
+ */
+---
+<div class="mech">
+  <svg
+    viewBox="0 0 1160 400"
+    role="img"
+    aria-label="Eine Frage erreicht Google oder einen KI-Assistenten. Beide lesen, was maschinenlesbar auf der Seite steht: Sitemap, strukturierte Daten und zitierfähige Absätze. Daraus entsteht die Antwort."
+    font-family="Archivo Narrow, Archivo, sans-serif"
+  >
+    <defs>
+      <marker id="mech-arrow" viewBox="0 0 10 10" refX="9" refY="5"
+              markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0 L10 5 L0 10 z" fill="#1b1b1e"/>
+      </marker>
+    </defs>
+
+    <!-- the question -->
+    <rect x="8" y="150" width="196" height="76" fill="none" stroke="#1b1b1e" stroke-width="2"/>
+    <text x="106" y="196" text-anchor="middle" font-size="26" font-weight="700" fill="#16181c" letter-spacing="1">DIE FRAGE</text>
+    <text x="106" y="252" text-anchor="middle" font-size="19" fill="#5a5750">„Wer macht das bei mir?“</text>
+
+    <line x1="212" y1="188" x2="288" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+
+    <!-- the two readers -->
+    <rect x="296" y="96" width="232" height="60" fill="#1b1b1e"/>
+    <text x="412" y="134" text-anchor="middle" font-size="24" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">GOOGLE</text>
+
+    <rect x="296" y="222" width="232" height="60" fill="#1b1b1e"/>
+    <text x="412" y="260" text-anchor="middle" font-size="24" font-weight="700" fill="#f5f4f0" letter-spacing="1.4">KI-ASSISTENT</text>
+
+    <line x1="536" y1="126" x2="608" y2="176" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+    <line x1="536" y1="252" x2="608" y2="202" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+
+    <!-- what both of them can read -->
+    <rect x="616" y="84" width="238" height="210" fill="#dedbd4" stroke="#1b1b1e" stroke-width="2"/>
+    <text x="735" y="120" text-anchor="middle" font-size="19" font-weight="700" fill="#16181c" letter-spacing="1.6">IHRE SEITE</text>
+    <line x1="636" y1="136" x2="834" y2="136" stroke="#1b1b1e" stroke-width="1"/>
+    <g font-size="19" fill="#3c3f45">
+      <text x="640" y="172">· Sitemap</text>
+      <text x="640" y="212">· strukturierte Daten</text>
+      <text x="640" y="252">· zitierfähige Absätze</text>
+    </g>
+
+    <line x1="862" y1="188" x2="930" y2="188" stroke="#1b1b1e" stroke-width="2" marker-end="url(#mech-arrow)"/>
+
+    <!-- the answer -->
+    <rect x="938" y="150" width="214" height="76" fill="#e2542a"/>
+    <text x="1045" y="196" text-anchor="middle" font-size="26" font-weight="700" fill="#1b1b1e" letter-spacing="1">DIE ANTWORT</text>
+    <text x="1045" y="256" text-anchor="middle" font-size="19" fill="#5a5750">genannt, oder nicht</text>
+
+    <!-- the part nobody can skip -->
+    <line x1="8" y1="330" x2="1152" y2="330" stroke="#cfccc4" stroke-width="1"/>
+    <text x="8" y="364" font-size="19" fill="#5a5750">
+      Ohne Indexierung gibt es nichts zu zitieren: erst gefunden, dann genannt.
+    </text>
+  </svg>
+</div>
+
+<style>
+  .mech svg { width: 100%; height: auto; display: block; }
+  @media (max-width: 52rem) {
+    .mech svg { min-width: 640px; }
+    .mech { overflow-x: auto; }
+  }
+</style>

@@ -79,14 +79,22 @@ export const site = {
   ],
 } as const;
 
+/**
+ * Prices. Placed against the DACH market research below rather than invented,
+ * and converted at a stated rate so the euro figure is not arbitrary:
+ * 1 EUR = 0.93 CHF, rounded to the nearest 50.
+ */
+export const fx = { rate: "1 EUR = 0.93 CHF", note: "gerundet auf 50" };
+
 export const prices = [
   {
     slug: "website",
     name: "Website",
-    chf: "2’900",
-    eur: "2’700",
+    chf: "3’200",
+    eur: "3’450",
     unit: "einmalig",
     summary: "Fünf bis acht Seiten, eine eigene Seite je Leistung.",
+    against: "Freelancer im Schnitt CHF 2’100, Kleinagenturen CHF 6’800",
     includes: [
       "Aufbau mit Astro, statisch ausgeliefert",
       "Eine eigene Seite pro Leistung statt einer Sammelseite",
@@ -98,10 +106,11 @@ export const prices = [
   {
     slug: "lokale-sichtbarkeit",
     name: "Lokale Sichtbarkeit",
-    chf: "1’900",
-    eur: "1’800",
+    chf: "2’400",
+    eur: "2’600",
     unit: "einmalig",
     summary: "Google-Unternehmensprofil, Ortsseiten, Bewertungsweg.",
+    against: "Marktwert für ein lokales SEO-Paket in der Schweiz: rund CHF 2’400",
     includes: [
       "Unternehmensprofil vollständig aufgesetzt",
       "Name, Adresse, Telefon überall gleich — auch auf der Website",
@@ -113,10 +122,11 @@ export const prices = [
   {
     slug: "ki-sichtbarkeit",
     name: "KI-Sichtbarkeit",
-    chf: "1’400",
-    eur: "1’300",
+    chf: "1’600",
+    eur: "1’700",
     unit: "einmalig",
     summary: "Gemessen, was Assistenten über Sie sagen — und warum.",
+    against: "Erstprüfungen kosten international USD 500 bis 2’000 — hier mit Umsetzung",
     includes: [
       "Ausgangsmessung über mehrere Assistenten, jeweils fünf Abfragen",
       "Auswertung, welche Seiten zitiert werden",
@@ -128,10 +138,11 @@ export const prices = [
   {
     slug: "betreuung",
     name: "Betreuung",
-    chf: "590",
-    eur: "540",
+    chf: "890",
+    eur: "950",
     unit: "pro Monat, sechs Monate",
     summary: "Monatlich: Inhalte, Messung, kleine Änderungen.",
+    against: "Deutsche Betreuung startet bei EUR 750, Schweizer Agenturen ab CHF 3’000",
     includes: [
       "Pflege der Leistungs- und Ortsseiten",
       "Monatliche Messung und kurzer Bericht",
@@ -143,9 +154,9 @@ export const prices = [
 
 export const bundle = {
   name: "Website und Lokale Sichtbarkeit zusammen",
-  chf: "4’400",
-  eur: "4’100",
-  note: "400 Franken weniger als einzeln gebucht.",
+  chf: "5’100",
+  eur: "5’500",
+  note: "500 Franken weniger als einzeln gebucht.",
 };
 
 export const absoluteUrl = (path: string) => new URL(path, site.url).href;

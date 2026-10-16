@@ -1,4 +1,6 @@
 ---
+seoTitle: "SEO-Betreuung monatlich – ohne lange Bindung"
+h1: "Monatliche Betreuung"
 title: Betreuung
 description: "Monatliche Betreuung: Pflege der Leistungs- und Ortsseiten, monatliche Messung, kurzer Bericht, kleine Änderungen ohne Zusatzrechnung. Sechs Monate, danach monatlich kündbar."
 summary: "Monatlich: Inhalte pflegen, Werte messen, kurzer Bericht, kleine Änderungen inklusive."

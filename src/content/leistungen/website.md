@@ -1,4 +1,6 @@
 ---
+seoTitle: "Website erstellen lassen – Festpreis, wartungsfrei"
+h1: "Website erstellen lassen"
 title: Website
 description: Astro-Website für deutschsprachige Unternehmen. Fünf bis acht Seiten, eine eigene Seite je Leistung, statisch ausgeliefert, ohne laufende Wartung.
 summary: Fünf bis acht Seiten, statisch ausgeliefert. Kein Baukasten, keine Plugins, keine Wartungsrechnung.

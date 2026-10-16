@@ -1,0 +1,79 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../config";
+import { organization, breadcrumbs } from "../lib/schema";
+
+const schemas = [
+  organization(),
+  breadcrumbs([
+    { name: site.name, path: "/" },
+    { name: "Über", path: "/ueber/" },
+  ]),
+];
+---
+<Base
+  title="Über – wie ich arbeite"
+  description="Eine Person, kein Team. Feste Preise, gemessene Werte, veröffentlichter Code. Wie die Zusammenarbeit abläuft und was ich bewusst nicht mache."
+  schemas={schemas}
+>
+  <section class="section">
+    <div class="wrap">
+      <h1 class="tape tape--lg settle" style="--rot:-1deg;font-size:var(--t-3)">Eine Person, kein Team</h1>
+
+      <p class="lede" style="margin-top:1.75rem">
+        Ich baue und betreue die Seiten selbst. Es gibt keine Projektleitung, keine Übergabe an
+        Junioren und niemanden, der Ihnen etwas erklärt, das er nicht selbst gemacht hat. Das
+        ist der Grund für feste Preise: Ich weiss, wie lange etwas dauert, weil ich es mache.
+      </p>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h2>Wie ich arbeite</h2>
+        <p>
+          Erst messen, dann bauen. Bevor ich etwas ändere, halte ich fest, wo Sie stehen:
+          Ladezeit, strukturierte Daten, Unternehmensprofil, und ob Assistenten Sie nennen.
+          Ohne diese Ausgangslage ist jede Verbesserung eine Behauptung.
+        </p>
+        <p>
+          Danach baue ich die Grundlagen, die für alle Kanäle gleich sind: eine eigene Seite pro
+          Leistung, maschinenlesbare Angaben, eine Sitemap, die zum Inhalt passt, und Absätze,
+          die eine Frage direkt beantworten. Ob Google oder ein Assistent die Seite liest — beide
+          brauchen dasselbe.
+        </p>
+        <p>
+          Und dann messe ich nach. Mit Datum, mit derselben Methode wie am Anfang. Wenn sich
+          nichts bewegt hat, steht das im Bericht.
+        </p>
+
+        <h2>Was ich veröffentliche, und was nicht</h2>
+        <p>
+          Den Code veröffentliche ich: <a href={site.proof[0].href}>{site.proof[0].name}</a> auf
+          npm, daneben eine <a href={site.proof[1].href}>Vorlage für lokale Betriebe</a> und ein
+          <a href={site.proof[2].href}> offener Datensatz</a>. Das ist nachprüfbar, und es ist
+          die einzige Referenz, die ich ohne Einwilligung Dritter zeigen kann.
+        </p>
+        <p>
+          Kundenstimmen, Kundennamen und Prozentwerte aus fremden Projekten veröffentliche ich
+          nicht. Nicht weil ich keine hätte, sondern weil ich dafür die schriftliche Einwilligung
+          des jeweiligen Betriebs bräuchte — und weil eine erfundene Zahl am Ende mehr kostet als
+          eine fehlende.
+        </p>
+
+        <h2>Was ich nicht anbiete</h2>
+        <p>
+          Keine Garantie auf Positionen oder Nennungen. Keine Betreuung, bei der ich im Monat
+          nichts tue und trotzdem abrechne. Keine Verträge, aus denen Sie Ihre eigene Domain
+          nicht herausbekommen — Domain und Hosting laufen von Anfang an auf Ihren Namen.
+        </p>
+      </div>
+
+      <p style="margin-top:2.5rem">
+        <a class="tape tape--lg tape--signal" href={site.telegram} rel="me" style="--rot:-0.5deg">
+          Auf Telegram fragen
+        </a>
+      </p>
+      <p style="margin-top:1.25rem;font-size:var(--t--1);color:var(--ink-2)">
+        <a href="/referenzen/">Einblick in Projekte</a> · <a href="/preise/">Preise</a>
+      </p>
+    </div>
+  </section>
+</Base>

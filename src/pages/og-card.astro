@@ -1,0 +1,67 @@
+---
+// Share card. Rendered by the real stylesheet and the real self-hosted faces,
+// then captured to /og-card.png. Not meant to be visited; noindex and absent
+// from the sitemap.
+import "../styles/fonts.css";
+import "../styles/global.css";
+import { site } from "../config";
+---
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Share card</title>
+  </head>
+  <body class="og">
+    <div class="og__wall">
+      <div class="og__stack">
+        <h1 class="tape tape--display" style="--rot:-1.4deg">Websites und SEO,</h1>
+        <p class="tape tape--display" style="--rot:0.5deg;margin-top:0.28rem">die gefunden werden</p>
+      </div>
+
+      <div class="og__foot">
+        <span class="tape tape--lg tape--signal" style="--rot:-0.6deg">Auf Telegram fragen</span>
+        <span class="og__url">{site.url.replace("https://", "")}</span>
+      </div>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  .og {
+    width: 1200px;
+    height: 630px;
+    margin: 0;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .og__wall {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0 0 0 clamp(2rem, 6vw, 5rem);
+  }
+  .og__stack .tape {
+    font-size: var(--t-4);
+    letter-spacing: 0.005em;
+    white-space: nowrap;
+    width: max-content;
+    /* run past both edges */
+    margin-left: clamp(-6rem, -5vw, -2rem);
+    padding-inline: clamp(2.5rem, 6vw, 5rem);
+  }
+  .og__foot {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .og__url {
+    font-family: var(--face-text);
+    font-size: var(--t-2);
+    color: var(--ink-2);
+  }
+</style>

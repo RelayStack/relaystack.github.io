@@ -410,3 +410,86 @@ a.tape--signal:hover, a.tape--signal:focus-visible {
   .hero__foot { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
   .hero__area { text-align: left; }
 }
+
+/* --------------------------------------------------------------------------
+   The dark band. One per page: the rhythm break, and the page's second peak.
+   On a tape-black ground the tape inverts to embossed white.
+   -------------------------------------------------------------------------- */
+
+.band {
+  background: var(--tape);
+  color: var(--emboss);
+  padding-block: clamp(2.75rem, 6vw, 4.75rem);
+  border-block: 1px solid rgba(245, 244, 240, 0.14);
+}
+
+.band .lede,
+.band p,
+.band .note { color: color-mix(in srgb, var(--emboss) 74%, var(--tape)); }
+
+.band .tape {
+  background: var(--emboss);
+  color: var(--tape);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.14);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.band .tape--signal {
+  background: var(--signal);
+  color: var(--tape);
+  box-shadow: 0 12px 26px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.band .note { border-top-color: var(--emboss); }
+.band strong { color: var(--emboss); }
+
+/* Measured rows inside the band: the value is the loud thing. */
+.measure { list-style: none; margin: 0; padding: 0; }
+.measure li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid rgba(245, 244, 240, 0.18);
+}
+.measure li:last-child { border-bottom: 0; }
+.measure .label { font-family: var(--face-tape); font-weight: 700; font-size: var(--t-1);
+                  text-transform: uppercase; letter-spacing: 0.06em; }
+.measure .io { text-align: right; font-size: var(--t-1); font-variant-numeric: tabular-nums; }
+.measure .io s { color: #85837e; text-decoration-thickness: 1px; }
+.measure .io b { font-family: var(--face-tape); font-weight: 700; font-size: var(--t-2); }
+@media (max-width: 40rem) {
+  .measure li { grid-template-columns: 1fr; gap: 0.4rem; }
+  .measure .io { text-align: left; }
+}
+
+/* A peak section heading: one ramp step above the ordinary one, so it
+   reads as a high point without competing with the h1. */
+.tape--xl { font-size: var(--t-3); letter-spacing: 0.02em; padding: 0.2em 0.5em 0.25em; }
+
+/* Progressive reveal. No JavaScript: where scroll-driven animations are not
+   supported the content is simply already visible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { animation: rise-in linear both; animation-timeline: view();
+            animation-range: entry 8% cover 24%; }
+  }
+}
+@keyframes rise-in {
+  from { opacity: 0; translate: 0 20px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Next-read links, kept as rows so they never become cards. */
+.nextread { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.nextread li { display: grid; gap: 0.3rem; padding: 1.15rem 0; border-bottom: 1px solid var(--rule); }
+.nextread a { font-family: var(--face-tape); font-weight: 700; font-size: var(--t-1);
+              text-decoration: none; }
+.nextread a:hover { text-decoration: underline; text-underline-offset: 0.22em; }
+.nextread span { font-size: var(--t--1); color: var(--ink-2); }
+
+/* Two-line display stack: both lines belong to the h1, not to a paragraph.
+   Must stay block-level so each tape's negative inline margins expand it past
+   both viewport edges — as a grid item it would be capped at the column width. */
+.hero__stack { display: block; margin: 0; }

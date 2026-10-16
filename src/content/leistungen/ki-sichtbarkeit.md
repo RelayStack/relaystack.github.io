@@ -1,4 +1,6 @@
 ---
+seoTitle: "KI-Sichtbarkeit: in ChatGPT und Perplexity auftauchen"
+h1: "Sichtbar in ChatGPT, Perplexity und KI-Antworten"
 title: KI-Sichtbarkeit
 description: Gemessen, was KI-Assistenten über Ihr Unternehmen sagen — fünf Abfragen je Modell, mit Datum und Grenzen im Bericht. Ohne Garantie auf Nennung, weil es keine geben kann.
 summary: Fünf Abfragen je Modell, ausgewertet mit Datum. Inklusive der Angabe, welche Seiten zitiert werden.
