@@ -30,7 +30,7 @@ jobs:
           for f in dist/sitemap.xml dist/robots.txt dist/llms.txt; do
             test -s "$f" || { echo "missing or empty: $f"; exit 1; }
           done
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
@@ -42,4 +42,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
