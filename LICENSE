@@ -1,0 +1,38 @@
+Copyright (c) 2026 RelayStack. All rights reserved.
+
+This repository contains the source code of a commercial website. It is public
+for transparency — so that the claims the site makes can be checked against what
+it actually ships — and not as a grant of rights.
+
+## Not permitted without written permission
+
+- Copying, modifying or redistributing this source, in whole or in part
+- Reusing the design, layout, visual system or copy
+- Reusing the typefaces bundled in `public/fonts/` as webfonts for another site
+  (they are licensed from their foundry for use on this domain)
+- Publishing a derivative site built from this repository
+
+## Permitted
+
+- Reading it
+- Quoting short excerpts with attribution, for review or comment
+- Linking to it
+
+## Separate, and open
+
+The open-source projects this site links to are **not** covered by the above and
+are licensed under MIT:
+
+- https://github.com/RelayStack/astro-seo-toolkit
+- https://github.com/RelayStack/astro-local-business
+
+## Trademarks
+
+Product names, logos and brands referenced in this repository remain the property
+of their respective owners. The fonts are used under their own licence, not
+granted here.
+
+## No warranty
+
+The software is provided "as is", without warranty of any kind. Nothing in this
+file creates a licence to any trademark or to any third-party work.

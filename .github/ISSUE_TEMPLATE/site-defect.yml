@@ -1,0 +1,46 @@
+name: Something is broken
+description: A broken link, a typo, a page that does not work, or an accessibility defect on the live site.
+title: "[site] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is the source of a commercial website, published so its claims can be
+        checked. **Work enquiries go to [Telegram](https://t.me/relaystack)** — not here.
+        Security issues must **not** be filed publicly; see [SECURITY.md](../blob/main/SECURITY.md).
+  - type: input
+    id: url
+    attributes:
+      label: Which page?
+      description: The full URL, or the file path if it is in the repository.
+      placeholder: https://relaystack.github.io/preise/
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of problem?
+      options:
+        - Broken link (404)
+        - Typo or factual error
+        - Layout or rendering defect
+        - Accessibility problem
+        - Wrong or missing structured data
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: What happens, and what should happen?
+      description: If it is a link, the target that fails. If it is accessibility, the page and the problem.
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Browser or device (optional)
+      placeholder: Firefox 141, Android 15
+    validations:
+      required: false

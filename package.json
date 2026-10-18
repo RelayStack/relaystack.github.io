@@ -1,9 +1,19 @@
 {
   "name": "relaystack-site",
+  "description": "RelayStack \u2014 the source of relaystack.github.io: Astro websites and SEO visibility for the German-speaking market.",
   "type": "module",
   "version": "0.1.0",
   "private": true,
-  "description": "RelayStack \u2014 Astro websites and SEO visibility for the German-speaking market.",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "RelayStack",
+    "url": "https://relaystack.github.io/"
+  },
+  "homepage": "https://relaystack.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RelayStack/relaystack.github.io.git"
+  },
   "engines": {
     "node": ">=22.22.0"
   },

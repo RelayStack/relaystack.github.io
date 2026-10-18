@@ -1,0 +1,23 @@
+version: 2
+
+# Keeps the site from rotting: an Astro minor or a stale Action should arrive as
+# a PR with a green build, not as a surprise in six months. Grouped so this does
+# not turn into a wall of pull requests for a marketing site.
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3
+    groups:
+      npm-minor-patch:
+        patterns: ["*"]
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: monday
+    open-pull-requests-limit: 3

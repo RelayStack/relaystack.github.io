@@ -4,6 +4,10 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # A marketing site that silently rots is worse than one that never shipped.
+  # This catches an upstream dependency break before a visitor does.
+  schedule:
+    - cron: "0 5 * * 1"
 
 permissions:
   contents: read

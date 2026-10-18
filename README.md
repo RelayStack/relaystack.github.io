@@ -5,6 +5,10 @@ Schweiz. Festpreise, gemessene Werte, kein Baukasten.
 
 **[→ Live ansehen](https://relaystack.github.io/)** · **[→ Auf Telegram fragen](https://t.me/relaystack)**
 
+<img src="public/og-card.png" alt="Websites und SEO, die gefunden werden" width="100%">
+
+[Für wen](#für-wen) · [Das Problem](#das-problem-in-einem-satz) · [Leistungen und Preise](#leistungen-und-preise) · [Was nicht wirkt](#was-nicht-wirkt) · [Ablauf](#in-drei-schritten) · [Für Entwickler](#für-entwickler)
+
 ---
 
 ## Für wen
